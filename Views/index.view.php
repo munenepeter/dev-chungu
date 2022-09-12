@@ -76,6 +76,4 @@ include_once 'sections/nav.view.php';
 
     </section>
 
-    <?php
-    include_once 'sections/footer.view.php'
-    ?>
+    <?php include_once 'sections/footer.view.php'     ?>
