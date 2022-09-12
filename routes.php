@@ -6,7 +6,7 @@ $router->get('projects', 'PagesController@shop');
 
 
 //scrapword
-$router->get('projects/scrapword', 'ScrapwordController@index');
+$router->get('projects/jwg/scrapword', 'ScrapwordController@index');
 
 
 

@@ -8,9 +8,9 @@ include_once 'sections/nav.view.php'
 
 
 
+<body class="bg-gradient-to-br from-gray-900 to-black">
 
-
-
+<div class="text-gray-300 container mx-auto p-8 overflow-hidden md:rounded-lg md:p-10 lg:p-12">
     <div class="h-32 md:h-40"></div>
 
     <p class="font-sans text-4xl font-bold text-gray-200 max-w-5xl lg:text-7xl lg:pr-24 md:text-6xl">
