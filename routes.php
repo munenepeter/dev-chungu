@@ -5,6 +5,12 @@ $router->get('', 'PagesController@index');
 $router->get('projects', 'PagesController@shop');
 
 
+//scrapword
+$router->get('projects/scrapword', 'ScrapwordController@index');
+
+
+
+
 
 //logs
 $router->get('logs', 'SystemController@index');
