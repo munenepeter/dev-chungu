@@ -5,7 +5,7 @@ include_once 'sections/admin-nav.view.php';
 use spekulatius\phpscraper;
 ?>
 
-<body>
+
     <div class="space-y-4 p-4 mt-6 ">
         <div class="flex justify-between">
             <p class="mt-2">
