@@ -4,13 +4,13 @@
         <div class="max-w-screen-lg px-4 sm:px-6 text-gray-800 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
             <div class="p-5">
                 <p style="font-family: 'Cedarville Cursive', cursive;" class="text-green-550 ml-2 hover:text-pink-550 text-4xl font-black dark:text-white">Chungu</p>
-                <p class="text-green-550 text-lg font-bold whitespace-nowrap dark:text-white hover:text-pink-550">COLLECTIONS</p>
+                <p class="text-green-550 text-lg font-bold whitespace-nowrap dark:text-white hover:text-pink-550">Developers</p>
             </div>
 
             <div class="p-5">
                 <div class="text-sm uppercase text-pink-550 font-bold">Useful Links</div>
-                <a class="my-3 block text-green-550 hover:underline" href="/shop">Shop <span class="text-teal-600 text-xs p-1"></span></a>
-                <a class="my-3 block text-green-550 hover:underline" href="/cart">Cart<span class="text-teal-600 text-xs p-1"></span></a>
+                <a class="my-3 block text-green-550 hover:underline" href="/shop">Services<span class="text-teal-600 text-xs p-1"></span></a>
+                <a class="my-3 block text-green-550 hover:underline" href="/cart">Projects<span class="text-teal-600 text-xs p-1"></span></a>
                 <a class="my-3 block text-green-550 hover:underline" href="/#">Support <span class="text-teal-600 text-xs p-1">New</span></a>
             </div>
             <div class="p-5">
