@@ -4,12 +4,11 @@ use Chungu\Core\Mantle\App;
 use Chungu\Core\Database\Connection;
 use Chungu\Core\Database\QueryBuilder; 
 
-//production development
-//90
-define('ENV','development');
-
 //change TimeZone
 date_default_timezone_set('Africa/Nairobi');
+
+//production development
+define('ENV','development');
 
 //require all files here
 require 'helpers.php';
