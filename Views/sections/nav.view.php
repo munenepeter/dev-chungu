@@ -6,9 +6,9 @@
         </div>
 
         <ul class="flex justify-between space-x-8 font-semibold mx-auto">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Projects</li>
+            <li> <a href="/">Home</a> </li>
+            <li> <a href="/">About Us</a> </li>
+            <li> <a href="/projects">Projects</a> </li>
 
         </ul>
         <div class="hidden md:inline-flex items-center justify-center px-3 py-2 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 ">Hire Us</div>
