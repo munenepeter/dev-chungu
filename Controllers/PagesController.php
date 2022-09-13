@@ -8,14 +8,13 @@ class PagesController extends Controller {
         return view('index');
     }
 
-    public function signin() {
-        return view('signin');
-    }
-    public function dashboard() {
-        //check if the user is logged in
-        $this->middleware('auth');
-
-        return view('dashboard');
+    public function projects() {
+        $projects = [
+           "scrapword", "get-links"
+        ];
+        return view('projects', [
+            'projects' => $projects
+        ]);
     }
 
     public function privacy() {
