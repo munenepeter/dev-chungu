@@ -38,6 +38,7 @@ if (isset($_GET['submit'])) {
               foreach ($web->links as $link) {
                      array_push($links, $link . "\n");
               }
+              $links = array_unique($links);
               $host = parse_url($_GET['url'], PHP_URL_HOST);
               $time = round(microtime(true) - $start, 2);
        } catch (\Exception $e) {
@@ -52,7 +53,7 @@ if (isset($_GET['submit'])) {
                      <?php $count = 1; ?>
                      <?php foreach ($links as $link) : ?>
                             <p class='font-normal text-gray-700'><?= $count . ".  "; ?><a class="text-blue-600 hover:underline" href="<?= $link; ?>"><?= $link; ?></a></p>
-                            <?php $count++;?>
+                            <?php $count++; ?>
                      <?php endforeach; ?>
               </div>
        </div>
