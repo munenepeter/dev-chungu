@@ -2,7 +2,7 @@
 include_once 'sections/nav.view.php';
 ?>
 
-<div class="container mx-auto p-8 overflow-hidden md:rounded-lg md:p-10 lg:p-12">
+<div class="container mx-auto px-8 overflow-hidden md:rounded-lg md:px-10 lg:px-12">
     <section class="bg-white dark:bg-gray-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
@@ -71,8 +71,6 @@ include_once 'sections/nav.view.php';
                 <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send message</button>
             </form>
         </div>
-    </section>
-
     </section>
 
     <?php include_once 'sections/footer.view.php'     ?>
