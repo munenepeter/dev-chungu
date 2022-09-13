@@ -2,7 +2,9 @@
 
 use spekulatius\phpscraper;
 
-include_once 'base.view.php'; ?>
+include_once 'base.view.php';
+include_once 'sections/nav.view.php';
+?>
 <h1 class="mb-2 text-center text-2xl font-bold tracking-tight">Get Links, useful tool to get all the urls of a site</h1>
 
 <div class="mt-4 p-6 mx-auto max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -44,9 +46,9 @@ if (isset($_GET['submit'])) {
 
 ?>
        <div>
-              <p class="text-lg m-4"><?= "Done getting " . count($web->links) . " links for $host in $time Seconds"; ?></p>
+              <p class="text-lg ml-4"><?= "Done getting " . count($web->links) . " links for <i>$host</i> in <b>$time</b> Seconds"; ?></p>
 
-              <div class="border m-4 p-2 rounded-md">
+              <div class="border m-4 p-2 rounded-md h-64 overflow-y-auto">
                      <?php $count = 1; ?>
                      <?php foreach ($links as $link) : ?>
                             <p class='font-normal text-gray-700'><?= $count . ".  "; ?><a href="<?= $link; ?>"><?= $link; ?></a></p>
