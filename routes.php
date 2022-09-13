@@ -2,7 +2,7 @@
 //get routes
 
 $router->get('', 'PagesController@index');
-$router->get('projects', 'PagesController@shop');
+$router->get('projects', 'PagesController@projects');
 
 
 //scrapword
