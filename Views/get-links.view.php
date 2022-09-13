@@ -1,7 +1,10 @@
+<?php include_once 'base.view.php';?>
 
 
 
-  <div class="p-6 mx-auto max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+
+
+<div class="p-6 mx-auto max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <h1 class="mb-2 text-2xl font-bold tracking-tight">
                 <?php if (isset($_GET['error'])) : ?>
                     <span class="text-red-500"><?= $_GET['error'] ?>
