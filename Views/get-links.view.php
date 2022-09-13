@@ -51,7 +51,7 @@ if (isset($_GET['submit'])) {
               <div class="border m-4 p-2 rounded-md h-64 overflow-y-auto">
                      <?php $count = 1; ?>
                      <?php foreach ($links as $link) : ?>
-                            <p class='font-normal text-gray-700'><?= $count . ".  "; ?><a href="<?= $link; ?>"><?= $link; ?></a></p>
+                            <p class='font-normal text-gray-700'><?= $count . ".  "; ?><a class="text-blue-600 hover:underline" href="<?= $link; ?>"><?= $link; ?></a></p>
                             <?php $count++;?>
                      <?php endforeach; ?>
               </div>
