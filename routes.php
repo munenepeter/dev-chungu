@@ -7,6 +7,8 @@ $router->get('projects', 'PagesController@shop');
 
 //scrapword
 $router->get('projects/jwg/scrapword', 'ScrapwordController@index');
+//get-links
+$router->get('projects/jwg/get-links', 'GetLinksController@index');
 
 
 
