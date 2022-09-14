@@ -10,7 +10,7 @@ document.getElementById('button').addEventListener("click", () => {
 });
 
 function postData(datajson) {
-    axios.post('http://localhost:8989/src/createFile.php', {
+    axios.post('projects/jwg/excel-to-json', {
             datajson
         }, {
             headers: {
