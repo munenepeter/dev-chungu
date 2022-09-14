@@ -32,5 +32,5 @@ include_once 'sections/nav.view.php';
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
-    <script src="../static/js/excel.js"></script>
+    <script src="../../static/js/excel.js"></script>
 </body>
