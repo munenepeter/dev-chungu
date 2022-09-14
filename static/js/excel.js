@@ -19,6 +19,7 @@ function postData(datajson) {
             }
         })
         .then(function (response) {
+            console.log(response);
             document.getElementById("response").innerHTML = response.data;
         })
         .catch(function (error) {
