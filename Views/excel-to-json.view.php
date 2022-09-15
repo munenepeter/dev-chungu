@@ -32,5 +32,66 @@ include_once 'sections/nav.view.php';
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
-    <script src="../../static/js/excel.js"></script>
+    <script>
+      
+
+        let selectedFile = '';
+        document.getElementById('inputfile').addEventListener("change", (event) => {
+            selectedFile = event.target.files[0];
+        });
+
+        document.getElementById('button').addEventListener("click", () => {
+            let excelData = parseExcel(selectedFile);
+
+            document.getElementById("jsondata").innerHTML = JSON.stringify(excelData);
+        });
+
+        function postData(datajson) {
+            axios.post('projects/jwg/excel-to-json', {
+                    datajson
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Access-Control-Allow-Headers": "Content-Type"
+                    }
+                })
+                .then(function(response) {
+                    console.log(response)
+                    document.getElementById("response").innerHTML = response.data;
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+
+        function parseExcel(selectedFile) {
+            if (selectedFile) {
+                var datajson = [];
+                let fileReader = new FileReader();
+                fileReader.readAsBinaryString(selectedFile);
+                fileReader.onload = (event) => {
+                    let data = event.target.result;
+                    let workbook = XLSX.read(data, {
+                        type: "binary"
+                    });
+                    console.log(workbook);
+
+                    var name = selectedFile.name; //filename with .xlsx
+                    var fullname = name.replace(".xlsx", ""); //filename without .xlsx
+
+                    datajson.push(fullname);
+
+                    workbook.SheetNames.forEach(sheet => {
+                        let rowObject = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet]);
+                        datajson.push(rowObject);
+                        return datajson;
+                    });
+
+                }
+
+            } else {
+                console.log("No File");
+            }
+        }
+    </script>
 </body>
