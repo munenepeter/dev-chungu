@@ -47,19 +47,46 @@ if (isset($_GET['submit'])) {
 
 ?>
        <div>
-              <p class="text-lg ml-4"><?= "Done getting " . count($web->links) . " links for <i>$host</i> in <b>$time</b> Seconds"; ?></p>
-
-              <div class="border m-4 p-2 rounded-md h-64 overflow-y-auto">
+              <div class="flex justify-between items-center p-2">
+                     <p class="text-lg"><?= "Done getting " . count($web->links) . " links for <i>$host</i> in <b>$time</b> Seconds"; ?></p>
+                     <button onclick="CopyToClipboard('div1')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " disabled>Copy Links</button>
+              </div>
+              <span id="div1" class="hidden"><?= implode("\n", $links); ?></span>
+              <div class="border m-4 p-2 rounded-md h-56 overflow-y-auto">
                      <?php $count = 1; ?>
                      <?php foreach ($links as $link) : ?>
-                            <p class='font-normal text-gray-700'><?= $count . ".  "; ?><a class="text-blue-600 hover:underline" href="<?= $link; ?>"><?= $link; ?></a></p>
+                            <p class='font-normal text-gray-700'><a class="text-blue-600 hover:underline" href="<?= $link; ?>"><?= $link; ?></a></p>
                             <?php $count++; ?>
                      <?php endforeach; ?>
               </div>
        </div>
 
 
+       <script>
+              function copyLinks() {
+                     var range = document.createRange();
+                     range.selectNode(document.getElementById("links"));
+                     window.getSelection().removeAllRanges(); // clear current selection
+                     window.getSelection().addRange(range); // to select text
+                     document.execCommand("copy");
+                     window.getSelection().removeAllRanges(); // to deselect
+              }
 
+              function CopyToClipboard(containerid) {
+                     if (document.selection) {
+                            var range = document.body.createTextRange();
+                            range.moveToElementText(document.getElementById(containerid));
+                            range.select().createTextRange();
+                            document.execCommand("copy");
+                     } else if (window.getSelection) {
+                            var range = document.createRange();
+                            range.selectNode(document.getElementById(containerid));
+                            window.getSelection().addRange(range);
+                            document.execCommand("copy");
+                            alert("Text has been copied, now paste in the text-area")
+                     }
+              }
+       </script>
 
 <?php
 
