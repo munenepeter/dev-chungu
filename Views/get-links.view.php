@@ -49,7 +49,7 @@ if (isset($_GET['submit'])) {
        <div>
               <div class="flex justify-between items-center p-2">
                      <p class="text-lg"><?= "Done getting " . count($web->links) . " links for <i>$host</i> in <b>$time</b> Seconds"; ?></p>
-                     <button onclick="CopyToClipboard('div1')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " disabled>Copy Links</button>
+                     <button onclick="CopyToClipboard('div1')" class="text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>Copy Links</button>
               </div>
               <span id="div1" class="hidden"><?= implode("\n", $links); ?></span>
               <div class="border m-4 p-2 rounded-md h-56 overflow-y-auto">
