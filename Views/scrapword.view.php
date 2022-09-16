@@ -1,8 +1,9 @@
 <?php
-include_once 'base.view.php';
-include_once 'sections/admin-nav.view.php';
 
-use spekulatius\phpscraper;
+use Smalot\PdfParser\Parser;
+
+include_once 'base.view.php';
+include_once 'sections/admin-nav.view.php'; 
 ?>
 
 
@@ -26,7 +27,7 @@ use spekulatius\phpscraper;
                                 <div class="text-center sm:text-left mt-2">
                                     <div class="p-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                         <h1 class="mb-2 text-md font-bold tracking-tight">
-                                        Add one Keyword at a time
+                                            Add one Keyword at a time
                                         </h1>
                                         <div class="p-2">
                                             <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -79,7 +80,7 @@ use spekulatius\phpscraper;
             $error = urlencode("No URL was provided!!");
             header("Location:index.php?error=$error");
         }
-        require 'vendor/autoload.php';
+   
 
         function wp_strip_all_tags($string, $remove_breaks = false) {
             $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
@@ -98,7 +99,7 @@ use spekulatius\phpscraper;
 
         $html = file_get_contents($_GET['url']);
 
-        $parser = new \Smalot\PdfParser\Parser();
+        $parser = new Parser();
 
         if (str_contains($_GET['url'], ".pdf")) {
             $text = $parser->parseContent($html)->getText();
