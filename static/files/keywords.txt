@@ -31,11 +31,3 @@
 {"word":"AML","color":"rgb(72,49,61)"}
 {"word":"transparency","color":"rgb(98,205,246)"}
 {"word":"digital policies","color":"rgb(78,142,241)"}
-{"word":"fvf","color":"rgb(66,34,234)"}
-{"word":"vfdffcfvf","color":"rgb(167,225,93)"}
-{"word":"ccccfdccd","color":"rgb(159,235,232)"}
-{"word":"fvvffdfvvfdfd","color":"rgb(109,20,208)"}
-{"word":"fvfvgbgfgfgfgvc","color":"rgb(112,226,217)"}
-{"word":"1222233","color":"rgb(65,70,122)"}
-{"word":"Peter","color":"rgb(32,215,132)"}
-{"word":"peteer","color":"rgb(196,182,112)"}
