@@ -108,6 +108,16 @@ function redirectback($data = []) {
 function request_uri(){
     return Request::uri();
 }
+
+function getRandColor() {
+    $rgbColor = [];
+    foreach (['r', 'g', 'b'] as $color) {
+        //Generate a random number between 0 and 255.
+        $rgbColor[$color] = mt_rand(0, 255);
+    }
+    $colorCode = implode(",", $rgbColor);
+    return "rgb($colorCode)";
+}
 /**
  * subtract_date
  * 

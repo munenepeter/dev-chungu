@@ -16,4 +16,33 @@ class ScrapwordController {
             's_keyWords' => $s_keyWords
         ]);
     }
+
+    public function add() {
+
+
+      
+
+        if (isset($_POST['submit'])) {
+            if (empty($_POST['keyword'])) {
+                $message = urlencode("No keyword was provided!!");
+                header("Location:keywords.php?message=$message");
+            }
+            $keyword = htmlspecialchars(trim($_POST['keyword']));
+
+            //store the keywords
+            $keywords = json_encode([
+                'word' => $keyword,
+                'color' => getRandColor()
+            ]) . PHP_EOL;
+
+            if (in_array(strtolower($keyword), $st_keywords)) {
+                echo "Keyword is already present!";
+                exit;
+            }
+
+            if (file_put_contents("keywords.txt", $keywords, FILE_APPEND | LOCK_EX)) {
+                echo "New was added!";
+            }
+        }
+    }
 }
