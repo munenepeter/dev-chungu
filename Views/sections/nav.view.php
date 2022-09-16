@@ -7,7 +7,7 @@
 
         <ul class="flex justify-between space-x-8 font-semibold mx-auto">
             <li> <a class="hover:underline" href="/">Home</a> </li>
-            <li> <a class="hover:underline" href="/">About Us</a> </li>
+            <li> <a class="hover:underline" href="/about-us">About Us</a> </li>
             <li> <a class="hover:underline" href="/projects">Projects</a> </li>
 
         </ul>

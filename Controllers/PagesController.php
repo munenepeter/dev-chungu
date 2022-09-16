@@ -22,4 +22,7 @@ class PagesController extends Controller {
     public function privacy() {
         return view('privacy-policy');
     }
+    public function about() {
+        return view('about-us');
+    }
 }
