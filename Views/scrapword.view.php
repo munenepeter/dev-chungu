@@ -8,12 +8,11 @@ use spekulatius\phpscraper;
 
     <div class="space-y-4 p-4 mt-6 ">
         <div class="flex justify-between">
-            <p class="mt-2">
-                Searching for the following Keywords: <br><br>
-                <?php foreach ($s_keyWords as $keyWord) : ?>
-                    <?php $keyWord = json_decode($keyWord); ?>
-                    <span style="background-color:<?= $keyWord->color; ?>;" class="rounded-md p-1 font-semibold"><?= $keyWord->word; ?></span>
-                <?php endforeach; ?>
+        Searching for the following Keywords: <br><br>
+        <?php foreach ($s_keyWords as $keyWord) : ?>
+            <?php $keyWord = json_decode($keyWord); ?>
+            <button style="background-color:<?= $keyWord->color; ?>;" type="button" class="text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-2 py-1 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><?= $keyWord->word; ?></button>
+        <?php endforeach; ?>
             </p>
 
             <div x-data="{ open: false }">
@@ -76,51 +75,68 @@ use spekulatius\phpscraper;
             </form>
         </div>
         <?php
-        if (isset($_GET['submit'])) {
-            if (empty($_GET['url'])) {
-                $error = urlencode("No URL was provided!!");
-                header("Location:index.php?error=$error");
-            }
-
-            $web = new phpscraper();
-            try {
-                $web->go($_GET['url']);
-            } catch (\Exception $e) {
-                echo "<h1 class='mb-2 text-2xl font-bold tracking-tight text-red-500'>" . $e->getMessage() . "</h1> ";
-            }
-            function highlightWords($text, $word) {
-                $text = preg_replace('#' . preg_quote($word->word) . ' #i ', '<span name="keywords_found" class="underline rounded font-semibold" style="background-color:' . $word->color . ';">\\0</span>', $text);
-                return "<p class='font-normal text-gray-700'>$text</p>";
-            }
-        ?>
-
-            <div>
-                <p class="text-lg"><?= "This page contains " . count($web->paragraphs) . " paragraphs."; ?></p>
-                <p class="mb-2"> Found the following keywords <span id="keywords_found" class="text-red-500 hover:underline font-semibold italic"></span></p>
-
-                <div class="border m-4 p-2 rounded-md">
-                    <?php foreach ($web->paragraphs as $paragraph) : ?>
-                        <?php foreach ($s_keyWords as $keyWord) : ?>
-                            <?php $keyWord = json_decode($keyWord); ?>
-                            <?php $paragraph =  highlightWords($paragraph, $keyWord); ?>
-                        <?php endforeach; ?>
-                        <?= $paragraph; ?>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        <?php
+    if (isset($_GET['submit'])) {
+        
+        if (empty($_GET['url'])) {
+            $error = urlencode("No URL was provided!!");
+            header("Location:index.php?error=$error");
         }
-        ?>
+        require 'vendor/autoload.php';
+
+        function wp_strip_all_tags($string, $remove_breaks = false) {
+            $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
+            $string = strip_tags($string);
+
+            if ($remove_breaks) {
+                $string = preg_replace('/[\r\n\t ]+/', ' ', $string);
+            }
+
+            return trim($string);
+        }
+        function highlightWords($text, $word) {
+            $text = preg_replace(' # ' . preg_quote($word->word) . ' #i ', '<span name="keywords_found" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
+            return "<p class='font-normal text-gray-700'>$text</p>";
+        }
+
+        $html = file_get_contents($_GET['url']);
+
+        $parser = new \Smalot\PdfParser\Parser();
+
+        if (str_contains($_GET['url'], ".pdf")) {
+            $text = $parser->parseContent($html)->getText();
+        } else {
+            $text = wp_strip_all_tags($html);
+        }
+
+        foreach ($s_keyWords as $keyWord) {
+            $keyWord = json_decode($keyWord);
+            $text =  highlightWords($text, $keyWord);
+        }
+    ?>
+
+<div>
+            <p class="mb-2"><span id="keywords_found" class="text-red-500 hover:underline font-semibold italic"></span></p>
+            <div class="border m-4 p-2 rounded-md">
+                <?php echo $text ?>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
     </div>
 </body>
 
 </html>
 <script>
-    let keywords_found = [];
+   let keywords_found = [];
     document.getElementsByName('keywords_found').forEach(data => {
         keywords_found.push(data.innerHTML.toLowerCase());
     });
     let unique = [...new Set(keywords_found)];
-    // console.log(unique);
-    document.getElementById('keywords_found').innerText = unique.toString();
-</script>
+
+    if (unique.length > 0) {
+        document.getElementById('keywords_found').innerText = "Found the following keywords:  " + unique.toString();
+    } else {
+        document.getElementById('keywords_found').innerText = "Oops, no Keywords were found!"
+    }
+    </script>
