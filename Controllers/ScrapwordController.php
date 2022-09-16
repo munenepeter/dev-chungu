@@ -35,10 +35,7 @@ class ScrapwordController {
                 'color' => getRandColor()
             ]) . PHP_EOL;
 
-            if (in_array(strtolower($keyword), $st_keywords)) {
-                echo "Keyword is already present!";
-                exit;
-            }
+        
 
             if (file_put_contents("keywords.txt", $keywords, FILE_APPEND | LOCK_EX)) {
                 echo "New was added!";
