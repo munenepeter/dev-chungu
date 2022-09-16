@@ -3,7 +3,7 @@
 use Smalot\PdfParser\Parser;
 
 include_once 'base.view.php';
-include_once 'sections/admin-nav.view.php';
+include_once 'sections/nav.view.php';
 ?>
 
 
@@ -11,8 +11,10 @@ include_once 'sections/admin-nav.view.php';
     <div class="flex justify-between">
         <p class="mt-2 mx-auto">
             Searching for the following Keywords: <br><br>
+            <?php $st_keywords = []; ?>
             <?php foreach ($s_keyWords as $keyWord) : ?>
                 <?php $keyWord = json_decode($keyWord); ?>
+                <?php array_push($st_keywords, strtolower($keyWord->word)); ?>
                 <button style="background-color:<?= $keyWord->color; ?>;" type="button" class="text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-2 py-1 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><?= $keyWord->word; ?></button>
             <?php endforeach; ?>
         </p>
@@ -36,7 +38,7 @@ include_once 'sections/admin-nav.view.php';
                                                     </span>
                                                 <?php endif; ?>
                                             </h1>
-                                            <form action="projects/jwg/scrapword?back=/<?= request_uri(); ?>" method="post">
+                                            <form action="/projects/jwg/scrapword?back=/<?= request_uri(); ?>" method="post">
                                                 <div class="mb-6">
                                                     <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Add one Keyword at a time</label>
                                                     <input type="text" name="keyword" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
@@ -47,12 +49,7 @@ include_once 'sections/admin-nav.view.php';
                                                 </div>
                                             </form>
 
-                                            <?php
-                                            if (in_array(strtolower($keyword), $st_keywords)) {
-                                                echo "Keyword is already present!";
-                                                exit;
-                                            }
-                                            ?>
+
                                         </div>
                                     </div>
 
@@ -87,6 +84,7 @@ include_once 'sections/admin-nav.view.php';
             $error = urlencode("No URL was provided!!");
             header("Location:index.php?error=$error");
         }
+
 
 
         function wp_strip_all_tags($string, $remove_breaks = false) {

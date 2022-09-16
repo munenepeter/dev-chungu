@@ -17,11 +17,19 @@ class ScrapwordController {
         ]);
     }
 
+    private function getKeywords() {
+        $keywords = [];
+        $data = file_get_contents($this->keywords_file);
+        $s_keyWords = explode(PHP_EOL, $data);
+        array_pop($s_keyWords);
+        foreach ($s_keyWords as $keyWord) {
+            $keyWord = json_decode($keyWord);
+            array_push($keywords, strtolower($keyWord->word));
+        }
+        return  $keywords;
+    }
+
     public function add() {
-
-
-      
-
         if (isset($_POST['submit'])) {
             if (empty($_POST['keyword'])) {
                 $message = urlencode("No keyword was provided!!");
@@ -35,11 +43,16 @@ class ScrapwordController {
                 'color' => getRandColor()
             ]) . PHP_EOL;
 
-        
+            if (in_array(strtolower($_POST['keyword']), $this->getKeywords())) {
+                echo "Keyword is already present!";
+                redirectback();
+                exit;
+            }
 
-            if (file_put_contents("keywords.txt", $keywords, FILE_APPEND | LOCK_EX)) {
+            if (file_put_contents($this->keywords_file, $keywords, FILE_APPEND | LOCK_EX)) {
                 echo "New was added!";
             }
+            redirectback();
         }
     }
 }
