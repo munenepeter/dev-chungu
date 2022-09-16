@@ -7,6 +7,7 @@ $router->get('projects', 'PagesController@projects');
 
 //scrapword
 $router->get('projects/jwg/scrapword', 'ScrapwordController@index');
+$router->post('projects/jwg/scrapword', 'ScrapwordController@add');
 //get-links
 $router->get('projects/jwg/get-links', 'GetLinksController@index');
 //excel-to-json

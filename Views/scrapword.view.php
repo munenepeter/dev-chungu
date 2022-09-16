@@ -3,7 +3,7 @@
 use Smalot\PdfParser\Parser;
 
 include_once 'base.view.php';
-include_once 'sections/admin-nav.view.php'; 
+include_once 'sections/admin-nav.view.php';
 ?>
 
 
@@ -36,7 +36,7 @@ include_once 'sections/admin-nav.view.php';
                                                     </span>
                                                 <?php endif; ?>
                                             </h1>
-                                            <form action="/-/product/delete?back=/<?= request_uri(); ?>" method="post">
+                                            <form action="projects/jwg/scrapword?back=/<?= request_uri(); ?>" method="post">
                                                 <div class="mb-6">
                                                     <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Add one Keyword at a time</label>
                                                     <input type="text" name="keyword" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
@@ -46,6 +46,13 @@ include_once 'sections/admin-nav.view.php';
                                                     <button @click="open = false" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
                                                 </div>
                                             </form>
+
+                                            <?php
+                                            if (in_array(strtolower($keyword), $st_keywords)) {
+                                                echo "Keyword is already present!";
+                                                exit;
+                                            }
+                                            ?>
                                         </div>
                                     </div>
 
@@ -80,7 +87,7 @@ include_once 'sections/admin-nav.view.php';
             $error = urlencode("No URL was provided!!");
             header("Location:index.php?error=$error");
         }
-   
+
 
         function wp_strip_all_tags($string, $remove_breaks = false) {
             $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
