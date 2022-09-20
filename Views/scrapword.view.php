@@ -125,7 +125,10 @@ include_once 'sections/nav.view.php';
     ?>
 
         <div>
-            <p class="mb-2"><span id="keywords_found" class="text-red-500 hover:underline font-semibold italic"></span></p>
+            <p class="mb-2">
+            <span id="keywords_found_txt" class="text-gray-500 font-semibold"></span>
+                <span id="keywords_found" class="text-red-500 font-semibold italic"></span>
+            </p>
             <div class="border m-4 p-2 rounded-md">
                 <?php echo $text ?>
             </div>
@@ -145,8 +148,9 @@ include_once 'sections/nav.view.php';
     let unique = [...new Set(keywords_found)];
 
     if (unique.length > 0) {
-        document.getElementById('keywords_found').innerText = "Found the following keywords:  " + unique.toString();
+        document.getElementById('keywords_found_txt').innerText = "Found "+ unique.length +" of <?= count($st_keywords)?>  keywords:  ";
+        document.getElementById('keywords_found').innerText = unique.toString()
     } else {
-        document.getElementById('keywords_found').innerText = "Oops, no Keywords were found!"
+        document.getElementById('keywords_found_txt').innerText = "Oops, no Keywords were found!"
     }
 </script>
