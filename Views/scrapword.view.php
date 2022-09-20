@@ -85,7 +85,7 @@ include_once 'sections/nav.view.php';
             header("Location:index.php?error=$error");
         }
 
-
+        $url = trim($_GET['url']);
 
         function wp_strip_all_tags($string, $remove_breaks = false) {
             $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
@@ -101,12 +101,18 @@ include_once 'sections/nav.view.php';
             $text = preg_replace(' # ' . preg_quote($word->word) . ' #i ', '<span name="keywords_found" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
             return "<p class='font-normal text-gray-700'>$text</p>";
         }
-
-        $html = file_get_contents($_GET['url']);
+        $context = stream_context_create(
+            [
+                "http" => [
+                    "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+                ]
+            ]
+        );
+        $html = file_get_contents($url, false, $context);
 
         $parser = new Parser();
 
-        if (str_contains($_GET['url'], ".pdf")) {
+        if (str_contains($url, ".pdf")) {
             $text = $parser->parseContent($html)->getText();
         } else {
             $text = wp_strip_all_tags($html);
