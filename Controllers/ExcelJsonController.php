@@ -45,7 +45,16 @@ class ExcelJsonController {
             }
         }
 
-        return $data;
+        //remove nulls & combine the headers & data
+        foreach ($data as $row) {
+            $data = array_map(function ($v) {
+                return (is_null($v)) ? "" : $v;
+            }, $row);
+
+            $combinedData[] = array_combine($this->headers, $data);
+        }
+
+        return $combinedData;
     }
     private function randomString() {
         $characters = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
