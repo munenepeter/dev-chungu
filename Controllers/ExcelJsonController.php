@@ -89,30 +89,26 @@ class ExcelJsonController {
     }
 
     public function create() {
-        //get thhe data sent over post
-        $data = json_decode(file_get_contents("php://input"), true);
 
-        //generate random name for successive files
-        //use $$ to get dynamic filenames
-        $fileName = preg_replace('/\s+/', '-', $data['datajson'][0]);
-        $$fileName = trim($fileName);
+        //get data from file
+        $rowsAndHeaders = $this->getArray(); 
 
-        //write to a file
-        $jsonfile = "../samples/json/{$$fileName}.json";
-        array_shift($data['datajson']);
-        array_unshift($data['datajson'], [
-            'File Name' => $$fileName
-        ]);
+        //And the extra values & format the excel dates
+        $data = array_map(function ($v) {
+            $v['extracted_at'] = $this->convertDate($v['extracted_at']);
+            $v['effective_date'] = $this->convertDate($v['effective_date']);
+            $v['public_response_date'] = $this->convertDate($v['public_response_date']);
+            $v['document_type'] = $this->consolidateDTs($v['document_type1'], $v['document_type2'], $v['document_type3'], $v['document_type4'], $v['document_type5']);
+            $v['spider_id'] = $this->randomString();
+            return $v;
+        }, $rowsAndHeaders);
 
-        $file = fopen($jsonfile, 'w');
-        fwrite($file, json_encode($data));
-        fclose($file);
+        //Add the final format
+        $final = [
+            "total" => count($data),
+            "articles" => $data
+        ];
 
-        //check if the file exists so as to return a response
-        if (file_exists($jsonfile)) {
-            echo "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" href=\"$jsonfile\" target=\"_blank\">$jsonfile</a>";
-        } else {
-            echo "Error: Something happened and we could not create the .json file";
-        }
+       
     }
 }
