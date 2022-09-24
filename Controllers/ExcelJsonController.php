@@ -5,6 +5,21 @@ namespace Chungu\Controllers;
 
 class ExcelJsonController {
 
+    protected $headers = [
+        "issuing_body",
+        "document_name",
+        "page_url",
+        "extracted_at",
+        "jurisdiction",
+        "effective_date",
+        "public_response_date",
+        "document_type1",
+        "document_type2",
+        "document_type3",
+        "document_type4",
+        "document_type5"
+    ];
+
     public function index() {
 
         return view('excel-to-json');
