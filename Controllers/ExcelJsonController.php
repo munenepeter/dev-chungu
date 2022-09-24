@@ -25,45 +25,58 @@ class ExcelJsonController {
         return view('excel-to-json');
     }
 
-    private function getArray($file){
+    private function getArray($file) {
 
         $reader = new Xlsx();
         $reader->setReadDataOnly(true);
         $spreadsheet = $reader->load($file);
-        
+
         $headers = $spreadsheet->getActiveSheet()->rangeToArray('A1:L1', "", FALSE, TRUE, false)[0];
         //Should change to have only occupied cells 
         //But for now will add a dangerous 'safe no 10
         $data = $spreadsheet->getActiveSheet()->rangeToArray('A2:L10', "", FALSE, TRUE, false);
-        
+
         //remove empty cells
-        for ($i=0; $i <= 10; $i++) { 
-            if(!empty($datas[$i][0])){
+        for ($i = 0; $i <= 10; $i++) {
+            if (!empty($datas[$i][0])) {
                 continue;
-            }else{
+            } else {
                 unset($datas[$i]);
             }
-            
         }
 
         return $data;
-        
     }
     private function randomString() {
-        $characters = array_merge(range(0,9),range('a','z'),range('A','Z'));
+        $characters = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
         $randstring = [];
         for ($i = 0; $i < 24; $i++) {
-            array_push($randstring, $characters[rand(0, count($characters)-1)]);
+            array_push($randstring, $characters[rand(0, count($characters) - 1)]);
         }
-        return implode("",$randstring);
+        return implode("", $randstring);
     }
-    
-    
+
+
     private function convertDate($exceldate) {
         if (empty($exceldate)) return "";
         $UNIX_DATE = ((int)$exceldate - 25569) * 86400;
         return gmdate("d/m/Y", $UNIX_DATE);
         //return Date::excelToDateTimeObject($exceldate)->date;
+    }
+
+    //consolidate all the DTs in one line
+    private function consolidateDTs(...$v) {
+        $dts = [];
+        for ($i = 0; $i < count($v); $i++) {
+            if ($i == 0) {
+                $dts[] = $v[$i];
+                continue;
+            }
+            if ($v[$i] !== "") {
+                array_push($dts, $v[$i]);
+            }
+        }
+        return implode(", ", $dts);
     }
 
     public function create() {
