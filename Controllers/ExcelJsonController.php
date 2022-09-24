@@ -112,7 +112,7 @@ class ExcelJsonController {
         //check if the file exists so as to return a response
        
         if (file_exists($jsonfilePath)) {
-            $data = ['file' => $jsonfile, 'text' => "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" target=\"_blank\">$jsonfile</a>"];
+            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <span class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/$jsonfile' target=\"_blank\">$jsonfile</span>"];
         } else {
             $data = ['text' => "Error: Something happened and we could not create the .json file"];
         }
@@ -144,7 +144,7 @@ class ExcelJsonController {
             //Terminate from the script
             die();
         } else {
-            echo "$this->jsonfile File path does not exist.=>$path";
+            echo "Error on the server/developer: File path does not exist";
         }
     }
     public function create() {
