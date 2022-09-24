@@ -2,6 +2,8 @@
 
 namespace Chungu\Controllers;
 
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
 
 class ExcelJsonController {
 
@@ -95,7 +97,7 @@ class ExcelJsonController {
         $$fileName = trim($fileName);
 
         //write to a file
-        $jsonfile = $this->jsonFilePath."{$$fileName}.json";
+        $jsonfile = $this->jsonFilePath . "{$$fileName}.json";
 
         $file = fopen($jsonfile, 'w');
         //unescape the slashes
