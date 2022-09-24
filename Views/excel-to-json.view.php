@@ -36,6 +36,8 @@ include_once 'sections/nav.view.php';
     <div class="mx-auto p-4 max-w-fit bg-white ">
         <pre id="jsondata"></pre>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script>
         document.getElementById('button').addEventListener("click", () => {
 
