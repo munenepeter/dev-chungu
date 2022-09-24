@@ -26,11 +26,10 @@ class ExcelJsonController {
     }
 
     private function getArray($file){
-        
+
         $reader = new Xlsx();
         $reader->setReadDataOnly(true);
-        $spreadsheet = $reader->load($_FILES['excelFile']["tmp_name"]);
-        
+        $spreadsheet = $reader->load($file);
         
         $headers = $spreadsheet->getActiveSheet()->rangeToArray('A1:L1', "", FALSE, TRUE, false)[0];
         //Should change to have only occupied cells 
@@ -49,6 +48,22 @@ class ExcelJsonController {
 
         return $data;
         
+    }
+    private function randomString() {
+        $characters = array_merge(range(0,9),range('a','z'),range('A','Z'));
+        $randstring = [];
+        for ($i = 0; $i < 24; $i++) {
+            array_push($randstring, $characters[rand(0, count($characters)-1)]);
+        }
+        return implode("",$randstring);
+    }
+    
+    
+    private function convertDate($exceldate) {
+        if (empty($exceldate)) return "";
+        $UNIX_DATE = ((int)$exceldate - 25569) * 86400;
+        return gmdate("d/m/Y", $UNIX_DATE);
+        //return Date::excelToDateTimeObject($exceldate)->date;
     }
 
     public function create() {
