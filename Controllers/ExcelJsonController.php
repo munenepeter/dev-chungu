@@ -19,6 +19,7 @@ class ExcelJsonController {
         "document_type4",
         "document_type5"
     ];
+    private $jsonFilePath = __DIR__ . "/../static/files/";
 
     public function index() {
 
@@ -38,10 +39,10 @@ class ExcelJsonController {
 
         //remove empty cells
         for ($i = 0; $i <= 10; $i++) {
-            if (!empty($datas[$i][0])) {
+            if (!empty($data[$i][0])) {
                 continue;
             } else {
-                unset($datas[$i]);
+                unset($data[$i]);
             }
         }
 
@@ -94,7 +95,7 @@ class ExcelJsonController {
         $$fileName = trim($fileName);
 
         //write to a file
-        $jsonfile = "../samples/json/{$$fileName}.json";
+        $jsonfile = $this->jsonFilePath."{$$fileName}.json";
 
         $file = fopen($jsonfile, 'w');
         //unescape the slashes
@@ -129,5 +130,7 @@ class ExcelJsonController {
             "total" => count($reformatedData),
             "articles" => $reformatedData
         ];
+        //finally write to file
+        $this->writeJson($final);
     }
 }
