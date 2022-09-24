@@ -25,6 +25,32 @@ class ExcelJsonController {
         return view('excel-to-json');
     }
 
+    private function getArray($file){
+        
+        $reader = new Xlsx();
+        $reader->setReadDataOnly(true);
+        $spreadsheet = $reader->load($_FILES['excelFile']["tmp_name"]);
+        
+        
+        $headers = $spreadsheet->getActiveSheet()->rangeToArray('A1:L1', "", FALSE, TRUE, false)[0];
+        //Should change to have only occupied cells 
+        //But for now will add a dangerous 'safe no 10
+        $data = $spreadsheet->getActiveSheet()->rangeToArray('A2:L10', "", FALSE, TRUE, false);
+        
+        //remove empty cells
+        for ($i=0; $i <= 10; $i++) { 
+            if(!empty($datas[$i][0])){
+                continue;
+            }else{
+                unset($datas[$i]);
+            }
+            
+        }
+
+        return $data;
+        
+    }
+
     public function create() {
         //get thhe data sent over post
         $data = json_decode(file_get_contents("php://input"), true);
