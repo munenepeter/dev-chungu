@@ -21,7 +21,7 @@ class ExcelJsonController {
         "document_type4",
         "document_type5"
     ];
-    private $jsonFilePath = __DIR__ . "/../static/files/";
+    private $jsonFilePath = __DIR__ . "/../static/files/json/";
     public $jsonfile = '';
 
     public function index() {
@@ -96,7 +96,7 @@ class ExcelJsonController {
 
     private function writeJson($jsonData) {
         //use $$ to get dynamic filenames
-        $fileName = preg_replace('/\s+/', ' ', $_FILES['excelFile']["name"]);
+        $fileName = "IB_".date("Ymd");
         $$fileName = trim($fileName);
 
         //write to a file
@@ -105,7 +105,6 @@ class ExcelJsonController {
         $jsonfilePath = $this->jsonFilePath . "{$$fileName}.json";
 
         $file = fopen($jsonfilePath, 'w');
-        $this->jsonfile = $jsonfilePath;
         //unescape the slashes
         fwrite($file, json_encode($jsonData, JSON_UNESCAPED_SLASHES));
         fclose($file);
@@ -113,7 +112,7 @@ class ExcelJsonController {
         //check if the file exists so as to return a response
        
         if (file_exists($jsonfilePath)) {
-            $data = ['file' => $jsonfilePath, 'text' => "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" target=\"_blank\">$jsonfile</a>"];
+            $data = ['file' => $jsonfile, 'text' => "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" target=\"_blank\">$jsonfile</a>"];
         } else {
             $data = ['text' => "Error: Something happened and we could not create the .json file"];
         }
@@ -121,7 +120,7 @@ class ExcelJsonController {
         echo json_encode($data);
     }
     public function download() {
-        $path = $_GET['file'];
+        $path = $this->jsonFilePath.trim($_GET['file']);
         //Clear the cache
        
 
