@@ -28,9 +28,9 @@ include_once 'sections/nav.view.php';
         <p class="my-4 text-sm font-medium italic text-center text-green-400" id="response"></p>
     </div>
 
-    <div class="mx-auto p-4 max-w-fit bg-white ">
-        <pre id="jsondata"></pre>
-    </div>
+
+    <?php include_once 'sections/footer.view.php'     ?>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
