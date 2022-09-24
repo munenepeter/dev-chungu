@@ -88,13 +88,34 @@ class ExcelJsonController {
         return implode(", ", $dts);
     }
 
+    private function writeJson($jsonData) {
+        //use $$ to get dynamic filenames
+        $fileName = preg_replace('/\s+/', '-', $_FILES['excelFile']["name"]);
+        $$fileName = trim($fileName);
+
+        //write to a file
+        $jsonfile = "../samples/json/{$$fileName}.json";
+
+        $file = fopen($jsonfile, 'w');
+        //unescape the slashes
+        fwrite($file, json_encode($jsonData, JSON_UNESCAPED_SLASHES));
+        fclose($file);
+
+        //check if the file exists so as to return a response
+        if (file_exists($jsonfile)) {
+            echo "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" href=\"$jsonfile\" target=\"_blank\">$jsonfile</a>";
+        } else {
+            echo "Error: Something happened and we could not create the .json file";
+        }
+    }
+
     public function create() {
 
         //get data from file
-        $rowsAndHeaders = $this->getArray(); 
+        $rowsAndHeaders = $this->getArray($_FILES['excelFile']["tmp_name"]);
 
         //And the extra values & format the excel dates
-        $data = array_map(function ($v) {
+        $reformatedData = array_map(function ($v) {
             $v['extracted_at'] = $this->convertDate($v['extracted_at']);
             $v['effective_date'] = $this->convertDate($v['effective_date']);
             $v['public_response_date'] = $this->convertDate($v['public_response_date']);
@@ -105,10 +126,8 @@ class ExcelJsonController {
 
         //Add the final format
         $final = [
-            "total" => count($data),
-            "articles" => $data
+            "total" => count($reformatedData),
+            "articles" => $reformatedData
         ];
-
-       
     }
 }
