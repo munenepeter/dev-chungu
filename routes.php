@@ -14,6 +14,7 @@ $router->get('projects/jwg/get-links', 'GetLinksController@index');
 //excel-to-json
 $router->get('projects/jwg/excel-to-json', 'ExcelJsonController@index');
 $router->post('projects/jwg/excel-to-json', 'ExcelJsonController@create');
+$router->get('projects/jwg/excel-to-json/download', 'ExcelJsonController@download');
 
 
 

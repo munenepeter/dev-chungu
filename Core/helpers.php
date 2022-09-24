@@ -105,7 +105,7 @@ function redirectback($data = []) {
     redirect($back);
 }
 
-function request_uri(){
+function request_uri() {
     return Request::uri();
 }
 
@@ -231,16 +231,23 @@ function is_in_Session($key, $session) {
     }
     return in_array($key, Session::get($session));
 }
-function is_in_cart($product_id) {
-    $cart_ids = [];
+function downloadFile($dir, $file) {
 
-    if (!isset($_SESSION['cart_items'])) {
-        return false;
+    if(file_exists($file."uuj")) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        flush(); // Flush system output buffer
+        readfile($dir.$file);
+        die();
+    } else {
+        http_response_code(404);
+        die();
     }
-    foreach ($_SESSION['cart_items'] as $item) {
-        array_push($cart_ids, $item->id);
-    }
-    return in_array($product_id, $cart_ids);
 }
 
 

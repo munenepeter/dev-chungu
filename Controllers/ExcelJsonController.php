@@ -22,6 +22,7 @@ class ExcelJsonController {
         "document_type5"
     ];
     private $jsonFilePath = __DIR__ . "/../static/files/";
+    public $jsonfile = '';
 
     public function index() {
 
@@ -91,27 +92,62 @@ class ExcelJsonController {
         return implode(", ", $dts);
     }
 
+
+
     private function writeJson($jsonData) {
         //use $$ to get dynamic filenames
-        $fileName = preg_replace('/\s+/', '-', $_FILES['excelFile']["name"]);
+        $fileName = preg_replace('/\s+/', ' ', $_FILES['excelFile']["name"]);
         $$fileName = trim($fileName);
 
         //write to a file
-        $jsonfile = $this->jsonFilePath . "{$$fileName}.json";
 
-        $file = fopen($jsonfile, 'w');
+        $jsonfile = "{$$fileName}.json";
+        $jsonfilePath = $this->jsonFilePath . "{$$fileName}.json";
+
+        $file = fopen($jsonfilePath, 'w');
+        $this->jsonfile = $jsonfilePath;
         //unescape the slashes
         fwrite($file, json_encode($jsonData, JSON_UNESCAPED_SLASHES));
         fclose($file);
 
         //check if the file exists so as to return a response
-        if (file_exists($jsonfile)) {
-            echo "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" href=\"$jsonfile\" target=\"_blank\">$jsonfile</a>";
+       
+        if (file_exists($jsonfilePath)) {
+            $data = ['file' => $jsonfilePath, 'text' => "Success: Your .json file is ready at <a class=\"text-green-500 hover:underline\" target=\"_blank\">$jsonfile</a>"];
         } else {
-            echo "Error: Something happened and we could not create the .json file";
+            $data = ['text' => "Error: Something happened and we could not create the .json file"];
+        }
+       
+        echo json_encode($data);
+    }
+    public function download() {
+        $path = $_GET['file'];
+        //Clear the cache
+       
+
+        //Check the file path exists or not
+        if (file_exists($path)) {
+
+            //Define header information
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . basename($path) . '"');
+            header('Content-Length: ' . filesize($path));
+            header('Pragma: public');
+
+            //Clear system output buffer
+            flush();
+
+            //Read the size of the file
+            readfile($path, true);
+          
+
+            //Terminate from the script
+            die();
+        } else {
+            echo "$this->jsonfile File path does not exist.=>$path";
         }
     }
-
     public function create() {
 
         //get data from file
