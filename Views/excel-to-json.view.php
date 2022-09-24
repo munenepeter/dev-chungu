@@ -50,7 +50,7 @@ include_once 'sections/nav.view.php';
 
         function postData(formData) {
 
-            axios.post('projects/jwg/excel-to-json', formData, {
+            axios.post('/projects/jwg/excel-to-json', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
