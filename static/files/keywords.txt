@@ -64,7 +64,7 @@
 {"word":"risk","color":"rgb(50,72,178)"}
 {"word":"standards","color":"rgb(98,142,65)"}
 {"word":"technology policy","color":"rgb(203,204,188)"}
-{"word":"third party risk managementAI","color":"rgb(28,85,48)"}
+{"word":"third party risk management AI","color":"rgb(28,85,48)"}
 {"word":"API","color":"rgb(247,141,151)"}
 {"word":"Cloud data","color":"rgb(102,163,216)"}
 {"word":"Cyber","color":"rgb(88,61,193)"}
