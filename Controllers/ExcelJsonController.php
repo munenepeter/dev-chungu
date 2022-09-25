@@ -12,7 +12,7 @@ class ExcelJsonController {
         "public_response_date", "document_type1", "document_type2", "document_type3", "document_type4",
         "document_type5"
     ];
-    
+
     private $jsonFilePath = __DIR__ . "/../static/files/json/";
 
 
@@ -112,7 +112,7 @@ class ExcelJsonController {
         //check if the file exists so as to return a response
 
         if (file_exists($jsonfilePath)) {
-            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <a class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/view/$jsonfile' target=\"_blank\">$jsonfile</a> <br/> Also you can click the link to see the contents"];
+            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <a class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/view/$jsonfile' target=\"_blank\">$jsonfile</a> <br/> Also you can click the <a class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/view/$jsonfile' target=\"_blank\">link</a> to see its contents"];
         } else {
             $data = ['text' => "Error: Something happened and we could not create the .json file"];
         }
