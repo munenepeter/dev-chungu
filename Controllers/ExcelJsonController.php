@@ -103,8 +103,8 @@ class ExcelJsonController {
 
         //write to a file
 
-        $jsonfile = "{$$fileName}.json";
-        $jsonfilePath = $this->jsonFilePath . "{$$fileName}.json";
+        $jsonfile = "{$$fileName}";
+        $jsonfilePath = $this->jsonFilePath . "{$$fileName}";
 
         $file = fopen($jsonfilePath, 'w');
         //unescape the slashes
@@ -118,7 +118,7 @@ class ExcelJsonController {
         //check if the file exists so as to return a response
 
         if (file_exists($jsonfilePath)) {
-            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <a class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/$jsonfile' target=\"_blank\">$jsonfile</a>"];
+            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <a class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/view/$jsonfile' target=\"_blank\">$jsonfile</a>"];
         } else {
             $data = ['text' => "Error: Something happened and we could not create the .json file"];
         }
