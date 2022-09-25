@@ -5,9 +5,15 @@ use spekulatius\phpscraper;
 include_once 'base.view.php';
 include_once 'sections/nav.view.php';
 ?>
-<h1 class="mb-2 text-center text-2xl font-bold tracking-tight">Get Links, useful tool to get all the urls of a site</h1>
+<nav class="pt-2 pb-2 mb-2 bg-gray-50 border border-gray-100 px-2 sm:px-4 py-2.5 rounded">
+       <div class="container flex flex-wrap justify-between items-center mx-auto">
+              <div class="m-auto w-full text-center md:w-auto text-blue-700 text-3xl">
+                     Get all the urls of a Webpage
+              </div>
+       </div>
+</nav>
 
-<div class="mt-4 p-6 mx-auto max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div class="m-4 md:m-auto p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
        <h1 class="mb-2 text-2xl font-bold tracking-tight">
               <?php if (isset($_GET['error'])) : ?>
                      <span class="text-red-500"><?= $_GET['error'] ?>
@@ -18,8 +24,13 @@ include_once 'sections/nav.view.php';
               <div class="mb-6">
                      <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Input your URL</label>
                      <input type="url" name="url" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                     <div class="my-4 text-sm text-center text-gray-500">Only links to actual websites and/or webpages will work</div>
+
               </div>
-              <button name="submit" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Search</button>
+              <center>
+                     <button name="submit" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Search</button>
+
+              </center>
        </form>
 </div>
 
