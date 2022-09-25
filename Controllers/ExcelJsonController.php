@@ -98,7 +98,8 @@ class ExcelJsonController {
 
         $random_letter = chr(rand(65,90));
         //create a random letter for each of the files downloaded
-        $fileName = "IB$random_letter"."_" . date("Ymd");
+        //to conserve the server resources we will just use 1 name for all files
+        $fileName = "IB_" . date("Ymd");
         $$fileName = trim($fileName);
 
         //write to a file
