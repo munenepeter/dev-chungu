@@ -8,21 +8,13 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 class ExcelJsonController {
 
     protected $headers = [
-        "issuing_body",
-        "document_name",
-        "page_url",
-        "extracted_at",
-        "jurisdiction",
-        "effective_date",
-        "public_response_date",
-        "document_type1",
-        "document_type2",
-        "document_type3",
-        "document_type4",
+        "issuing_body", "document_name", "page_url", "extracted_at", "jurisdiction", "effective_date",
+        "public_response_date", "document_type1", "document_type2", "document_type3", "document_type4",
         "document_type5"
     ];
+    
     private $jsonFilePath = __DIR__ . "/../static/files/json/";
-    public $jsonfile = '';
+
 
     public function index() {
 
@@ -60,6 +52,7 @@ class ExcelJsonController {
 
         return $combinedData;
     }
+
     private function randomString() {
         $characters = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
         $randstring = [];
@@ -96,7 +89,7 @@ class ExcelJsonController {
 
     private function writeJson($jsonData) {
 
-        $random_letter = chr(rand(65,90));
+        $random_letter = chr(rand(65, 90));
         //create a random letter for each of the files downloaded
         //to conserve the server resources we will just use 1 name for all files
         $fileName = "IB_" . date("Ymd");
@@ -177,7 +170,10 @@ class ExcelJsonController {
         //finally write to file
         $this->writeJson($final);
     }
-    public function view($file){
+    private function getIssuer() {
+        //TODO
+    }
+    public function view($file) {
         echo file_get_contents($this->jsonFilePath . $file);
     }
 }
