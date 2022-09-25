@@ -116,7 +116,7 @@ include_once 'sections/nav.view.php';
             return trim($string);
         }
         function highlightWords($text, $word) {
-            $text = preg_replace(' # ' . preg_quote($word->word) . ' #i ', '<span name="keywords_found_in_doc" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
+            $text = preg_replace(' #' . preg_quote($word->word) . ' #i', '<span name="keywords_found_in_doc" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
             return "<p class='font-normal text-gray-700'>$text</p>";
         }
         $context = stream_context_create(
@@ -177,8 +177,8 @@ include_once 'sections/nav.view.php';
     }
 </script>
 
-<div class="border-t bg-gray-100 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
-    <div class="text-gray-800 text-sm text-center">
+<div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
+    <div class="text-gray-900 text-sm text-center">
         <div class="my-5 text-center">&copy; 2020 - <?= date('Y') ?> All rights reserved | Chungu Developers</div>
     </div>
 </div>
