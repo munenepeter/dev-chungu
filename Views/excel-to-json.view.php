@@ -86,10 +86,11 @@ include_once 'sections/nav.view.php';
             });
         }
     </script>
-    <div class="bottom-0 pt-2" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
-        <div class="flex pb-2 px-3 m-auto border-t text-gray-800 text-sm max-w-screen-lg items-center">
-            <div class="my-5 text-center">&copy; 2020 - <?=date('Y')?> All rights reserved | Chungu Developers</div>
-        </div>
+<div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
+    <div class="text-gray-900 text-sm text-center">
+        <div class="my-5 text-center">&copy; 2020 - <?= date('Y') ?> All rights reserved | Chungu Developers</div>
     </div>
+</div>
 </body>
+
 </html>
