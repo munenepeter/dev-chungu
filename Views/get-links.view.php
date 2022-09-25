@@ -22,7 +22,7 @@ include_once 'sections/nav.view.php';
        </h1>
        <form action="" method="get">
               <div class="mb-6">
-                     <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Input your URL</label>
+                     <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Enter a URL</label>
                      <input type="url" name="url" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                      <div class="my-4 text-sm text-center text-gray-500">Only links to actual websites and/or webpages will work</div>
 
