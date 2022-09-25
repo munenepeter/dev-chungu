@@ -29,7 +29,7 @@ include_once 'sections/nav.view.php';
     </div>
 
 
-    <?php include_once 'sections/footer.view.php'     ?>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -53,7 +53,7 @@ include_once 'sections/nav.view.php';
                 .then(function(response) {
                     console.log(response)
 
-                   
+
                     document.getElementById("response").innerHTML = response.data.text;
 
                     download(response.data.file);
@@ -65,7 +65,7 @@ include_once 'sections/nav.view.php';
 
         function download(file) {
             axios({
-                url: '/projects/jwg/excel-to-json/download?file='+file, //your url
+                url: '/projects/jwg/excel-to-json/download?file=' + file, //your url
                 method: 'GET',
                 responseType: 'blob', // important
             }).then((response) => {
@@ -76,7 +76,7 @@ include_once 'sections/nav.view.php';
                 // create "a" HTLM element with href to file & click
                 const link = document.createElement('a');
                 link.href = href;
-                link.setAttribute('download', file+'.json'); //or any other extension
+                link.setAttribute('download', file + '.json'); //or any other extension
                 document.body.appendChild(link);
                 link.click();
 
@@ -86,5 +86,9 @@ include_once 'sections/nav.view.php';
             });
         }
     </script>
-
+    <div class="bottom-0 pt-2" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
+        <div class="flex pb-2 px-3 m-auto border-t text-gray-800 text-sm max-w-screen-lg items-center">
+            <div class="my-5 text-center">&copy; 2020 - <?=date('Y')?> All rights reserved | Chungu Developers</div>
+        </div>
+    </div>
 </body>

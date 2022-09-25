@@ -1,33 +1,75 @@
-{"word":"FinTech","color":"rgb(72,47,222)"}
-{"word":"Financial Technology","color":"rgb(229,218,127)"}
-{"word":"Regtech","color":"rgb(28,118,137)"}
-{"word":"Regulatory Technology","color":"rgb(105,146,69)"}
-{"word":"Suptech","color":"rgb(124,183,187)"}
-{"word":"Supervisory Technology","color":"rgb(4,198,155)"}
-{"word":"BigTech","color":"rgb(130,10,79)"}
-{"word":"CBDC","color":"rgb(200,158,142)"}
-{"word":"crypto assets","color":"rgb(211,146,9)"}
-{"word":"crypto currency","color":"rgb(71,2,29)"}
-{"word":"stablecoin","color":"rgb(210,135,141)"}
-{"word":"Cyber resilience","color":"rgb(0,80,42)"}
-{"word":"third party risk management","color":"rgb(144,93,199)"}
-{"word":"Ben Ownership","color":"rgb(137,71,112)"}
-{"word":"technology hazard","color":"rgb(158,29,31)"}
-{"word":"NCB innovation","color":"rgb(98,184,43)"}
-{"word":"SupTech policy research","color":"rgb(121,205,91)"}
-{"word":"quantum","color":"rgb(209,82,73)"}
-{"word":"travel rule","color":"rgb(232,200,12)"}
-{"word":"UK cyber strategy","color":"rgb(80,49,59)"}
-{"word":"ISO20022","color":"rgb(154,0,83)"}
-{"word":"CRR 430C","color":"rgb(209,104,14)"}
-{"word":"SEC Reg S-P","color":"rgb(124,180,33)"}
-{"word":"Digital Regulatory Reporting","color":"rgb(20,75,5)"}
-{"word":"market abuse","color":"rgb(112,95,226)"}
-{"word":"API","color":"rgb(156,78,50)"}
-{"word":"AI","color":"rgb(10,47,18)"}
-{"word":"data corruption","color":"rgb(168,141,219)"}
-{"word":"reporting","color":"rgb(94,226,90)"}
-{"word":"Market rules","color":"rgb(247,161,35)"}
-{"word":"AML","color":"rgb(72,49,61)"}
-{"word":"transparency","color":"rgb(98,205,246)"}
-{"word":"digital policies","color":"rgb(78,142,241)"}
+{"word":"reg reporting","color":"rgb(231,39,48)"}
+{"word":"CBDC","color":"rgb(131,75,192)"}
+{"word":"crypto assets","color":"rgb(203,88,122)"}
+{"word":"crypto currency","color":"rgb(116,70,35)"}
+{"word":"DLT","color":"rgb(235,119,111)"}
+{"word":"stablecoin","color":"rgb(222,126,171)"}
+{"word":"reporting","color":"rgb(239,219,181)"}
+{"word":"Market rules","color":"rgb(55,77,104)"}
+{"word":"NCB innovation","color":"rgb(74,65,13)"}
+{"word":"AML","color":"rgb(4,14,184)"}
+{"word":"marketing","color":"rgb(136,81,239)"}
+{"word":"transparency","color":"rgb(60,181,143)"}
+{"word":"Digital policies","color":"rgb(179,181,203)"}
+{"word":"central databases","color":"rgb(170,196,247)"}
+{"word":"reporting protocols","color":"rgb(214,7,229)"}
+{"word":"standards","color":"rgb(47,45,77)"}
+{"word":"AI Hub","color":"rgb(26,42,184)"}
+{"word":"AML","color":"rgb(148,233,112)"}
+{"word":"con. tape","color":"rgb(115,181,47)"}
+{"word":"CRR 430C","color":"rgb(216,187,76)"}
+{"word":"ESG","color":"rgb(141,43,15)"}
+{"word":"ISO20022","color":"rgb(220,34,149)"}
+{"word":"market data","color":"rgb(44,139,158)"}
+{"word":"privacy","color":"rgb(0,39,90)"}
+{"word":"fines","color":"rgb(120,181,11)"}
+{"word":"Technology attack; technology hazard: outages","color":"rgb(201,84,255)"}
+{"word":"data corruption","color":"rgb(130,150,75)"}
+{"word":"NIST cyber","color":"rgb(90,94,73)"}
+{"word":"DORA\/ EU-SCICF","color":"rgb(107,223,101)"}
+{"word":"EU NIS2","color":"rgb(119,32,252)"}
+{"word":"SEC Reg S-P","color":"rgb(141,13,215)"}
+{"word":"UK cyber strategy","color":"rgb(154,78,105)"}
+{"word":"Business continuity","color":"rgb(60,21,254)"}
+{"word":"concentration risk","color":"rgb(78,203,9)"}
+{"word":"outsourcing","color":"rgb(248,149,22)"}
+{"word":"OpRisk","color":"rgb(40,244,205)"}
+{"word":"third party risk","color":"rgb(180,85,65)"}
+{"word":"Cyber resilience","color":"rgb(182,116,134)"}
+{"word":"DORA","color":"rgb(26,46,229)"}
+{"word":"DLT standards","color":"rgb(176,32,246)"}
+{"word":"FED guidance","color":"rgb(176,217,103)"}
+{"word":"HKMA guides","color":"rgb(100,116,156)"}
+{"word":"UK OpRes","color":"rgb(31,21,40)"}
+{"word":"FinTech","color":"rgb(64,115,107)"}
+{"word":"RegTech","color":"rgb(86,157,168)"}
+{"word":"SupTech policy research","color":"rgb(108,136,130)"}
+{"word":"Digital Regulatory Reporting","color":"rgb(207,46,243)"}
+{"word":"education","color":"rgb(147,205,98)"}
+{"word":"governance","color":"rgb(15,188,223)"}
+{"word":"innovation","color":"rgb(54,99,1)"}
+{"word":"training","color":"rgb(100,102,198)"}
+{"word":"AML","color":"rgb(177,27,74)"}
+{"word":"market abuse","color":"rgb(225,213,165)"}
+{"word":"penalties","color":"rgb(100,11,24)"}
+{"word":"sanctions","color":"rgb(37,53,30)"}
+{"word":"tax crime","color":"rgb(88,0,14)"}
+{"word":"travel rule","color":"rgb(97,47,26)"}
+{"word":"ALMA (EU)","color":"rgb(242,153,75)"}
+{"word":"Ben Ownership","color":"rgb(131,255,95)"}
+{"word":"Company registries","color":"rgb(9,252,93)"}
+{"word":"Econ Crime Plan (UK)","color":"rgb(217,111,36)"}
+{"word":"MLR","color":"rgb(191,168,205)"}
+{"word":"SARsControls","color":"rgb(228,78,143)"}
+{"word":"risk","color":"rgb(50,72,178)"}
+{"word":"standards","color":"rgb(98,142,65)"}
+{"word":"technology policy","color":"rgb(203,204,188)"}
+{"word":"third party risk managementAI","color":"rgb(28,85,48)"}
+{"word":"API","color":"rgb(247,141,151)"}
+{"word":"Cloud data","color":"rgb(102,163,216)"}
+{"word":"Cyber","color":"rgb(88,61,193)"}
+{"word":"DLT","color":"rgb(142,41,224)"}
+{"word":"ESG data","color":"rgb(153,104,2)"}
+{"word":"privacy","color":"rgb(34,111,229)"}
+{"word":"quantum","color":"rgb(221,42,20)"}
+{"word":"reg reporting","color":"rgb(187,165,17)"}
