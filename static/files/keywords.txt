@@ -83,3 +83,6 @@
 {"word":"virtual currency","color":"rgb(196,172,226)"}
 {"word":"crypto-Assets","color":"rgb(12,173,192)"}
 {"word":"ethereum","color":"rgb(19,37,185)"}
+{"word":"Central Bank Digital Currency (CBDC)","color":"rgb(103,50,6)"}
+{"word":"decentralized blockchain technology","color":"rgb(251,128,242)"}
+{"word":"Non-fungible token","color":"rgb(28,158,203)"}
