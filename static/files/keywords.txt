@@ -67,9 +67,19 @@
 {"word":"third party risk management AI","color":"rgb(28,85,48)"}
 {"word":"API","color":"rgb(247,141,151)"}
 {"word":"Cloud data","color":"rgb(102,163,216)"}
-{"word":"Cyber","color":"rgb(88,61,193)"}
+{"word":"cyber","color":"rgb(88,61,193)"}
 {"word":"DLT","color":"rgb(142,41,224)"}
 {"word":"ESG data","color":"rgb(153,104,2)"}
 {"word":"privacy","color":"rgb(34,111,229)"}
 {"word":"quantum","color":"rgb(221,42,20)"}
 {"word":"reg reporting","color":"rgb(187,165,17)"}
+{"word":"cryptocurrencies","color":"rgb(182,124,238)"}
+{"word":"Bitcoin","color":"rgb(162,247,238)"}
+{"word":"cryptocurrency","color":"rgb(57,35,119)"}
+{"word":"central bank digital currency","color":"rgb(37,81,164)"}
+{"word":"digital currency","color":"rgb(54,4,130)"}
+{"word":"blockchain","color":"rgb(250,37,159)"}
+{"word":"distributed ledger","color":"rgb(110,140,60)"}
+{"word":"virtual currency","color":"rgb(196,172,226)"}
+{"word":"crypto-Assets","color":"rgb(12,173,192)"}
+{"word":"ethereum","color":"rgb(19,37,185)"}
