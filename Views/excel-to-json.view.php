@@ -5,14 +5,14 @@ include_once 'sections/nav.view.php';
 
 
 <body>
-    <nav class="pt-6 pb-2 mb-5 bg-gray-50 border border-gray-100 px-2 sm:px-4 py-2.5 rounded">
+    <nav class="pt-2 pb-2 mb-2 bg-gray-50 border border-gray-100 px-2 sm:px-4 py-2.5 rounded">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <div class="m-auto w-full  md:w-auto text-blue-700 text-3xl">
                 Convert Excel to JSON
             </div>
         </div>
     </nav>
-    <div class="m-auto p-6 max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="m-4 md:m-auto p-6 max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <form method="post" enctype="multipart/form-data">
             <center>
                 <label class="m-auto block mb-2 text-sm font-medium text-gray-900" for="inputfile">Upload
@@ -51,7 +51,7 @@ include_once 'sections/nav.view.php';
                     }
                 })
                 .then(function(response) {
-                    console.log(response)
+                    //console.log(response)
 
 
                     document.getElementById("response").innerHTML = response.data.text;

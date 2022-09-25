@@ -12,7 +12,8 @@ include_once 'sections/nav.view.php';
 <?php endforeach; ?>
 
 <div class="space-y-4 p-4 mt-6 ">
-    <div class="flex justify-between">
+    <p class="md:hidden text-green-500 font-semibold">Searching for <?= count($st_keywords); ?> Keywords</p>
+    <div class="hidden md:flex justify-between">
         <div class="mt-2 mx-auto">
             Searching for the following Keywords: <br><br>
             <?php foreach (array_slice($s_keyWords, 0, 11) as $keyWord) : ?>
@@ -91,8 +92,12 @@ include_once 'sections/nav.view.php';
             <div class="mb-6">
                 <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Input URL to website or a PDF file</label>
                 <input type="url" name="url" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <div class="my-4 text-sm text-center text-gray-500">Only links to actual websites and links to pdf docs will work</div>
             </div>
-            <button name="submit" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Go</button>
+            <center>
+            <button name="submit" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Search</button>
+
+            </center>
         </form>
     </div>
     <?php
