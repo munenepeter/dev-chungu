@@ -95,8 +95,10 @@ class ExcelJsonController {
 
 
     private function writeJson($jsonData) {
-        //use $$ to get dynamic filenames
-        $fileName = "IB_".date("Ymd");
+
+        $random_letter = chr(rand(65,90));
+        //create a random letter for each of the files downloaded
+        $fileName = "IB-$random_letter"."_" . date("Ymd");
         $$fileName = trim($fileName);
 
         //write to a file
@@ -109,20 +111,24 @@ class ExcelJsonController {
         fwrite($file, json_encode($jsonData, JSON_UNESCAPED_SLASHES));
         fclose($file);
 
+        //delete old file from server
+        // $oldfile  = "IB_" .date('Ymd', (strtotime('-1 day', strtotime(date('Ymd')))));
+        // delete_file($this->jsonFilePath . $$oldfile);
+
         //check if the file exists so as to return a response
-       
+
         if (file_exists($jsonfilePath)) {
-            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <span class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/$jsonfile' target=\"_blank\">$jsonfile</span>"];
+            $data = ['file' => $jsonfile, 'text' => "Success: Your json file is ready and will be downloaded as <a class=\"text-green-500 hover:underline\" href='/projects/jwg/excel-to-json/$jsonfile' target=\"_blank\">$jsonfile</a>"];
         } else {
             $data = ['text' => "Error: Something happened and we could not create the .json file"];
         }
-       
+
         echo json_encode($data);
     }
     public function download() {
-        $path = $this->jsonFilePath.trim($_GET['file']);
+        $path = $this->jsonFilePath . trim($_GET['file']);
         //Clear the cache
-       
+
 
         //Check the file path exists or not
         if (file_exists($path)) {
@@ -139,7 +145,7 @@ class ExcelJsonController {
 
             //Read the size of the file
             readfile($path, true);
-          
+
 
             //Terminate from the script
             die();
