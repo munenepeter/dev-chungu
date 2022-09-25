@@ -92,3 +92,4 @@ include_once 'sections/nav.view.php';
         </div>
     </div>
 </body>
+</html>

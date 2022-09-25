@@ -24,12 +24,12 @@ include_once 'sections/nav.view.php';
                 <template x-if="keywords">
                     <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center z-10" style="background-color: rgba(0,0,0,.5);">
                         <div class="bg-green-50 h-auto p-2 md:max-w-screen-lg md:p-2 lg:p-4 shadow-xl rounded mx-2 md:mx-0" @click.away="open = false">
-                        <button @click="keywords = false" type="button" class="text-right mt-2 w-10 inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base mb-2 ">X</button>
-                        <div class="text-left  mt-4">
-                            <?php foreach ($s_keyWords as $keyWord) : ?>
-                                <?php $keyWord = json_decode($keyWord); ?>
-                                <button style="background-color:<?= $keyWord->color; ?>;" type="button" class="text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-2 py-1 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><?= ucfirst($keyWord->word); ?></button>
-                            <?php endforeach; ?>
+                            <button @click="keywords = false" type="button" class="text-right mt-2 w-10 inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base mb-2 ">X</button>
+                            <div class="text-left  mt-4">
+                                <?php foreach ($s_keyWords as $keyWord) : ?>
+                                    <?php $keyWord = json_decode($keyWord); ?>
+                                    <button style="background-color:<?= $keyWord->color; ?>;" type="button" class="text-white focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-2 py-1 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><?= ucfirst($keyWord->word); ?></button>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -176,3 +176,12 @@ include_once 'sections/nav.view.php';
         document.getElementById('keywords_found_txt').innerText = "Oops, no Keywords were found!"
     }
 </script>
+
+<div class="bottom-0 pt-2 border-t " style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
+    <div class="flex pb-2 px-3 m-auto border-t text-gray-800 text-sm max-w-screen-lg items-center">
+        <div class="my-5 text-center">&copy; 2020 - <?= date('Y') ?> All rights reserved | Chungu Developers</div>
+    </div>
+</div>
+</body>
+
+</html>
