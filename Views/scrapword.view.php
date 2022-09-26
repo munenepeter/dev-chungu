@@ -164,9 +164,7 @@ include_once 'sections/nav.view.php';
     }
     ?>
 </div>
-</body>
 
-</html>
 <script>
     let keywords_found = [];
     document.getElementsByName('keywords_found_in_doc').forEach(data => {
