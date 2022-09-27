@@ -99,6 +99,11 @@ $all = implode(",", $logs);
                                 <b>*Request*</b> <?= $log->more->method; ?> <?= $log->more->uri; ?><br>
                                 <b>*Agent*</b> <?= $log->more->agent; ?><br>
                                 <b>*User IP*</b> <?= $log->more->remote_addr; ?>
+                                <b>*Region*</b> <?= $log->more->region; ?>
+                                <b>*Country*</b> <?= $log->more->country; ?>
+                                <b>*City*</b> <?= $log->more->city; ?>
+                                <b>*Network Provider*</b> <?= $log->more->provider; ?>
+                                <b>*Time Zone*</b> <?= $log->more->time_zone; ?>
                             </td>
                         </tr>
                         <?php $count++; ?>
