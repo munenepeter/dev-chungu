@@ -19,7 +19,7 @@ $router->get('projects/jwg/excel-to-json/view/{file}', 'ExcelJsonController@view
 
 
 //logs
-$router->get('logs', 'SystemController@index');
+$router->get(':a:/logs', 'SystemController@index');
 //robots
 $router->get('robots.txt', function (){
     return require __DIR__ ."/robots.txt";
