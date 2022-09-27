@@ -123,8 +123,6 @@ class ExcelJsonController {
         $path = $this->jsonFilePath . trim($_GET['file']);
         //Clear the cache
 
-        logger("Info", "Trying to download " . trim($_GET['file']));
-
         //Check the file path exists or not
         if (file_exists($path)) {
 
@@ -150,7 +148,7 @@ class ExcelJsonController {
         }
     }
     public function create() {
-        logger("Info",   "uploaded a " . $_FILES['excelFile']['type']);
+  
 
         //get data from file
         $rowsAndHeaders = $this->getArray($_FILES['excelFile']["tmp_name"]);
@@ -170,7 +168,7 @@ class ExcelJsonController {
             "total" => count($reformatedData),
             "articles" => $reformatedData
         ];
-        logger("Info", "Succesfully parsed given file");
+        logger("Info", "Succesfully parsed  " . $_FILES['excelFile']['name'] . " of ". $_FILES['excelFile']['type']);
         //finally write to file
         $this->writeJson($final);
     }
