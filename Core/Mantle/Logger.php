@@ -8,8 +8,7 @@ class Logger {
 
     public static function log(String $level, String $msg) {
 
-        // $log = date("D, d M Y H:i:s") . ' - ' .  Request::method()  . ' - /' . Request::uri() . ' - ' . $_SERVER['REMOTE_ADDR'] . ' - ' . "$msg" . PHP_EOL;
-        $userinfo = $result = json_decode(file_get_contents('http://ip-api.io/json/' . $_SERVER['REMOTE_ADDR']));
+        $userinfo = json_decode(file_get_contents('http://ip-api.io/json/' . $_SERVER['REMOTE_ADDR']));
 
         $log = json_encode([
             'level' => $level,
