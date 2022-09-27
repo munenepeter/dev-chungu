@@ -123,6 +123,7 @@ class ExcelJsonController {
         $path = $this->jsonFilePath . trim($_GET['file']);
         //Clear the cache
 
+        logger("Info", "Trying to download $path");
 
         //Check the file path exists or not
         if (file_exists($path)) {
@@ -139,15 +140,17 @@ class ExcelJsonController {
 
             //Read the size of the file
             readfile($path, true);
-
+            logger("Info", "Downloaded a file - $path)");
 
             //Terminate from the script
             die();
         } else {
+            logger("Error", "File path does not exist");
             echo "Error on the server/developer: File path does not exist";
         }
     }
     public function create() {
+        logger("Info",   "uploaded a " . $_FILES['excelFile']['type']);
 
         //get data from file
         $rowsAndHeaders = $this->getArray($_FILES['excelFile']["tmp_name"]);
@@ -167,6 +170,7 @@ class ExcelJsonController {
             "total" => count($reformatedData),
             "articles" => $reformatedData
         ];
+        logger("Info", "Succesfully parsed given file");
         //finally write to file
         $this->writeJson($final);
     }
@@ -174,6 +178,10 @@ class ExcelJsonController {
         //TODO
     }
     public function view($file) {
+        if(!file_exists($this->jsonFilePath . $file)){
+         echo  "File does not exist";
+         logger("Debug", "File trying to be read does not exist");
+        }
         echo file_get_contents($this->jsonFilePath . $file);
     }
 }
