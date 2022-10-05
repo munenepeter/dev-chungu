@@ -67,7 +67,7 @@ class DevsController {
         }
     }
     public function signin() {
-        if( $_SERVER['REQUEST_METHOD'] !== "POST"){
+        if ($_SERVER['REQUEST_METHOD'] !== "POST") {
             echo $this->json("Fail", ["message" => "Only POST is allowed"]);
             return;
         }
@@ -88,9 +88,43 @@ class DevsController {
         }
     }
     public function update($id) {
-        # code...
+        if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+            echo $this->json("Fail", ["message" => "Only POST is allowed"]);
+            return;
+        }
+        foreach ($this->users as $user) {
+            if (in_array((int)$id, $user)) {
+                $user = array_map(function ($user) {
+                    $user["names"] = isset($_POST['names']) ? $_POST['names'] : $user["names"];
+                    $user["username"] = isset($_POST['username']) ? $_POST['username'] : $user["username"];
+                    $user["password"] = isset($_POST['password']) ? $_POST['password'] : $user["password"];
+                    $user["email"] = isset($_POST['email']) ? $_POST['email'] : $user["email"];
+                    $user["address"] = isset($_POST['address']) ? $_POST['address'] : $user["address"];
+                    $user["age"] = isset($_POST['age']) ? (int)$_POST['age'] : $user["age"];
+                    return $user;
+                }, $user);
+                echo $this->json("Ok", ["message" => "Successfully updated user with an id: $id"], ["user" => $user]);
+                return;
+            } else {
+                echo $this->json("Ok", ["message" => "No user with $id"]);
+                return;
+            }
+        }
     }
     public function delete($id) {
-        # code...
+        if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+            echo $this->json("Fail", ["message" => "Only POST is allowed"]);
+            return;
+        }
+        foreach ($this->users as $user) {
+            if (in_array((int)$id, $user)) {
+                $user = '';
+                echo $this->json("Ok", ["message" => "Successfully deleted user with an id: $id"], ["user" => $user]);
+                return;
+            } else {
+                echo $this->json("Ok", ["message" => "No user with $id"]);
+                return;
+            }
+        }
     }
 }
