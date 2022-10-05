@@ -49,7 +49,54 @@ class DevsController {
         return json_encode(["status" => $status, "data" => $values]);
     }
     public function index() {
-        echo $this->json("Ok", ["message" => "Success"]);
+        echo $this->json(
+            "Ok",
+            ["message" => "Welcome to a demo api endpoint"],
+            [
+                'endpoints' =>
+                [
+                    "GET" => [
+                        [
+                            "endpoint" => "api/devs-talk",
+                            "return_value" => "Returns this page"
+                        ],
+                        [
+                            "endpoint" => "api/devs-talk/users",
+                            "return_value" => "Returns all the users"
+                        ],
+                        [
+                            "endpoint" => "api/devs-talk/users",
+                            "return_value" => "Returns all the users"
+                        ],
+                    ],
+                    "POST" => [
+                        [
+                            "endpoint" => "api/devs-talk/signin",
+                            "params" => [
+                                "username", "password"
+                            ],
+                            "return_value" => "Returns an error if there is a validation error, if not the logged in user"
+                        ],
+                        [
+                            "endpoint" => "api/devs-talk/users/update/{id}",
+                            "params" => [
+                                "names","username", "password", "...other values that you might need to update"
+                            ],
+                            "return_value" => "Returns an error if there is a validation error, if not the updated user"
+                        ],
+                        [
+                            "endpoint" => "api/devs-talk/users/delete/{id}",
+                            "params" => "Nothing",
+                            "return_value" => "Returns an error if there is a validation error, if not the deleted user"
+                        ],
+                    ],
+
+
+
+                ]
+
+            ]
+        );
     }
     public function users() {
 
