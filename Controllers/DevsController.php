@@ -24,6 +24,24 @@ class DevsController {
             "address" => "Nairobi",
             "age" => 24
         ],
+        [
+            "id"  => 3,
+            "names" => "Abzed",
+            "username" => "abzed_mzae",
+            "password" => "PAs*word",
+            "email" => "abzed@chungu.co.ke",
+            "address" => "Nairobi",
+            "age" => 97
+        ],
+        [
+            "id"  => 4,
+            "names" => "Dorothy",
+            "username" => "dorothy",
+            "password" => "PAs*word",
+            "email" => "dorothy@chungu.co.ke",
+            "address" => "Nairobi",
+            "age" => 26
+        ]
     ];
 
     private function json($status, ...$values) {
@@ -49,8 +67,25 @@ class DevsController {
         }
     }
     public function signin() {
-       $username = $_POST['username'];
-       $password = $_POST['password'];
+        if( $_SERVER['REQUEST_METHOD'] !== "POST"){
+            echo $this->json("Fail", ["message" => "Only POST is allowed"]);
+            return;
+        }
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if (empty($username) || empty($password)) {
+            echo $this->json("Fail", ["message" => "Seems like your params are empty"]);
+            return;
+        }
+        foreach ($this->users as $user) {
+            if (in_array($username, $user) && in_array($password, $user)) {
+                echo $this->json("Ok", ["message" => "Success Login", ["user" => $user]]);
+                return;
+            } else {
+                echo $this->json("Fail", ["message" => "Wrong Credentials"]);
+                return;
+            }
+        }
     }
     public function update($id) {
         # code...
