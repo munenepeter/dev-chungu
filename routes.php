@@ -19,12 +19,12 @@ $router->get('projects/jwg/excel-to-json/view/{file}', 'ExcelJsonController@view
 
 
 
-$router->get("api/devs-talk", 'Devs@index');
-$router->get("api/devs-talk/users", 'Devs@users');
-$router->get("api/devs-talk/users/{id}", 'Devs@show');
-$router->post("api/devs-talk/signin", 'Devs@signin');
-$router->post("api/devs-talk/users/update/{id}", 'Devs@update');
-$router->post("api/devs-talk/users/delete/{id}", 'Devs@delete');
+$router->get("api/devs-talk", 'DevsController@index');
+$router->get("api/devs-talk/users", 'DevsController@users');
+$router->get("api/devs-talk/users/{id}", 'DevsController@show');
+$router->post("api/devs-talk/signin", 'DevsController@signin');
+$router->post("api/devs-talk/users/update/{id}", 'DevsController@update');
+$router->post("api/devs-talk/users/delete/{id}", 'DevsController@delete');
 
 
 //logs

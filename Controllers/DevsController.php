@@ -5,20 +5,47 @@ namespace Chungu\Controllers;
 
 class DevsController {
 
-    private function json(...$values) {
-        return json_encode($values);
+    public $users =   [
+        [
+            "id"  => 1,
+            "names" => "Peter Munene",
+            "username" => "pmunene",
+            "address" => "Nairobi",
+            "age" => 89
+        ],
+        [
+            "id"  => 2,
+            "names" => "Kimberly",
+            "username" => "kimkim",
+            "address" => "Nairobi",
+            "age" => 24
+        ],
+    ];
+
+    private function json($status, ...$values) {
+        return json_encode(["status" => $status, "data" => $values]);
     }
     public function index() {
-        return $this->json(["message" => "Success"]);
+        echo $this->json("Ok", ["message" => "Success"]);
     }
     public function users() {
-        # code...
+
+        echo $this->json("Ok", ["users" => $this->users]);
     }
     public function show($id) {
-        # code...
+        foreach ($this->users as $user) {
+            if (in_array((int)$id, $user)) {
+                echo $this->json("Ok", ["user" => $user]);
+                return;
+            } else {
+                echo $this->json("Ok", ["message" => "No user with $id"]);
+                return;
+            }
+        }
     }
     public function signin() {
-        # code...
+       $username = $_POST['username'];
+       $password = $_POST['password'];
     }
     public function update($id) {
         # code...
