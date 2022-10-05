@@ -50,8 +50,14 @@
                 <li class="scroll-to-link active" data-target="content-get-started">
                     <a>GET STARTED</a>
                 </li>
-                <li class="scroll-to-link" data-target="content-get-characters">
-                    <a>Get Characters</a>
+                <li class="scroll-to-link" data-target="content-get-users">
+                    <a>Get Users</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-get-user">
+                    <a>Get User</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-errors">
+                    <a>Errors</a>
                 </li>
                 <li class="scroll-to-link" data-target="content-errors">
                     <a>Errors</a>
@@ -67,98 +73,59 @@
                 <pre>
     API Endpoint
 
-        https://api.westeros.com/
+    /projects/devs-talk/api/
                 </pre>
                 <p>
-                    The Westeros API provides programmatic access to read Game of Thrones data. Retrieve a character, provide an oauth connexion, retrieve a familly, filter them, etc.
+                    The devs talk API provides demo to showcase how a simple API should look like
                 </p>
                 <p>
-                    To use this API, you need an <strong>API key</strong>. Please contact us at <a href="mailto:jon.snow@nightswatch.wes">jon.snow@nightswatch.wes</a> to get your own API key.
+                    For more about the API. Please contact us at <a href="mailto:info@chungu.co.ke">info@chungu.co.ke</a> for more development.
                 </p>
             </div>
-            <div class="overflow-hidden content-section" id="content-get-characters">
-                <h2>get characters</h2>
+            <div class="overflow-hidden content-section" id="content-get-users">
+                <h2>get users</h2>
                 <pre><code class="bash">
 # Here is a curl example
 curl \
--X POST http://api.westeros.com/character/get \
--F 'secret_key=your_api_key' \
--F 'house=Stark,Bolton' \
--F 'offset=0' \
--F 'limit=50'
+-X GET /projects/devs-talk/api/users
                 </code></pre>
                 <p>
-                    To get characters you need to make a POST call to the following url :<br>
-                    <code class="higlighted break-word">http://api.westeros.com/character/get</code>
+                    To get characters you need to make a GET call to the following url :<br>
+                    <code class="higlighted break-word">/projects/devs-talk/api/users</code>
                 </p>
                 <br>
                 <pre><code class="json">
 Result example :
 
 {
-  query:{
-    offset: 0,
-    limit: 50,
-    house: [
-      "Stark",
-      "Bolton"
-    ],
-  }
-  result: [
-    {
-      id: 1,
-      first_name: "Jon",
-      last_name: "Snow",
-      alive: true,
-      house: "Stark",
-      gender: "m",
-      age: 14,
-      location: "Winterfell"
-    },
-    {
-      id: 2,
-      first_name: "Eddard",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "m",
-      age: 35,
-      location: 'Winterfell'
-    },
-    {
-      id: 3,
-      first_name: "Catelyn",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "f",
-      age: 33,
-      location: "Winterfell"
-    },
-    {
-      id: 4,
-      first_name: "Roose",
-      last_name: "Bolton",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 40,
-      location: "Dreadfort"
-    },
-    {
-      id: 5,
-      first_name: "Ramsay",
-      last_name: "Snow",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 15,
-      location: "Dreadfort"
-    },
-  ]
+    "status": "Ok",
+    "data": [
+        {
+            "users": [
+                {
+                    "id": 1,
+                    "names": "Peter Munene",
+                    "username": "pmunene",
+                    "password": "PAs*word",
+                    "email": "pmunene@chungu.co.ke",
+                    "address": "Nairobi",
+                    "age": 89
+                },
+                {
+                    "id": 2,
+                    "names": "Kimberly",
+                    "username": "kimkim",
+                    "password": "PAs*word",
+                    "email": "kimkim@chungu.co.ke",
+                    "address": "Nairobi",
+                    "age": 24
+                },
+            ]
+        }
+    ]
 }
                 </code></pre>
-                <h4>QUERY PARAMETERS</h4>
+                <!-- <h4>QUERY PARAMETERS</h4>
                 <table class="central-overflow-x">
                     <thead>
                         <tr>
@@ -212,7 +179,96 @@ Result example :
                             <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and 100.</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
+            </div>
+
+            <div class="overflow-hidden content-section" id="content-get-users">
+                <h2>get users</h2>
+                <pre><code class="bash">
+# Here is a curl example
+curl \
+-X GET /projects/devs-talk/api/users/:id
+
+                </code></pre>
+                <p>
+                    To get users you need to make a GET call to the following url :<br>
+                    <code class="higlighted break-word">/projects/devs-talk/api/users/:id</code>
+                </p>
+                <br>
+                <pre><code class="json">
+Result example :
+{
+    "status": "Ok",
+    "data": [
+        {
+            "user": {
+                "id": 1,
+                "names": "Peter Munene",
+                "username": "pmunene",
+                "password": "PAs*word",
+                "email": "pmunene@chungu.co.ke",
+                "address": "Nairobi",
+                "age": 89
+            }
+        }
+    ]
+}
+                </code></pre>
+                <!-- <h4>QUERY PARAMETERS</h4>
+                <table class="central-overflow-x">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>secret_key</td>
+                            <td>String</td>
+                            <td>Your API key.</td>
+                        </tr>
+                        <tr>
+                            <td>search</td>
+                            <td>String</td>
+                            <td>(optional) A search word to find character by name.</td>
+                        </tr>
+                        <tr>
+                            <td>house</td>
+                            <td>String</td>
+                            <td>
+                                (optional) a string array of houses:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>alive</td>
+                            <td>Boolean</td>
+                            <td>
+                                (optional) a boolean to filter alived characters
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>gender</td>
+                            <td>String</td>
+                            <td>
+                                (optional) a string to filter character by gender:<br>
+                                m: male<br>
+                                f: female
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>offset</td>
+                            <td>Integer</td>
+                            <td>(optional - default: 0) A cursor for use in pagination. Pagination starts offset the specified offset.</td>
+                        </tr>
+                        <tr>
+                            <td>limit</td>
+                            <td>Integer</td>
+                            <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and 100.</td>
+                        </tr>
+                    </tbody>
+                </table> -->
             </div>
             <div class="overflow-hidden content-section" id="content-errors">
                 <h2>Errors</h2>
