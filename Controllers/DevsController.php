@@ -49,54 +49,56 @@ class DevsController {
         return json_encode(["status" => $status, "data" => $values]);
     }
     public function index() {
-        echo $this->json(
-            "Ok",
-            ["message" => "Welcome to a demo api endpoint"],
-            [
-                'endpoints' =>
-                [
-                    "GET" => [
-                        [
-                            "endpoint" => "projects/devs-talk/api",
-                            "return_value" => "Returns this page"
-                        ],
-                        [
-                            "endpoint" => "projects/devs-talk/api/users",
-                            "return_value" => "Returns all the users"
-                        ],
-                        [
-                            "endpoint" => "projects/devs-talk/api/users/{id}",
-                            "return_value" => "Returns a specific user i.e. in realtion to their id"
-                        ],
-                    ],
-                    "POST" => [
-                        [
-                            "endpoint" => "projects/devs-talk/api/signin",
-                            "params" => [
-                                "username", "password"
-                            ],
-                            "return_value" => "Returns an error if there is a validation error, if not the logged in user"
-                        ],
-                        [
-                            "endpoint" => "projects/devs-talk/api/update/{id}",
-                            "params" => [
-                                "names","username", "password", "...other values that you might need to update"
-                            ],
-                            "return_value" => "Returns an error if there is a validation error, if not the updated user"
-                        ],
-                        [
-                            "endpoint" => "projects/devs-talk/api/delete/{id}",
-                            "params" => "Nothing",
-                            "return_value" => "Returns an error if there is a validation error, if not the deleted user"
-                        ],
-                    ],
+
+        return view('api');
+        // echo $this->json(
+        //     "Ok",
+        //     ["message" => "Welcome to a demo api endpoint"],
+        //     [
+        //         'endpoints' =>
+        //         [
+        //             "GET" => [
+        //                 [
+        //                     "endpoint" => "projects/devs-talk/api",
+        //                     "return_value" => "Returns this page"
+        //                 ],
+        //                 [
+        //                     "endpoint" => "projects/devs-talk/api/users",
+        //                     "return_value" => "Returns all the users"
+        //                 ],
+        //                 [
+        //                     "endpoint" => "projects/devs-talk/api/users/{id}",
+        //                     "return_value" => "Returns a specific user i.e. in realtion to their id"
+        //                 ],
+        //             ],
+        //             "POST" => [
+        //                 [
+        //                     "endpoint" => "projects/devs-talk/api/signin",
+        //                     "params" => [
+        //                         "username", "password"
+        //                     ],
+        //                     "return_value" => "Returns an error if there is a validation error, if not the logged in user"
+        //                 ],
+        //                 [
+        //                     "endpoint" => "projects/devs-talk/api/update/{id}",
+        //                     "params" => [
+        //                         "names","username", "password", "...other values that you might need to update"
+        //                     ],
+        //                     "return_value" => "Returns an error if there is a validation error, if not the updated user"
+        //                 ],
+        //                 [
+        //                     "endpoint" => "projects/devs-talk/api/delete/{id}",
+        //                     "params" => "Nothing",
+        //                     "return_value" => "Returns an error if there is a validation error, if not the deleted user"
+        //                 ],
+        //             ],
 
 
 
-                ]
+        //         ]
 
-            ]
-        );
+        //     ]
+        // );
     }
     public function users() {
 
