@@ -10,6 +10,8 @@ class DevsController {
             "id"  => 1,
             "names" => "Peter Munene",
             "username" => "pmunene",
+            "password" => "PAs*word",
+            "email" => "pmunene@chungu.co.ke",
             "address" => "Nairobi",
             "age" => 89
         ],
@@ -17,6 +19,8 @@ class DevsController {
             "id"  => 2,
             "names" => "Kimberly",
             "username" => "kimkim",
+            "password" => "PAs*word",
+            "email" => "kimkim@chungu.co.ke",
             "address" => "Nairobi",
             "age" => 24
         ],
