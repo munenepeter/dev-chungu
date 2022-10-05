@@ -13,6 +13,7 @@ class PagesController extends Controller {
             ['category' => 'jwg', 'name' => "scrapword", 'description' => 'Searching for the following Keywords'],
             ['category' => 'jwg', 'name' => "excel-to-json", 'description' => 'Convert Excel to JSON'],
             ['category' => 'jwg', 'name' => "get-links", 'description' => 'Get Links, useful tool to get all the urls of a site'],
+            ['category' => 'devs-talk', 'name' => "api", 'description' => 'Demo API endpoints for Devs talk'],
             ['category' => 'law', 'name' => "Case-Law-Search", 'description' => 'A simple Case Search with highlights'],
             ['category' => 'personal', 'name' => "clive", 'description' => 'A simple Insurance system']
 
