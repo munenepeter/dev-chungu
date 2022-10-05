@@ -65,8 +65,8 @@ class DevsController {
                             "return_value" => "Returns all the users"
                         ],
                         [
-                            "endpoint" => "api/devs-talk/users",
-                            "return_value" => "Returns all the users"
+                            "endpoint" => "api/devs-talk/users/{id}",
+                            "return_value" => "Returns a specific user i.e. in realtion to their id"
                         ],
                     ],
                     "POST" => [
