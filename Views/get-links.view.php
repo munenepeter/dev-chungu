@@ -36,6 +36,8 @@ include_once 'sections/nav.view.php';
 
 
 <?php
+
+
 if (isset($_GET['submit'])) {
        if (empty($_GET['url'])) {
               $error = urlencode("No URL was provided!!");
