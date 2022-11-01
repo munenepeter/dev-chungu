@@ -27,6 +27,10 @@ $router->post("projects/devs-talk/api/users/update/{id}", 'DevsController@update
 $router->post("projects/devs-talk/api/users/delete/{id}", 'DevsController@delete');
 
 
+//board-room
+$router->get('projects/personal/board-room', 'BoardRoomController@index');
+
+
 //logs
 $router->get(':a:/logs', 'SystemController@index');
 //robots
