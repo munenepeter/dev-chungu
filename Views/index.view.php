@@ -2,73 +2,102 @@
 include_once 'sections/nav.view.php';
 ?>
 
-<div class="container mx-auto px-8 overflow-hidden md:rounded-lg md:px-10 lg:px-12">
-    <section class="bg-white dark:bg-gray-900">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Your Ultimate Reliable developer</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From native apps to websites, companies around the world contract Chungu to develop their dreams and needs.</p>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                    Services
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 ">
-                    Hire Us
-                </a>
-            </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/search-mockup.png" alt="mockup">
-            </div>
-        </div>
-    </section>
 
-
-    <div class="grid gap-4 md:grid-cols-3">
-        <div class="flex-col p-8 py-16 rounded-lg shadow-2xl md:p-12 bg-gradient-to-white from-gray-100 to-white">
-            <p class="flex items-center justify-center text-4xl font-semibold text-green-400 bg-green-800 rounded-full shadow-lg w-14 h-14">
-                1
-            </p>
-            <div class="h-6"></div>
-            <p class="font-serif text-3xl">We build products with UX in mind</p>
+<!-- Start Hero Section -->
+<header class="h-full flex justify-between w-full bg-gray-600 bg-cover bg-blend-overlay" style="height: 90vh; background-image: url('https://images.pexels.com/photos/3183127/pexels-photo-3183127.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');">
+    <!-- Main div -->
+    <div class="xl:w-2/4 mt-8 lg:mb-28 lg:mt-28  lg:ml-12 lg:text-left text-center  items-center">
+        <div class=" text-4xl lg:text-6xl font-semibold text-white leading-none text-center md:text-left lg:text-left">
+            Modern Web solutions for you business</div>
+        <div class="mt-6 text-xl font-light text-gray-200 antialiased text-center md:text-left lg:text-left">
+            We are a team of digital experts equipped to help your dream solution become a reality.
         </div>
-        <div class="flex-col p-8 py-16 rounded-lg shadow-2xl md:p-12bg-gradient-to-white from-gray-100 to-white">
-            <p class="flex items-center justify-center text-4xl font-semibold text-indigo-400 bg-indigo-800 rounded-full shadow-lg w-14 h-14">
-                2
-            </p>
-            <div class="h-6"></div>
-            <p class="font-serif text-3xl">
-                You can trust us to deliver super fast
-            </p>
-        </div>
-        <div class="flex-col p-8 py-16 rounded-lg shadow-2xl md:p-12 bg-gradient-to-white from-gray-100 to-white">
-            <p class="flex items-center justify-center text-4xl font-semibold text-red-400 bg-red-800 rounded-full shadow-lg w-14 h-14">
-                3
-            </p>
-            <div class="h-6"></div>
-            <p class="font-serif text-3xl">We made it simple and easy to do</p>
+        <button class="mb-4  mt-4 lg:mt-12 px-16 lg:px-6 py-2 lg:py-2  text-base rounded font-normal tracking-wide bg-yellow-500 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
+            Hire Us
+        </button>
+    </div>
+    <div class="hidden lg:inline-flex md:hidden mr-20 lg:mb-24 lg:mt-20 lg:mr-52 text-left ">
+        <div class="rounded-full h-72 w-80 p-1 bg-gradient-to-r  from-yellow-300 to-transparent">
+            <img class="h-72 w-full rounded-full" src="https://image.freepik.com/free-vector/coding-concept-illustration_114360-859.jpg" alt="">
         </div>
     </div>
+</header>
+<!-- End Hero Section -->
+<!-- ********************************************************************************************** -->
 
-    <section class="bg-white dark:bg-gray-900">
+<!-- End About us-->
+<!-- ********************************************************************************************** -->
+<section class="bg-yellow-50 text-gray-600 body-font">
+    <div class="container px-2 py-16 mx-auto">
+        <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+                About us
+            </h1>
+            <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, rem dolorum! Id officia recusandae ducimus odit voluptatum repudiandae, nulla autem magni quod nam dolore eius soluta labore praesentium ut voluptas error velit tempore obcaecati perferendis quidem quibusdam! Nobis nihil fugit eos, consectetur iusto possimus ullam. Possimus dolorum nulla odio blanditiis tenetur voluptatem fuga beatae, quo sit voluptates aliquid debitis ipsa, iure praesentium nihil? Vero, molestiae tempora nostrum, sint corrupti nihil harum at ut maxime odit?</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 p-2">
+            <div class="p-4 ">
+                <div class="border border-red-200 p-6 rounded-lg bg-gradient-to-r from-yellow-100  to-yellow-200 bg-opacity-75">
+                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                        <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Webdesign Icon">
+                    </div>
+                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Development</h2>
+                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non accusantium laudantium amet possimus sint, sit quia deserunt? Quae magni accusantium quaerat, reprehenderit ab est harum ipsa. Quae dolorum laboriosam repellat nam explicabo aliquid cum quaerat.</p>
+                    <div class="mt-4">
+                        <a class="inline-flex px-4 py-2  w-36 text-center font-semibold rounded-full bg-yellow-400 text-gray-100">Get
+                            Service
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class=" p-4">
+                <div class="border border-gray-200 p-6 rounded-lg bg-gradient-to-r from-yellow-100  to-yellow-200 bg-opacity-75">
+                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                        <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
+                    </div>
+                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Design</h2>
+                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non accusantium laudantium amet possimus sint, sit quia deserunt? Quae magni accusantium quaerat, reprehenderit ab est harum ipsa. Quae dolorum laboriosam repellat nam explicabo aliquid cum quaerat.</p>
+                    <div class="mt-4">
+                        <a class="inline-flex px-4 py-2  w-36 text-center font-semibold rounded-full bg-yellow-500 text-gray-100">Get
+                            Service
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button id="to-all-services" class="flex mx-auto mt-10 text-white bg-yellow-500 border-0 py-2 px-10 focus:outline-none hover:bg-yellow-600 rounded text-lg">Get
+            All</button>
+    </div>
+</section>
+<!-- End Our Solutions Section -->
+
+
+
+    <section class="p-6 bg-yellow-50 text-gray-900 shadow-2xl border border-yellow-50">
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
             <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
             <form action="#" class="space-y-8">
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@chungu.co.ke" required>
+                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-yellow-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-sm-light" placeholder="name@chungu.co.ke" required>
                 </div>
                 <div>
                     <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                    <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+                    <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-yellow-300 shadow-sm focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-yellow-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Leave a comment..."></textarea>
                 </div>
-                <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send message</button>
+                <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-yellow-700 sm:w-fit hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-blue-800">Send message</button>
             </form>
         </div>
     </section>
