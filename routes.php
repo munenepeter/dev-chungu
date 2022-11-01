@@ -29,6 +29,8 @@ $router->post("projects/devs-talk/api/users/delete/{id}", 'DevsController@delete
 
 //board-room
 $router->get('projects/personal/board-room', 'BoardRoomController@index');
+//case-law-search
+$router->get('projects/law/case-law-search', 'CaseLawController@index');
 
 
 //logs

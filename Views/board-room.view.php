@@ -2,7 +2,7 @@
 include_once 'base.view.php';
 include_once 'sections/nav.view.php';
 ?>
-<body>
+ <script src="https://cdn.tailwindcss.com"></script>
 
 <body class="bg-gray-100">
     <div class="h-screen w-screen bg-indigo-400 overflow-hidden absolute flex items-center">
@@ -26,7 +26,7 @@ include_once 'sections/nav.view.php';
                             </svg>
                         </button>
                     </div>
-                    <h1 class="font-medium text-indigo-500 text-lg mt-6">Schedule List</h1>
+                    <h1 class="font-medium text-indigo-500 text-lg mt-6">Schedule List (in dev)</h1>
                     <p class="text-gray-600 text-sm">Tuesday's board room schedule</p>
                     <div class="mt-6 flex">
                         <button class="bg-indigo-500 text-white py-2 text-sm px-3 rounded focus:outline-none">New
