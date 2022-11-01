@@ -95,7 +95,7 @@ include_once 'sections/nav.view.php';
                 <div class="my-4 text-sm text-center text-gray-500">Only links to actual websites and links to pdf docs will work</div>
             </div>
             <center>
-            <button name="submit" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Search</button>
+                <button name="submit" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Search</button>
 
             </center>
         </form>
@@ -173,7 +173,16 @@ include_once 'sections/nav.view.php';
     let unique = [...new Set(keywords_found)];
 
     if (unique.length > 0) {
-        
+        axios.post('projects/jwg/scrapword/theme', {
+              unique
+            })
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+
         document.getElementById('keywords_found_txt').innerText = "Found " + unique.length + " of <?= count($st_keywords) ?>  keywords:  ";
         document.getElementById('keywords_found').innerText = unique.toString()
     } else {
