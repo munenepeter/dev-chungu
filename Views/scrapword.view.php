@@ -173,6 +173,7 @@ include_once 'sections/nav.view.php';
     let unique = [...new Set(keywords_found)];
 
     if (unique.length > 0) {
+        
         document.getElementById('keywords_found_txt').innerText = "Found " + unique.length + " of <?= count($st_keywords) ?>  keywords:  ";
         document.getElementById('keywords_found').innerText = unique.toString()
     } else {
