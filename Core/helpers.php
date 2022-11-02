@@ -343,7 +343,7 @@ function asset($dir) {
 
     echo  $root_url . "/static/$dir";
 }
-function get_percentage($total, $number) {
+function get_perc($total, $number) {
     if ($total > 0) {
         return round(($number * 100) / $total, 2);
     } else {

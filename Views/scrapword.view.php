@@ -11,7 +11,7 @@ include_once 'sections/nav.view.php';
     <?php array_push($st_keywords, strtolower($keyWord->word)); ?>
 <?php endforeach; ?>
 
-<div class="space-y-4 p-4 mt-6 ">
+<div class="space-y-2 p-4">
     <p class="md:hidden text-green-500 font-semibold">Searching for <?= count($st_keywords); ?> Keywords</p>
     <div class="hidden md:flex justify-between">
         <div class="mt-2 mx-auto">
@@ -156,7 +156,7 @@ include_once 'sections/nav.view.php';
                 <span id="keywords_found_txt" class="text-gray-500 font-semibold"></span>
                 <span id="keywords_found" class="text-red-500 font-semibold italic"></span>
             </p>
-            <p id="theme" class="mb-1 text-sm text-center text-yellow-500"></p>
+            <p id="theme" class="font-bold mb-1 text-sm text-center text-yellow-500"></p>
 
             <div class="border m-4 p-2 rounded-md">
                 <?php echo $text ?>
@@ -179,7 +179,7 @@ include_once 'sections/nav.view.php';
               "found_keys": unique
             })
             .then(function(response) {
-                document.getElementById('theme').innerText = "Suggested Themes " + response.data;
+                document.getElementById('theme').innerText = "Suggested Themes, " + response.data;
                // console.log(response);
             })
             .catch(function(error) {
