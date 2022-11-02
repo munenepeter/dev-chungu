@@ -3,7 +3,7 @@
 
 $router->get('', 'PagesController@index');
 $router->get('projects', 'PagesController@projects');
-$router->get('about-us', 'PagesController@about');
+$router->get('services', 'PagesController@services');
 
 
 //scrapword
