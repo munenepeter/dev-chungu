@@ -4,7 +4,7 @@ include_once 'sections/nav.view.php';
 
 
 <!-- Start Hero Section -->
-<header class="h-full flex justify-between w-full bg-gray-600 bg-cover bg-blend-overlay" style="height: 90vh; background-image: url('https://images.pexels.com/photos/3183127/pexels-photo-3183127.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');">
+<header class="h-full flex justify-between w-full bg-gray-600 bg-cover bg-blend-overlay" style="height: 94vh; background-image: url('https://media.wired.com/photos/621575377d11d746344b5a72/191:100/w_2287,h_1197,c_limit/Business_Person%20Working%20on%20Laptop_1302475706.jpg');">
     <!-- Main div -->
     <div class="xl:w-2/4 mt-8 lg:mb-28 lg:mt-28  lg:ml-12 lg:text-left text-center  items-center">
         <div class=" text-4xl lg:text-6xl font-semibold text-white leading-none text-center md:text-left lg:text-left">

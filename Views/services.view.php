@@ -4,7 +4,10 @@ include_once 'sections/nav.view.php';
 ?>
 
 <div class="grid place-items-center">
-       <h1 class="text-lg">Comming Soon, But Its Peter</h1>
+       <h1 class="text-lg">
+
+              Comming Soon
+       </h1>
 </div>
 
 <div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
