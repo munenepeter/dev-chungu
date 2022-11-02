@@ -156,6 +156,8 @@ include_once 'sections/nav.view.php';
                 <span id="keywords_found_txt" class="text-gray-500 font-semibold"></span>
                 <span id="keywords_found" class="text-red-500 font-semibold italic"></span>
             </p>
+            <p id="theme" class="mb-1 text-sm text-center text-yellow-500"></p>
+
             <div class="border m-4 p-2 rounded-md">
                 <?php echo $text ?>
             </div>
@@ -164,7 +166,7 @@ include_once 'sections/nav.view.php';
     }
     ?>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     let keywords_found = [];
     document.getElementsByName('keywords_found_in_doc').forEach(data => {
@@ -173,11 +175,12 @@ include_once 'sections/nav.view.php';
     let unique = [...new Set(keywords_found)];
 
     if (unique.length > 0) {
-        axios.post('projects/jwg/scrapword/theme', {
-              unique
+        axios.post('/projects/jwg/scrapword/theme', {
+              "found_keys": unique
             })
             .then(function(response) {
-                console.log(response);
+                document.getElementById('theme').innerText = "Suggested Themes " + response.data;
+               // console.log(response);
             })
             .catch(function(error) {
                 console.log(error);

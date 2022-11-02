@@ -233,16 +233,16 @@ function is_in_Session($key, $session) {
 }
 function downloadFile($dir, $file) {
 
-    if(file_exists($file."uuj")) {
+    if (file_exists($file . "uuj")) {
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+        header('Content-Disposition: attachment; filename="' . basename($file) . '"');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         header('Content-Length: ' . filesize($file));
         flush(); // Flush system output buffer
-        readfile($dir.$file);
+        readfile($dir . $file);
         die();
     } else {
         http_response_code(404);
@@ -342,6 +342,13 @@ function asset($dir) {
     $root_url = substr(url(), 0, strpos(url(), $_SERVER['REQUEST_URI']));
 
     echo  $root_url . "/static/$dir";
+}
+function get_percentage($total, $number) {
+    if ($total > 0) {
+        return round(($number * 100) / $total, 2);
+    } else {
+        return 0;
+    }
 }
 
 function logger($level, $message) {
