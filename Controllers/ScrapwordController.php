@@ -61,13 +61,15 @@ class ScrapwordController {
         $digitalAssets = trim(":cbdc, :crypto assets, :crypto currency, :dlt, :stablecoin, :reporting, :market rules, :mica, :mifid ii, :mifid, :ncb innovation, :aml, :marketing, :transparency");
         $OpRes = trim(":business continuity, :concentration risk, :outsourcing, :oprisk, :third party risk, :cyber resilience, :dora, :dlt standards, :fed guidance, :hkma guides, :uk opres");
         $fintech = trim(":fintech, :regtech, :suptech :policy research, :digital regulatory reporting, :education, :governance, :innovation, :training");
-        $fcrime = trim(":fintech, :regtech, :suptech :policy research, :digital regulatory reporting, :education, :governance, :innovation, :training");
+        $fcrime = trim(":aml, :market abuse, :penalties, :sanctions, :tax crime, :travel rule, :alma (eu), :ben ownership, :company registries, :econ crime plan (uk), :mlr, sars");
+        $techRisk = trim(":controls, :risk, :standards, :technology policy, :third party risk management ai, :api, :cloud data, :cyber, :dlt, :esg data, :privacy, :quantum, :reg reporting");
         $cyberCount = 0;
         $dataCount = 0;
         $digitalAssetsCount = 0;
         $OpResCount = 0;
         $fintechCount = 0;
         $fcrimeCount = 0;
+        $techRiskCount = 0;
 
         for ($i = 0; $i < count($keys); $i++) {
             $cyberCount += substr_count($cyber, ':' . trim($keys[$i]) . ',');
@@ -76,17 +78,19 @@ class ScrapwordController {
             $OpResCount += substr_count($OpRes, ':' . trim($keys[$i]) . ',');
             $fintechCount += substr_count($fintech, ':' . trim($keys[$i]) . ',');
             $fcrimeCount += substr_count($fcrime, ':' . trim($keys[$i]) . ',');
+            $techRiskCount += substr_count($techRisk, ':' . trim($keys[$i]) . ',');
         }
         //get percentage
-        $totals = $cyberCount + $dataCount + $digitalAssetsCount + $OpResCount + $fintechCount + $fcrimeCount;
+        $totals = $cyberCount + $dataCount + $digitalAssetsCount + $OpResCount + $fintechCount + $fcrimeCount + $techRiskCount;
         $cyberCount = get_perc($totals,$cyberCount);
         $dataCount = get_perc($totals,$dataCount);
         $digitalAssetsCount = get_perc($totals,$digitalAssetsCount);
         $OpResCount = get_perc($totals,$OpResCount);
         $fintechCount = get_perc($totals,$fintechCount);
         $fcrimeCount = get_perc($totals, $fcrimeCount);
+        $techRiskCount = get_perc($totals, $techRiskCount);
     
-       echo json_encode("Cyber: {$cyberCount}%  Data: {$dataCount}%  Digital Assets: {$digitalAssetsCount}%  OpRes: {$OpResCount}% Fintech: {$fintechCount}% Fin' Crime: {$fcrimeCount}%");
+       echo json_encode("Cyber: {$cyberCount}%  Data: {$dataCount}%  Digital Assets: {$digitalAssetsCount}%  OpRes: {$OpResCount}% Fintech: {$fintechCount}% Fin' Crime: {$fcrimeCount}% Tech' Risk: {$techRiskCount}%");
     }
     public function theme() {
         $_POST = json_decode(file_get_contents("php://input"), true);
