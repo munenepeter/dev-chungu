@@ -16,7 +16,8 @@ class PagesController extends Controller {
             ['category' => 'devs-talk', 'name' => "api", 'description' => 'Demo API endpoints for Devs talk'],
             ['category' => 'law', 'name' => "case-law-search", 'description' => 'A simple Case Search with highlights'],
             ['category' => 'personal', 'name' => "clive", 'description' => 'A simple Insurance system'],
-            ['category' => 'personal', 'name' => "board-room", 'description' => 'A board room scheduling mini-system']
+            ['category' => 'personal', 'name' => "board-room", 'description' => 'A board room scheduling mini-system'],
+            ['category' => 'personal', 'name' => "poems", 'description' => 'All my poems in one place :)']
 
         ];
         return view('projects', [
