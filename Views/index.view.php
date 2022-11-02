@@ -7,12 +7,12 @@ include_once 'sections/nav.view.php';
 <header class="h-full flex justify-between w-full bg-gray-600 bg-cover bg-blend-overlay" style="height: 94vh; background-image: url('https://media.wired.com/photos/621575377d11d746344b5a72/191:100/w_2287,h_1197,c_limit/Business_Person%20Working%20on%20Laptop_1302475706.jpg');">
     <!-- Main div -->
     <div class="xl:w-2/4 mt-8 lg:mb-28 lg:mt-28  lg:ml-12 lg:text-left text-center  items-center">
-        <div class=" text-4xl lg:text-6xl font-semibold text-white leading-none text-center md:text-left lg:text-left">
+        <div class=" text-4xl lg:text-6xl font-semibold text-yellow-200 leading-none text-center md:text-left lg:text-left">
             Modern Web solutions for you business</div>
-        <div class="mt-6 text-xl font-light text-gray-200 antialiased text-center md:text-left lg:text-left">
-            We are a team of digital experts equipped to help your dream solution become a reality.
+        <div class="mt-6 text-xl font-light text-yellow-100 antialiased text-center md:text-left lg:text-left">
+            We are a team of digital experts equipped with skills to help your dream solution become a reality.
         </div>
-        <button class="mb-4  mt-4 lg:mt-12 px-16 lg:px-6 py-2 lg:py-2  text-base rounded font-normal tracking-wide bg-yellow-500 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
+        <button class="mb-4  mt-4 lg:mt-12 px-16 lg:px-8 py-2 lg:py-3  rounded font-semibold tracking-wide bg-yellow-500 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
             Hire Us
         </button>
     </div>
