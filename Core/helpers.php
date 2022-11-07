@@ -341,7 +341,7 @@ function asset($dir) {
     // echo url();
     $root_url = substr(url(), 0, strpos(url(), $_SERVER['REQUEST_URI']));
 
-    echo  $root_url . "/static/$dir";
+    echo $root_url. "/static/$dir";
 }
 function get_perc($total, $number) {
     if ($total > 0) {
