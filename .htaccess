@@ -6,7 +6,7 @@
    RewriteRule ^ static%{REQUEST_URI} [L]
 
 
-   #RewriteRule ^(.*\.(woff|ttf|svg|js|ico|gif|jpg|png|css|htc|xml|txt))$ /static/$1
+   RewriteRule ^(.*\.(woff|ttf|svg|js|ico|gif|jpg|png|css|htc|xml|txt))$ /static/$1
    
    RewriteCond %{HTTPS} off
    RewriteRule ^(.*)$ https://%{HTTP_HOST}%
