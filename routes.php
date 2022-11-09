@@ -12,6 +12,8 @@ $router->post('projects/jwg/scrapword', 'ScrapwordController@add');
 $router->post('projects/jwg/scrapword/theme', 'ScrapwordController@theme');
 //get-links
 $router->get('projects/jwg/get-links', 'GetLinksController@index');
+//leg-initia
+$router->get('projects/jwg/leg-initia', 'LegislativeController@index');
 //excel-to-json
 $router->get('projects/jwg/excel-to-json', 'ExcelJsonController@index');
 $router->post('projects/jwg/excel-to-json', 'ExcelJsonController@create');
