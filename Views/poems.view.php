@@ -18,7 +18,7 @@ include_once 'sections/nav.view.php';
        <div class="container mx-auto my-12 px-4 sm:px-0">
               <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                      <?php for ($i = 0; $i < 22; $i++) : ?>
-                            <div class="flex justify-center border-2 border-rose-200 rounded-xl p-6 bg-rose-50">
+                            <div class="flex justify-center border-2 border-rose-800 rounded-xl p-6 bg-rose-50">
                                    <article>
                                           <h1 class=" text-5xl text-rose-600">Title</h1>
                                           <p class="pt-4 text-md text-rose-300">Lorem ipsum dolor, sit amet consectetur adipisi....</p>
