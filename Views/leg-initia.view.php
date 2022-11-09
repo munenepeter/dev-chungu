@@ -22,11 +22,11 @@ include_once 'sections/nav.view.php';
                                    Log
                             </button>
                      </div>
-                     <section id="lis" class="overflow-y-auto h-80"> 
-                                   <div v-for="LI in filteredData" class="mt-4 border-b border-gray-100">
-                                          <div class="text-sm font-medium text-gray-900">{{LI.name}}</div>
-                                          <div class="text-sm text-gray-500">{{ LI.abbr }}</div>
-                                   </div> 
+                     <section id="lis" class="overflow-y-auto h-80">
+                            <div v-for="LI in filteredData" class="mt-4 border-b border-gray-100">
+                                   <div class="text-sm font-medium text-gray-900" v-html="LI.name"></div>
+                                   <div class="text-sm text-gray-500">{{ LI.abbr }}</div>
+                            </div>
                      </section>
 
 
@@ -51,56 +51,58 @@ include_once 'sections/nav.view.php';
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script>
-        new Vue({
-            el: '#main',
+<script>
+       new Vue({
+              el: '#main',
 
-            data: {
-                searchString: "",
-                name: '',
-                abbr: '',
-                //the array of all the LI's  
-                lis: [],
-                msg: "Your Copied LI will appear here"
-            },
-            mounted() {
-                this.GetData();
-            },
-            methods: {
-                GetData() {
-                    fetch("https://munenepeter.github.io/my-file-tracker/data/datas.json")
-                        .then(response => response.json())
-                        .then((data) => {
-                            this.lis = data;
-                        });
-                },
-            },
-            computed: {
-                // A computed property that holds only those data that match the searchString.
+              data: {
+                     searchString: "",
+                     name: '',
+                     abbr: '',
+                     //the array of all the LI's  
+                     lis: [],
+                     msg: "Your Copied LI will appear here"
+              },
+              mounted() {
+                     this.GetData();
+              },
+              methods: {
+                     GetData() {
+                            fetch("https://munenepeter.github.io/my-file-tracker/data/datas.json")
+                                   .then(response => response.json())
+                                   .then((data) => {
+                                          this.lis = data;
+                                   });
+                     },
+              },
+              computed: {
+                     // A computed property that holds only those data that match the searchString.
 
-                filteredData: function () {
-                    var search_array = this.lis,
-                        searchString = this.searchString;
+                     filteredData: function() {
+                            var search_array = this.lis,
+                                   searchString = this.searchString;
 
-                    if (!searchString) {
-                        return search_array;
-                    }
+                            if (!searchString) {
+                                   return search_array;
+                            }
 
-                    searchString = searchString.trim().toLowerCase();
+                            searchString = searchString.trim().toLowerCase();
 
-                    search_array = search_array.filter(item => {
-                        if (item.abbr.toLowerCase().indexOf(searchString) !== -1 || item.name
-                            .toLowerCase().indexOf(searchString) !== -1) {
-                            return item;
-                        }
-                    })
+                            search_array = search_array.filter(item => {
+                                   if (item.abbr.toLowerCase().indexOf(searchString) !== -1 || item.name
+                                          .toLowerCase().indexOf(searchString) !== -1) {
+                                          item.name = '<span class="text-rose-700">'+item.name+'</span>';
+                                          return item;
+                                          
+                                   }
+                            })
 
-                    // Return an array with the filtered data.
-                    return search_array;
-                }
-            }
-        });
-    </script>
+                            // Return an array with the filtered data.
+                            return search_array;
+                     }
+              }
+       });
+</script>
 </body>
 
 </html>
