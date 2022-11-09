@@ -14,7 +14,7 @@ include_once 'sections/nav.view.php';
                      </svg>
               </div>
 
-              <div class="bg-white shadow-xl p-3 rounded-xl mt-10">
+              <div class="bg-white shadow-xl p-4 rounded-xl mt-10">
 
                      <div class="flex items-center justify-between font-semibold border-b border-gray-100 space-x-64 ">
                             <span>10,000 LIs</span>
