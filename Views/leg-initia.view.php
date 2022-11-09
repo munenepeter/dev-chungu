@@ -91,7 +91,7 @@ include_once 'sections/nav.view.php';
                             search_array = search_array.filter(item => {
                                    if (item.abbr.toLowerCase().indexOf(searchString) !== -1 || item.name
                                           .toLowerCase().indexOf(searchString) !== -1) {
-                                          item.name = '<span class="text-rose-700">'+item.name+'</span>';
+                                       //   item.name = '<span class="text-rose-700">'+item.name+'</span>';
                                           return item;
                                           
                                    }
