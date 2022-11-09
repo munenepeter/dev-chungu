@@ -1,4 +1,4 @@
-<nav class="bg-gray-100">
+<nav class="bg-rose-50">
   <div class=" px-4">
     <div class="flex justify-between">
 
@@ -25,7 +25,7 @@
 
       <!-- secondary nav -->
       <div class="hidden md:flex items-center space-x-1">
-        <a href="" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Hire Us</a>
+        <a href="" class="py-2 px-3 bg-rose-400 hover:bg-rose-300 text-rose-900 hover:text-rose-800 rounded transition duration-300">Hire Us</a>
       </div>
 
       <!-- mobile button goes here -->

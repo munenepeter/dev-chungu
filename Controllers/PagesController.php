@@ -11,11 +11,11 @@ class PagesController extends Controller {
     public function projects() {
         $projects = [
             ['category' => 'jwg', 'name' => "scrapword", 'description' => 'Searching for Keywords on a webpage'],
-            ['category' => 'jwg', 'name' => "excel-to-json", 'description' => 'Convert Excel to JSON'],
+            ['category' => 'jwg', 'name' => "excel-to-json", 'description' => 'Convert an Excel doc to JSON'],
             ['category' => 'jwg', 'name' => "get-links", 'description' => 'Get all the urls of a webpage'],
             ['category' => 'devs-talk', 'name' => "api", 'description' => 'Demo API endpoints for Devs talk'],
             ['category' => 'law', 'name' => "case-law-search", 'description' => 'A simple Case Search with highlights'],
-            ['category' => 'personal', 'name' => "clive", 'description' => 'A simple Insurance system'],
+            ['category' => 'personal', 'name' => "clive", 'description' => 'A simple (insurer) Insurance system'],
             ['category' => 'personal', 'name' => "board-room", 'description' => 'A board room scheduling mini-system'],
             ['category' => 'personal', 'name' => "poems", 'description' => 'All my poems in one place :)']
 
