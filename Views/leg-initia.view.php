@@ -17,8 +17,7 @@ include_once 'sections/nav.view.php';
        }
 </style>
 <div class="grid place-items-center bg-gray-100" id="main">
-
-       <div class="max-w-lg bg-gray-100  px-8 py-14 sm:px-12">
+       <div class="max-w-sm md:max-w-lg bg-gray-100 px-4 md:px-8 py-14">
               <div class="relative bg-white flex-auto border-none rounded-xl ">
                      <input type="search" aria-label="Search all icons" placeholder="Search all Legislative initiatives..." class="block w-full appearance-none border-none  rounded-xl bg-transparent  pr-4 pl-10 text-base text-slate-900 transition placeholder:text-slate-400 focus:outline-none focus:ring-0" v-model="searchString">
 
@@ -26,20 +25,20 @@ include_once 'sections/nav.view.php';
                             <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
                      </svg>
               </div>
-
               <div class="bg-white shadow-xl pl-4 pb-2 pt-4 rounded-xl mt-10">
-
-                     <div class="flex items-center justify-between font-semibold border-b border-gray-100 space-x-64 ">
-                            <span>{{filteredData.length}} LIs</span>
+                     <div class="flex items-center justify-between font-semibold border-b border-gray-100 space-x-16 md:space-x-64 ">
                             <button type="button" class="mb-2 inline-flex justify-center rounded-md px-1 -mr-1 bg-white text-sm leading-5 font-medium text-blue-500 hover:text-gray-600" id="options-menu" aria-haspopup="true" aria-expanded="true">
-                                   Log
+                                   Add LI
+                            </button>
+                            <button type="button" class="mb-2 inline-flex justify-center rounded-md px-1 -mr-1 bg-white text-sm leading-5 font-medium text-blue-500 hover:text-gray-600" id="options-menu" aria-haspopup="true" aria-expanded="true">
+                                   View Log
                             </button>
                      </div>
                      <section id="lis" class="overflow-y-auto h-80 scrollbar-hide">
-                            <div v-for="LI in filteredData" class="pt-4 border-b border-gray-100 flex justify-between group/item">
-                                   <div id="lidata">
-                                          <div class="text-sm font-medium text-gray-900" v-html="LI.name"></div>
-                                          <div class="text-sm text-gray-500">{{ LI.abbr }}</div>
+                            <div v-for="LI in filteredData" class="pt-4 border-b border-gray-100 flex justify-between group/item hover:bg-gray-50">
+                                   <div id="lidata" class="cursor-pointer">
+                                          <p class="text-sm font-medium text-gray-900" v-html="LI.name"></p>
+                                          <span class="text-sm text-gray-500" v-html="LI.abbr"></span>
                                    </div>
                                    <div id="icons" class="invisible group-hover/item:visible flex flex-col justify-center -mt-4 bg-gray-100 rounded-l-full p-4  space-y-4">
                                           <span>
@@ -55,20 +54,13 @@ include_once 'sections/nav.view.php';
                                    </div>
                             </div>
                      </section>
+                     <div class="flex items-center justify-center font-semibold border-t border-gray-100">
+                            <span class="text-center">Found a total of {{filteredData.length}} LIs</span>
 
-
+                     </div>
               </div>
        </div>
-
 </div>
-
-
-
-
-
-
-
-
 
 <div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
        <div class="text-gray-900 text-sm text-center">
