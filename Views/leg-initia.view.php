@@ -55,7 +55,7 @@ include_once 'sections/nav.view.php';
                             </div>
                      </section>
                      <div class="flex items-center justify-center font-semibold border-t border-gray-100">
-                            <span class="text-center">Found a total of {{filteredData.length}} LIs</span>
+                            <span class="text-center">Found a total 0f {{filteredData.length}} LIs</span>
 
                      </div>
               </div>
