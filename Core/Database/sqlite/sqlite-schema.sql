@@ -1,11 +1,13 @@
 CREATE TABLE `lis` 
-(
+(    `id` integer PRIMARY KEY AUTOINCREMENT,
     `username`	varchar(300),
     `name`	varchar(300),
     `abbr`	varchar(300),
     `created_at`	varchar(300),
     `updated_at`	varchar(300)
 );
+
+drop table `lis`;
 
 INSERT INTO `lis` (`username`, `name`, `abbr`, `created_at`, `updated_at`) VALUES ('Peter', 'ASIC Derivative Transaction Rules (Reporting) 2013', 'ASIC Corporations Derivative Transaction Reporting,ASIC Derivative Transaction Rules,Derivative Transaction Rules 2013', '11/11/22 0:00', '11/11/22 0:00');
 INSERT INTO `lis` (`username`, `name`, `abbr`, `created_at`, `updated_at`) VALUES ('Peter', 'Corporations Act 2001', 'CA 2001,Corporations Act', '11/11/22 0:00', '11/11/22 0:00');

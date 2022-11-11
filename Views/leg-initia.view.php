@@ -139,10 +139,10 @@ include_once 'sections/nav.view.php';
               },
               methods: {
                      GetData() {
-                            fetch("https://munenepeter.github.io/my-file-tracker/data/datas.json")
+                            fetch("/projects/jwg/leg-initia/all")
                                    .then(response => response.json())
                                    .then((data) => {
-                                          this.lis = data;
+                                          this.lis = data.data[0];
                                    });
                      },
               },
