@@ -3,7 +3,7 @@
 namespace Chungu\Controllers;
 
 
-class DevsController {
+class DevsController extends Controller {
 
     public $users =   [
         [
@@ -44,10 +44,6 @@ class DevsController {
         ]
     ];
 
-    private function json($status, ...$values) {
-        header('Content-Type: application/json; charset=utf-8');
-        return json_encode(["status" => $status, "data" => $values]);
-    }
     public function index() {
 
         return view('api');

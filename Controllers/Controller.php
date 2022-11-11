@@ -2,9 +2,7 @@
 
 namespace Chungu\Controllers;
 
-use Chungu\Core\Mantle\Middleware;
-use Chungu\Models\Product;
-use Chungu\Models\Category;
+use Chungu\Core\Mantle\Middleware; 
 use Chungu\Core\Mantle\Request;
 use Chungu\Core\Mantle\Paginator;
 
@@ -22,6 +20,10 @@ class Controller {
     }
     public function paginate(array $data, $per_page) {
         return Paginator::paginate($data, $per_page);
+    }
+    public function json($status, ...$values) {
+        header('Content-Type: application/json; charset=utf-8');
+        return json_encode(["status" => $status, "data" => $values]);
     }
    
 }
