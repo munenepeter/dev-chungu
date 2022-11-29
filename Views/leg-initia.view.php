@@ -17,8 +17,8 @@ include_once 'sections/nav.view.php';
        }
 </style>
 <?php
-
-dd(Chungu\Models\Li::all())
+echo count(Chungu\Models\Li::all());
+dd(Chungu\Models\Li::all());
 ?>
 <div class="grid place-items-center bg-gray-100" id="main">
        <div class="max-w-sm md:max-w-lg bg-gray-100 px-4 md:px-8 py-14">
