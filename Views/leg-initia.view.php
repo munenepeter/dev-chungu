@@ -16,6 +16,9 @@ include_once 'sections/nav.view.php';
               /* Firefox */
        }
 </style>
+<script>
+
+</script>
 <div class="grid place-items-center bg-gray-100" id="main">
        <div class="max-w-sm md:max-w-lg bg-gray-100 px-4 md:px-8 py-14">
               <div class="relative bg-white flex-auto border-none rounded-xl ">
@@ -89,8 +92,10 @@ include_once 'sections/nav.view.php';
                      <section id="lis" class="overflow-y-auto h-80 scrollbar-hide">
                             <div v-for="LI in filteredData" class="pt-4 border-b border-gray-100 flex justify-between group/item hover:bg-gray-50">
                                    <div id="lidata" class="cursor-pointer">
-                                          <p class="text-sm font-medium text-gray-900" v-html="LI.name"></p>
-                                          <span class="text-sm text-gray-500" v-html="LI.abbr"></span>
+                                          <p class="text-sm font-medium text-rose-900" v-html="LI.name"></p>
+                                          <span class="text-sm text-rose-500" v-html="LI.abbr"></span>
+                                          <br>
+                                          <span class="text-xs text-rose-300" v-html="timeSince(LI.updated_at)"></span>
                                    </div>
                                    <div id="icons" class="invisible group-hover/item:visible flex flex-col justify-center -mt-4 bg-gray-100 rounded-l-full p-4  space-y-4">
                                           <span>
@@ -144,6 +149,38 @@ include_once 'sections/nav.view.php';
                                    .then((data) => {
                                           this.lis = data.data[0];
                                    });
+                     },
+                     timeSince(date) {
+                            let intervals = [{
+                                          label: 'yr',
+                                          seconds: 31536000
+                                   },
+                                   {
+                                          label: 'mo',
+                                          seconds: 2592000
+                                   },
+                                   {
+                                          label: 'dy',
+                                          seconds: 86400
+                                   },
+                                   {
+                                          label: 'hr',
+                                          seconds: 3600
+                                   },
+                                   {
+                                          label: 'min',
+                                          seconds: 60
+                                   },
+                                   {
+                                          label: 'sec',
+                                          seconds: 1
+                                   }
+                            ];
+                            let adate = new Date(date);
+                            const seconds = Math.floor((Date.now() - adate.getTime()) / 1000);
+                            const interval = intervals.find(i => i.seconds < seconds);
+                            const count = Math.floor(seconds / interval.seconds);
+                            return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
                      },
               },
               computed: {
