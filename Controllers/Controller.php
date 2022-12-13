@@ -21,10 +21,10 @@ class Controller {
     public function paginate(array $data, $per_page) {
         return Paginator::paginate($data, $per_page);
     }
-    public function json(...$values) {
+    public function json($values) {
         header('Content-Type: application/json; charset=utf-8');
         //header('Access-Control-Allow-Origin : *;');
-        return json_encode($values);
+        echo json_encode($values);
     }
    
 }
