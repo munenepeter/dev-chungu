@@ -20,9 +20,14 @@ include_once 'sections/nav.view.php';
 echo count(Chungu\Models\Li::all());
 //dd(Chungu\Models\Li::all());
 
-foreach (Chungu\Models\Li::all() as $li) {
-       echo $li->name . '<br>';
-}
+foreach (getallheaders() as $name => $value) {
+       echo "$name: $value <br>";
+   }
+   echo "-------------------------------------------------------------<br>";
+foreach (apache_response_headers() as $name => $value) {
+       echo "$name: $value <br>";
+   }
+   
 ?>
 <div class="grid place-items-center bg-gray-100" id="main">
        <div class="max-w-sm md:max-w-lg bg-gray-100 px-4 md:px-8 py-14">
@@ -137,7 +142,7 @@ foreach (Chungu\Models\Li::all() as $li) {
        axios.get('/projects/jwg/leg-initia/all')
               .then(function(response) {
                      // handle success
-                     console.log(response.data.data[0]);
+                     console.log(response.data);
               })
               .catch(function(error) {
                      // handle error
@@ -169,8 +174,8 @@ foreach (Chungu\Models\Li::all() as $li) {
                             fetch("/projects/jwg/leg-initia/all")
                                    .then(response => response.json())
                                    .then((data) => {
-                                          this.lis = data.data[0];
-                                          console.log(this.lis);
+                                          this.lis = data;
+                                          console.log(data);
                                    });
                      },
                      timeSince(date) {
