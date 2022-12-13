@@ -15,6 +15,8 @@ $router->get('projects/jwg/get-links', 'GetLinksController@index');
 //leg-initia
 $router->get('projects/jwg/leg-initia', 'LegislativeController@index');
 $router->get('projects/jwg/leg-initia/all', 'LegislativeController@allLis');
+//leg-search
+$router->get('projects/jwg/leg-search', 'LISearchController@index');
 //excel-to-json
 $router->get('projects/jwg/excel-to-json', 'ExcelJsonController@index');
 $router->post('projects/jwg/excel-to-json', 'ExcelJsonController@create');
