@@ -351,7 +351,7 @@ function get_perc($total, $number) {
     }
 }
 
-function logger($level, $message) {
+function logger(String $level, String $message) {
     Logger::log($level, $message);
 }
 
