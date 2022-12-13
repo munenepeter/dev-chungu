@@ -12,7 +12,7 @@ include_once 'sections/nav.view.php';
         <p class=" text-green-500 font-semibold">Searching for Keywords</p>
         <form action="" method="get">
             <div class="mb-2">
-                <div contenteditable="true" class="h-96 p-2 overflow-y-auto rounded-lg border border-gray-200 shadow-md">
+                <div contenteditable="true" class="h-96 p-2 overflow-y-auto rounded-lg border border-gray-200 shadow-md focus:ring-4 focus:outline-none">
                     <span style="color: #aaa;">Simply paste your rich-text content in here or scroll down to learn more</span>
                 </div>
                 <div class="my-1 text-sm text-left text-gray-500">Only links to actual websites and links to pdf docs will work</div>
