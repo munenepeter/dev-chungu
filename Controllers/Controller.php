@@ -23,6 +23,7 @@ class Controller {
     }
     public function json($status, ...$values) {
         header('Content-Type: application/json; charset=utf-8');
+        header('Access-Control-Allow-Origin : *;');
         return json_encode(["status" => $status, "data" => $values]);
     }
    
