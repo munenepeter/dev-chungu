@@ -14,7 +14,7 @@ class Connection {
             } else {
                 //in prod mode
                 return new \PDO(
-                    $config['connection'] . ';dbname=' . $config['name'],
+                    $config['connection'] . ';dbname=' . $config['name'] .';charset=utf8mb4',
                     $config['username'],
                     $config['password'],
                     $config['options']

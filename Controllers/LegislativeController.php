@@ -10,8 +10,10 @@ class LegislativeController extends Controller {
         return view('leg-initia');
     }
     public function allLis() {
-        logger("INFO", "I'm here  " . Request::uri());
-        logger("INFO", "Got " . count(Li::all()));
-        $this->json(Li::all());
+
+        echo json_encode(Li::all());
+        // logger("INFO", "I'm here  " . Request::uri());
+        // logger("INFO", "Got " . count(Li::all()));
+        // $this->json(Li::all());
     }
 }
