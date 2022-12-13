@@ -21,7 +21,7 @@ echo count(Chungu\Models\Li::all());
 //dd(Chungu\Models\Li::all());
 
 foreach (Chungu\Models\Li::all() as $li) {
-    echo $li->name . '<br>';
+       echo $li->name . '<br>';
 }
 ?>
 <div class="grid place-items-center bg-gray-100" id="main">
@@ -130,7 +130,23 @@ foreach (Chungu\Models\Li::all() as $li) {
        </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+<script>
+       // Make a request for a user with a given ID
+       axios.get('/projects/jwg/leg-initia/all')
+              .then(function(response) {
+                     // handle success
+                     console.log(response.data.data[0]);
+              })
+              .catch(function(error) {
+                     // handle error
+                     console.log(error);
+              })
+              .then(function() {
+                     // always executed
+              });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script>
        new Vue({
@@ -146,6 +162,7 @@ foreach (Chungu\Models\Li::all() as $li) {
               },
               mounted() {
                      this.GetData();
+
               },
               methods: {
                      GetData() {
@@ -153,6 +170,7 @@ foreach (Chungu\Models\Li::all() as $li) {
                                    .then(response => response.json())
                                    .then((data) => {
                                           this.lis = data.data[0];
+                                          console.log(this.lis);
                                    });
                      },
                      timeSince(date) {
