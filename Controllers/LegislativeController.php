@@ -9,6 +9,6 @@ class LegislativeController extends Controller {
         return view('leg-initia');
     }
     public function allLis() {
-        echo $this->json("Ok", Li::all());
+        echo $this->json(Li::all());
     }
 }
