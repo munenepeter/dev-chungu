@@ -16,19 +16,7 @@ include_once 'sections/nav.view.php';
               /* Firefox */
        }
 </style>
-<?php
-echo count(Chungu\Models\Li::all());
-//dd(Chungu\Models\Li::all());
 
-foreach (getallheaders() as $name => $value) {
-       echo "$name: $value <br>";
-   }
-   echo "-------------------------------------------------------------<br>";
-foreach (apache_response_headers() as $name => $value) {
-       echo "$name: $value <br>";
-   }
-   
-?>
 <div class="grid place-items-center bg-gray-100" id="main">
        <div class="max-w-sm md:max-w-lg bg-gray-100 px-4 md:px-8 py-14">
               <div class="relative bg-white flex-auto border-none rounded-xl ">
@@ -135,23 +123,6 @@ foreach (apache_response_headers() as $name => $value) {
        </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-<script>
-       // Make a request for a user with a given ID
-       axios.get('/projects/jwg/leg-initia/all')
-              .then(function(response) {
-                     // handle success
-                     console.log(response.data);
-              })
-              .catch(function(error) {
-                     // handle error
-                     console.log(error);
-              })
-              .then(function() {
-                     // always executed
-              });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script>
        new Vue({
@@ -175,7 +146,6 @@ foreach (apache_response_headers() as $name => $value) {
                                    .then(response => response.json())
                                    .then((data) => {
                                           this.lis = data;
-                                          console.log(data);
                                    });
                      },
                      timeSince(date) {
