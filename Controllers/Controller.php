@@ -24,7 +24,7 @@ class Controller {
     public function json($values) {
         header('Content-Type: application/json; charset=utf-8');
         //header('Access-Control-Allow-Origin : *;');
-        echo json_encode($values);
+        echo json_encode($values, JSON_UNESCAPED_UNICODE);
     }
    
 }

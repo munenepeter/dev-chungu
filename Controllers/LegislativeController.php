@@ -11,9 +11,6 @@ class LegislativeController extends Controller {
     }
     public function allLis() {
 
-        echo json_encode(Li::all());
-        // logger("INFO", "I'm here  " . Request::uri());
-        // logger("INFO", "Got " . count(Li::all()));
-        // $this->json(Li::all());
+        $this->json(Li::all());
     }
 }
