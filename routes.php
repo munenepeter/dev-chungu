@@ -14,7 +14,8 @@ $router->post('projects/jwg/scrapword/theme', 'ScrapwordController@theme');
 $router->get('projects/jwg/get-links', 'GetLinksController@index');
 //leg-initia
 $router->get('projects/jwg/leg-initia', 'LegislativeController@index');
-$router->get('projects/jwg/leg-initia/all', 'LegislativeController@allLis');
+$router->post('projects/jwg/leg-initia', 'LegislativeController@create');
+$router->get('projects/jwg/leg-initia/all', 'LegislativeController@show');
 //leg-search
 $router->get('projects/jwg/leg-search', 'LISearchController@index');
 //excel-to-json

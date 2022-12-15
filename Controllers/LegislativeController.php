@@ -9,8 +9,16 @@ class LegislativeController extends Controller {
     public function index() {
         return view('leg-initia');
     }
-    public function allLis() {
+    public function create() {
+          //create an LI
 
+          LI::create(
+            $_REQUEST
+          );
+        $this->json($_REQUEST);
+    }
+    public function show() {
         $this->json(Li::all());
     }
+ 
 }

@@ -355,6 +355,10 @@ function logger(String $level, String $message) {
     Logger::log($level, $message);
 }
 
+function request(String $key) {
+    return htmlspecialchars(trim($_REQUEST[$key])) ?? NULL;
+}
+
 function get_notifications() {
     if (empty(Session::get("notifications"))) {
         return [];

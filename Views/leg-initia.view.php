@@ -52,7 +52,7 @@ include_once 'sections/nav.view.php';
                                                                </button>
                                                         </div>
                                                         <!-- Modal body -->
-                                                        <form action="#">
+                                                        <form id="addLi">
                                                                <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                                                       <div class="sm:col-span-2">
                                                                              <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
@@ -93,7 +93,7 @@ include_once 'sections/nav.view.php';
                                           <p class="text-sm font-medium text-rose-900" v-html="LI.name"></p>
                                           <span class="text-sm text-rose-500" v-html="LI.abbr"></span>
                                           <br>
-                                          <span class="text-xs text-rose-300" v-html="timeSince(LI.updated_at)"></span>
+                                          <span class="text-xs text-rose-300" v-html="timeSince(LI.updated_at) + '  <b>click to copy</b>'"></span>
                                    </div>
                                    <div id="icons" class="invisible group-hover/item:visible flex flex-col justify-center -mt-4 bg-gray-100 rounded-l-full p-4  space-y-4">
                                           <span>
@@ -115,7 +115,7 @@ include_once 'sections/nav.view.php';
                      </div>
               </div>
        </div>
-      
+
 </div>
 
 <div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
@@ -123,8 +123,10 @@ include_once 'sections/nav.view.php';
               <div class="my-2 text-center">&copy; 2020 - <?= date('Y') ?> All rights reserved | Chungu Developers</div>
        </div>
 </div>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+
 <script>
        new Vue({
               el: '#main',
@@ -208,6 +210,29 @@ include_once 'sections/nav.view.php';
                             return search_array;
                      }
               }
+       });
+
+
+       // Get the form element
+       const form = document.getElementById("addLi");
+
+       // Attach an event listener to the form's submit event
+       form.addEventListener("submit", function(event) {
+              // Prevent the default submit action
+              event.preventDefault();
+
+              // Get the form data
+              const formData = new FormData(form);
+
+              // Send a POST request to the server with the form data
+              axios.post("/projects/jwg/leg-initia", formData)
+                     .then(function(response) {
+                            // Handle the successful response from the server
+                            console.log(response);
+                     })
+                     .catch(function(error) {
+                            // Handle any errors that occurred during the request
+                     });
        });
 </script>
 </body>
