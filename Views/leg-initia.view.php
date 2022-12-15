@@ -115,6 +115,7 @@ include_once 'sections/nav.view.php';
                      </div>
               </div>
        </div>
+      
 </div>
 
 <div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
