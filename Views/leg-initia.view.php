@@ -111,9 +111,9 @@ include_once 'sections/nav.view.php';
                                                         <div class="flex justify-between mb-4 rounded-t sm:mb-5">
                                                                <div class="text-lg text-gray-900 md:text-xl dark:text-white">
                                                                       <?php
-                                                                      foreach(getLogs() as $log){
-                                                                          echo 
-                                                                          '<p class="text-sm font-medium text-rose-900">'.$log.'</p>';
+                                                                      foreach (getLogs() as $log) {
+                                                                             echo
+                                                                             '<p class="text-sm font-medium text-rose-900">' . $log . '</p>';
                                                                       }
                                                                       ?>
                                                                </div>
