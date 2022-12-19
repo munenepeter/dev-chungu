@@ -26,11 +26,12 @@ class LegislativeController extends Controller {
             'updated_at' => date('Y-m-d H:i:s', time())
         ]);
 
-        lilog($this->request()->form('username'). " Added ". $this->request()->form('name'));
+        lilog($this->request()->form('username') . " Added " . $this->request()->form('name'));
 
         $this->json($_REQUEST);
     }
     public function show() {
         $this->json(Li::all());
     }
+   
 }

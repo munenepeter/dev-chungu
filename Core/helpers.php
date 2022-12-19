@@ -111,12 +111,27 @@ function request_uri() {
 
 function lilog(String $msg) {
 
-    $msg = json_encode(["On " . date('Y-m-d H:i:s', time()) . " " .$msg]) . PHP_EOL;
+    $msg = "On " . date('Y-m-d H:i:s', time()) . " " . $msg . PHP_EOL;
     $logFile =  __DIR__ . "/../static/files/li.log";
 
     $file = fopen($logFile, 'a+', 1);
     fwrite($file, $msg);
     fclose($file);
+}
+function getLogs() {
+    $log = "static/files/li.log";
+
+    if (!file_exists($log)) {
+        echo "File Does not exist, call the developer!";
+        exit;
+    }
+    $data = file_get_contents($log);
+
+    $logs = explode(PHP_EOL, $data);
+
+    array_pop($logs);
+
+    return array_reverse($logs);
 }
 
 function getRandColor() {
