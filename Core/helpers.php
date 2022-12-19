@@ -109,6 +109,16 @@ function request_uri() {
     return Request::uri();
 }
 
+function lilog(String $msg) {
+
+    $msg = json_encode(["On " . date('Y-m-d H:i:s', time()) . " " .$msg]) . PHP_EOL;
+    $logFile =  __DIR__ . "/../static/files/li.log";
+
+    $file = fopen($logFile, 'a+', 1);
+    fwrite($file, $msg);
+    fclose($file);
+}
+
 function getRandColor() {
     $rgbColor = [];
     foreach (['r', 'g', 'b'] as $color) {
@@ -341,7 +351,7 @@ function asset($dir) {
     // echo url();
     $root_url = substr(url(), 0, strpos(url(), $_SERVER['REQUEST_URI']));
 
-    echo $root_url. "/static/$dir";
+    echo $root_url . "/static/$dir";
 }
 function get_perc($total, $number) {
     if ($total > 0) {

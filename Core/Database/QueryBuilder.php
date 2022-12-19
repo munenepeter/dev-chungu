@@ -155,7 +155,7 @@ class QueryBuilder {
       $statement = $this->pdo->prepare($sql);
       $statement->execute($parameters);
 
-      logger("Info", '<b>' . ucfirst(auth()->username) . '</b>' . " Inserted a new record to {$table} table ");
+      logger("Info", '<b>' . ucfirst(auth()->username ?? "Someone") . '</b>' . " Inserted a new record to {$table} table ");
     } catch (\Exception $e) {
 
       logger("Error", '<b>' . $e->getMessage() . '</b>' . PHP_EOL . " $sql ");

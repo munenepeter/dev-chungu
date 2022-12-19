@@ -52,7 +52,7 @@ include_once 'sections/nav.view.php';
                                                                </button>
                                                         </div>
                                                         <!-- Modal body -->
-                                                        <form id="addLi">
+                                                        <form id="addLi" action="/projects/jwg/leg-initia" method="POST">
                                                                <div class="grid gap-4 mb-4 sm:grid-cols-2">
                                                                       <div class="sm:col-span-2">
                                                                              <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
@@ -61,15 +61,15 @@ include_once 'sections/nav.view.php';
 
                                                                       <div class="sm:col-span-2">
                                                                              <label for="liname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Legislative initiative Name</label>
-                                                                             <input type="text" name="liname" id="liname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-600 focus:border-rose-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500" placeholder="EBA Regulation" required="">
+                                                                             <input type="text" name="name" id="liname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-600 focus:border-rose-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500" placeholder="EBA Regulation" required="">
                                                                       </div>
 
                                                                       <div class="sm:col-span-2">
                                                                              <label for="liabbr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Legislative initiative Abbrevations</label>
-                                                                             <textarea id="liabbr" name="liabbr" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500" placeholder="Write your LI's pearl terms or abbrevations e.g. 1093/2010 (separated with a comma)"></textarea>
+                                                                             <textarea id="liabbr" name="abbr" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500" placeholder="Write your LI's pearl terms or abbrevations e.g. 1093/2010 (separated with a comma)"></textarea>
                                                                       </div>
                                                                </div>
-                                                               <button type="submit" class="text-white inline-flex items-center bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">
+                                                               <button id="addLiBtn" type="submit" class="text-white inline-flex items-center bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">
                                                                       <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                                              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
                                                                       </svg>
@@ -214,13 +214,13 @@ include_once 'sections/nav.view.php';
 
 
        // Get the form element
-       const form = document.getElementById("addLi");
+       const btn = document.getElementById("addLiBtn");
 
        // Attach an event listener to the form's submit event
-       form.addEventListener("submit", function(event) {
+       btn.addEventListener("click", function(event) {
               // Prevent the default submit action
               event.preventDefault();
-
+              const form = document.getElementById("addLi");
               // Get the form data
               const formData = new FormData(form);
 
