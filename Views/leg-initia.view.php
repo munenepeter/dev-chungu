@@ -202,8 +202,8 @@ include_once 'sections/nav.view.php';
               <div class="my-2 text-center">&copy; 2020 - <?= date('Y') ?> All rights reserved | Chungu Developers</div>
        </div>
 </div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+
 
 
 <script>
@@ -212,7 +212,6 @@ include_once 'sections/nav.view.php';
 
               data: {
                      searchString: "",
-                     showModal: false,
                      name: '',
                      abbr: '',
                      //the array of all the LI's  
