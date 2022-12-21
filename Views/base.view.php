@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
-
 </head>
 
 <body class="">
