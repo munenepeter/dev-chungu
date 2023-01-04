@@ -143,7 +143,7 @@ include_once 'sections/nav.view.php';
                                                         <p class="text-sm font-medium text-rose-900"><?= ucfirst($li->name); ?></p>
                                                         <span class="text-sm text-rose-500"><?= $li->abbr; ?></span>
                                                         <br>
-                                                        <span class="text-xs text-rose-300"></span>
+                                                        <span class="text-xs text-rose-300"><?= time_ago($li->updated_at); ?></span>
                                                  </div>
                                                  <div id="icons" class="invisible group-hover/item:visible flex flex-col justify-center -mt-4 bg-gray-100 rounded-l-full p-4  space-y-4">
                                                         <span>
@@ -209,7 +209,6 @@ include_once 'sections/nav.view.php';
 
 
 <script>
-
        // Get the form element
        const addBtn = document.getElementById("addLiBtn");
        const loadBtn = document.getElementById("loading");
