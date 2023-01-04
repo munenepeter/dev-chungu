@@ -261,7 +261,9 @@ include_once 'sections/nav.view.php';
 
                      })
                      .catch(function(error) {
-                            // Handle any errors that occurred during the request
+                            loadBtn.classList.add("hidden");
+                            addBtn.classList.remove("hidden");
+                            addBtn.innerHTML = error.message;
                      });
 
 
