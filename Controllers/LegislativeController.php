@@ -7,7 +7,7 @@ use Chungu\Core\Mantle\Request;
 
 class LegislativeController extends Controller {
     public function index() {
-        return view('leg-initia');
+        return view('leg-initia', ["lis" => Li::all()]);
     }
     public function create() {
         //create an LI
