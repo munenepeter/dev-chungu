@@ -176,6 +176,7 @@ include_once 'sections/nav.view.php';
                                                                                            <button data-modal-toggle="deleteModal<?= $li->id; ?>" type="button" class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                                                                                                   No, cancel
                                                                                            </button>
+
                                                                                            <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
                                                                                                   Yes, I'm sure
                                                                                            </button>
@@ -190,7 +191,7 @@ include_once 'sections/nav.view.php';
                             </section>
 
                             <div class="flex items-center justify-center font-semibold border-t border-gray-100">
-                                   <span class="text-center">Found a total of <?php echo  count($lis);?> LIs</span>
+                                   <span class="text-center">Found a total of <?php echo  count($lis); ?> LIs</span>
 
                             </div>
                      </div>
@@ -207,100 +208,22 @@ include_once 'sections/nav.view.php';
 
 
 
-
 <script>
-       new Vue({
-              el: '#main',
-
-              data: {
-                     searchString: "",
-                     name: '',
-                     abbr: '',
-                     //the array of all the LI's  
-                     lis: [],
-                     msg: "Your Copied LI will appear here"
-              },
-              mounted() {
-                     this.GetData();
-
-              },
-              methods: {
-                     GetData() {
-                            fetch("/projects/jwg/leg-initia/all")
-                                   .then(response => response.json())
-                                   .then((data) => {
-                                          this.lis = data;
-                                   });
-                     },
-                     timeSince(date) {
-                            let intervals = [{
-                                          label: 'yr',
-                                          seconds: 31536000
-                                   },
-                                   {
-                                          label: 'mo',
-                                          seconds: 2592000
-                                   },
-                                   {
-                                          label: 'dy',
-                                          seconds: 86400
-                                   },
-                                   {
-                                          label: 'hr',
-                                          seconds: 3600
-                                   },
-                                   {
-                                          label: 'min',
-                                          seconds: 60
-                                   },
-                                   {
-                                          label: 'sec',
-                                          seconds: 1
-                                   }
-                            ];
-                            let adate = new Date(date);
-                            const seconds = Math.floor((Date.now() - adate.getTime()) / 1000);
-                            const interval = intervals.find(i => i.seconds < seconds);
-                            const count = Math.floor(seconds / interval.seconds);
-                            return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
-                     },
-              },
-              computed: {
-                     // A computed property that holds only those data that match the searchString.
-
-                     filteredData: function() {
-                            var search_array = this.lis,
-                                   searchString = this.searchString;
-
-                            if (!searchString) {
-                                   return search_array;
-                            }
-
-                            searchString = searchString.trim().toLowerCase();
-
-                            search_array = search_array.filter(item => {
-                                   if (item.abbr.toLowerCase().indexOf(searchString) !== -1 || item.name
-                                          .toLowerCase().indexOf(searchString) !== -1) {
-                                          //   item.name = '<span class="text-rose-700">'+item.name+'</span>';
-                                          return item;
-
-                                   }
-                            })
-
-                            // Return an array with the filtered data.
-                            return search_array;
-                     }
-              }
-       });
-
 
        // Get the form element
        const addBtn = document.getElementById("addLiBtn");
        const loadBtn = document.getElementById("loading");
        const successBtn = document.getElementById("success");
 
+       function hideModal(id) {
+              setTimeout(() => {
+                     document.body.querySelector('[data-modal-toggle="' + id + '"]').click();
+              }, 3000);
+       }
+
        // Attach an event listener to the form's submit event
        addBtn.addEventListener("click", function(event) {
+
               addBtn.classList.add("hidden");
               loadBtn.classList.remove("hidden");
               // Prevent the default submit action
@@ -309,17 +232,24 @@ include_once 'sections/nav.view.php';
               // Get the form data
               const formData = new FormData(form);
 
-              // Send a POST request to the server with the form data
               axios.post("/projects/jwg/leg-initia", formData)
                      .then(function(response) {
-                            // Handle the successful response from the server
-                            console.log(response);
+                            //console.log(response);
                             loadBtn.classList.add("hidden");
                             successBtn.classList.remove("hidden");
+                            hideModal("defaultModal");
+                            setTimeout(function() {
+                                   form.reset();
+                                   successBtn.classList.add("hidden");
+                                   addBtn.classList.remove("hidden");
+                            }, 3000);
+
                      })
                      .catch(function(error) {
                             // Handle any errors that occurred during the request
                      });
+
+
        });
 </script>
 </body>
