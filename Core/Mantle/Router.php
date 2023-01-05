@@ -69,7 +69,7 @@ class Router {
                     ...explode('@', $this->routes[$requestType][$regexUri])
                 );
             } elseif (!array_key_exists($uri, $this->routes[$requestType])) {
-                throw new \Exception("Oops, you forgot to include <b>/{$uri}</b>, There is no such route! ", 404);
+                throw new \Exception("Oops, you forgot to include <b>". strtoupper($requestType)." /{$uri}</b>, There is no such route! ", 404);
                 exit;
                 
             } else {
