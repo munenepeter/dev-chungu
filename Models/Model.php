@@ -45,7 +45,7 @@ class Model {
      * @param string $where name of column in db
      * @param string $isValue value of the column
      * 
-     * @return bool;
+     * @return bool
      */
     public static function delete($where, $isValue) {
 
