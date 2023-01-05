@@ -21,7 +21,16 @@ class Controller {
     public function paginate(array $data, $per_page) {
         return Paginator::paginate($data, $per_page);
     }
-    public function json($values) {
+    /**
+     * Return a json response
+     * 
+     * @param mixed $values what to send back
+     * @param int $code http res code
+     * 
+     * @return void
+     */
+    public function json(mixed $values, int $code = 200) {
+        http_response_code($code);
         header('Content-Type: application/json; charset=utf-8');
         //header('Access-Control-Allow-Origin : *;');
         echo json_encode($values, JSON_UNESCAPED_UNICODE);

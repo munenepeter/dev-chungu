@@ -301,7 +301,7 @@ include_once 'sections/nav.view.php';
                             delloadBtn.classList.add("hidden");
                             deleteBtn.classList.remove("hidden");
                             document.getElementById("delmore").classList.add("hidden");
-                            deleteBtn.innerHTML = error.message;
+                            deleteBtn.innerHTML = error.response.data;
                      });
 
 

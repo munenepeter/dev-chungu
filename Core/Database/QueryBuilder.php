@@ -39,13 +39,14 @@ class QueryBuilder {
     $results = $statement->fetchAll(\PDO::FETCH_CLASS,  "Chungu\\Models\\{$model}");
 
     if (is_null($results) || empty($results)) {
-      if (!str_contains($sql, "update") || !str_contains($sql, "delete")) {
+      if (str_contains($sql, "update") || str_contains($sql, "delete")) {
         logger("Warning", "Empty results for: {$sql}");
+        return true;
       }
-
+      return false;
       //   throw new \Exception("There is no results for your query!", 404);
     }
-    return  $results;
+      return  $results;
   }
   /**
    * selectAll
@@ -134,7 +135,7 @@ class QueryBuilder {
     $sql = "DELETE FROM {$table} WHERE `$where` = \"$isValue\"";
 
 
-    logger("Info", '<b>' . ucfirst(auth()->username) . '</b>' . " Deleted a record in {$table} table ");
+    logger("Info", '<b>' . ucfirst(auth() ? auth()->username : $_SERVER['REMOTE_ADDR']) . '</b>' . " Deleted a record in {$table} table ");
 
     return $this->runQuery($sql, $table);
   }

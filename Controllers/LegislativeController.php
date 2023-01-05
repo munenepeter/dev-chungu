@@ -28,10 +28,25 @@ class LegislativeController extends Controller {
 
         lilog($this->request()->form('username') . " Added " . $this->request()->form('name'));
 
-        $this->json($_REQUEST);
+        $this->json("Success");
     }
     public function show() {
         $this->json(Li::all());
     }
-   
+    public function delete() {
+
+        $this->request()->validate($_POST, [
+            'liId' => 'required'
+        ]);
+
+        var_dump(Li::delete("id", $this->request()->form('liId')));
+
+        exit;
+        if (Li::delete("id", $this->request()->form('liId'))) {
+            $this->json("Sorry couldn't delete!", 500);
+        }
+        
+        lilog("Someone deleted an LI with an id of " . $this->request()->form('liId'));
+        $this->json("Success");
+    }
 }

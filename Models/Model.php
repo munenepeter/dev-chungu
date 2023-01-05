@@ -40,9 +40,16 @@ class Model {
         App::get('database')->update(static::tableName(), $dataToUpdate, $where, $isValue);
         //User::create(['name'=>'peter']);
     }
+    /**
+     * Delete a record
+     * @param string $where name of column in db
+     * @param string $isValue value of the column
+     * 
+     * @return bool;
+     */
     public static function delete($where, $isValue) {
 
-        App::get('database')->delete(static::tableName(), $where, $isValue);
+        return App::get('database')->delete(static::tableName(), $where, $isValue);
         //User::delete('id', 23]);
     }
     public static function all() {
@@ -85,7 +92,7 @@ class Model {
     public static function count(array $condition) {
         //Returns all the records in the db for a certain  model/table
 
-        return  App::get('database')->count(static::tableName(),$condition)[0]->count;
+        return  App::get('database')->count(static::tableName(), $condition)[0]->count;
         //User::query(Select ,, form , ); 
     }
     /**

@@ -193,10 +193,10 @@ function auth() {
 
         public function __construct() {
 
-            $this->username = Session::get('user');
-            $this->email = Session::get('email');
-            $this->id = Session::get('user_id');
-            $this->role = Session::get('role');
+            $this->username = Session::get('user') ?? null;
+            $this->email = Session::get('email') ?? null;
+            $this->id = Session::get('user_id') ?? null;
+            $this->role = Session::get('role') ?? null;
         }
         public function __get($name) {
             return $name;
