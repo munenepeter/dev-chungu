@@ -39,9 +39,9 @@ class LegislativeController extends Controller {
             'liId' => 'required'
         ]);
 
-        var_dump(Li::delete("id", $this->request()->form('liId')));
+        // var_dump(Li::delete("id", $this->request()->form('liId')));
 
-        exit;
+        // exit;
         if (Li::delete("id", $this->request()->form('liId'))) {
             $this->json("Sorry couldn't delete!", 500);
         }
