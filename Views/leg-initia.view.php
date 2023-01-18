@@ -225,85 +225,102 @@ include_once 'sections/nav.view.php';
 
 
 <script>
-       // Get the form element
-       const addBtn = document.getElementById("addLiBtn");
-       const loadBtn = document.getElementById("loading");
-       const successBtn = document.getElementById("success");
-
-       function hideModal(id) {
-              setTimeout(() => {
-                     document.body.querySelector('[data-modal-toggle="' + id + '"]').click();
-              }, 3000);
-       }
-
-       // Attach an event listener to the form's submit event
-       addBtn.addEventListener("click", function(event) {
-
-              addBtn.classList.add("hidden");
-              loadBtn.classList.remove("hidden");
-              // Prevent the default submit action
-              event.preventDefault();
-              const form = document.getElementById("addLi");
-              // Get the form data
-              const formData = new FormData(form);
-
-              axios.post("/projects/jwg/leg-initia", formData)
+       window.addEventListener("load", function(event) {
+              axios.get('/projects/jwg/leg-initia/show')
                      .then(function(response) {
-                            //console.log(response);
-                            loadBtn.classList.add("hidden");
-                            successBtn.classList.remove("hidden");
-                            hideModal("defaultModal");
-                            setTimeout(function() {
-                                   form.reset();
-                                   successBtn.classList.add("hidden");
-                                   addBtn.classList.remove("hidden");
-                            }, 3000);
-
-                     })
-                     .catch(function(error) {
-                            loadBtn.classList.add("hidden");
-                            addBtn.classList.remove("hidden");
-                            addBtn.innerHTML = error.message;
-                     });
-
-
-       });
-
-
-       //delete LI
-       const delloadBtn = document.getElementById("delloading");
-       const delsuccessBtn = document.getElementById("delsuccess");
-       const deleteBtn = document.getElementById("deleteLiBtn");
-
-       deleteBtn.addEventListener("click", function(event) {
-
-              deleteBtn.classList.add("hidden");
-              delloadBtn.classList.remove("hidden");
-              // Prevent the default submit action
-              event.preventDefault();
-              const form = document.getElementById("deleteLi");
-              // Get the form data
-              const formData = new FormData(form);
-              console.log(formData);
-              axios.post("/projects/jwg/leg-initia/delete", formData)
-                     .then(function(response) {
+                            // handle success
                             console.log(response);
-                            delloadBtn.classList.add("hidden");
-                            delsuccessBtn.classList.remove("hidden");
-                            //hideModal("defaultModal");
-                            setTimeout(function() {
-                                   delsuccessBtn.classList.add("hidden");
-                                   deleteBtn.classList.remove("hidden");
-                            }, 3000);
-
                      })
                      .catch(function(error) {
-                            delloadBtn.classList.add("hidden");
-                            deleteBtn.classList.remove("hidden");
-                            document.getElementById("delmore").classList.add("hidden");
-                            deleteBtn.innerHTML = error.response.data;
+                            // handle error
+                            console.log(error);
+                     })
+                     .then(function() {
+                            // always executed
                      });
 
+
+              // Get the form element
+              const addBtn = document.getElementById("addLiBtn");
+              const loadBtn = document.getElementById("loading");
+              const successBtn = document.getElementById("success");
+
+              function hideModal(id) {
+                     setTimeout(() => {
+                            document.body.querySelector('[data-modal-toggle="' + id + '"]').click();
+                     }, 3000);
+              }
+
+              // Attach an event listener to the form's submit event
+              addBtn.addEventListener("click", function(event) {
+
+                     addBtn.classList.add("hidden");
+                     loadBtn.classList.remove("hidden");
+                     // Prevent the default submit action
+                     event.preventDefault();
+                     const form = document.getElementById("addLi");
+                     // Get the form data
+                     const formData = new FormData(form);
+
+                     axios.post("/projects/jwg/leg-initia", formData)
+                            .then(function(response) {
+                                   //console.log(response);
+                                   loadBtn.classList.add("hidden");
+                                   successBtn.classList.remove("hidden");
+                                   hideModal("defaultModal");
+                                   setTimeout(function() {
+                                          form.reset();
+                                          successBtn.classList.add("hidden");
+                                          addBtn.classList.remove("hidden");
+                                   }, 3000);
+
+                            })
+                            .catch(function(error) {
+                                   loadBtn.classList.add("hidden");
+                                   addBtn.classList.remove("hidden");
+                                   addBtn.innerHTML = error.message;
+                            });
+
+
+              });
+
+
+              //delete LI
+              const delloadBtn = document.getElementById("delloading");
+              const delsuccessBtn = document.getElementById("delsuccess");
+              const deleteBtn = document.getElementById("deleteLiBtn");
+
+              deleteBtn.addEventListener("click", function(event) {
+
+                     deleteBtn.classList.add("hidden");
+                     delloadBtn.classList.remove("hidden");
+                     // Prevent the default submit action
+                     event.preventDefault();
+                     const form = document.getElementById("deleteLi");
+                     // Get the form data
+                     const formData = new FormData(form);
+                     console.log(formData);
+                     axios.post("/projects/jwg/leg-initia/delete", formData)
+                            .then(function(response) {
+                                   console.log(response);
+                                   delloadBtn.classList.add("hidden");
+                                   delsuccessBtn.classList.remove("hidden");
+                                   //hideModal("defaultModal");
+                                   setTimeout(function() {
+                                          delsuccessBtn.classList.add("hidden");
+                                          deleteBtn.classList.remove("hidden");
+                                   }, 3000);
+
+                            })
+                            .catch(function(error) {
+                                   delloadBtn.classList.add("hidden");
+                                   deleteBtn.classList.remove("hidden");
+                                   document.getElementById("delmore").classList.add("hidden");
+                                   deleteBtn.innerHTML = error.response.data;
+                            });
+
+
+              });
 
        });
 </script>
