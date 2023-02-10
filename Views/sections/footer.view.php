@@ -33,7 +33,7 @@
     <div class="pt-2">
         <div class="flex pb-2 px-3 m-auto border-t text-gray-800 text-sm flex-col
       max-w-screen-lg items-center">
-            <div class="my-5 text-center">&copy; 2020 - 2022 All rights reserved | Chungu Developers</div>
+            <div class="my-5 text-center">&copy; 2020 - <?= date("Y")?> All rights reserved | Chungu Developers</div>
         </div>
     </div>
 </section>
