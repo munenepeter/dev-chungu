@@ -97,12 +97,12 @@ class ScrapwordController {
         $fcrimeCount = get_perc($totals, $fcrimeCount);
         $techRiskCount = get_perc($totals, $techRiskCount);
 
-        return json_encode("Cyber: {$cyberCount}%  Data: {$dataCount}%  Digital Assets: {$digitalAssetsCount}%  OpRes: {$OpResCount}% Fintech: {$fintechCount}% Fin' Crime: {$fcrimeCount}% Tech' Risk: {$techRiskCount}%");
+        echo json_encode("Cyber: {$cyberCount}%  Data: {$dataCount}%  Digital Assets: {$digitalAssetsCount}%  OpRes: {$OpResCount}% Fintech: {$fintechCount}% Fin' Crime: {$fcrimeCount}% Tech' Risk: {$techRiskCount}%");
     }
     public function theme() {
         $_POST = json_decode(file_get_contents("php://input"), true);
 
         //check theme
-        echo $this->checkTheme($_POST['found_keys']);
+         $this->checkTheme($_POST['found_keys']);
     }
 }
