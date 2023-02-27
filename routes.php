@@ -1,6 +1,8 @@
 <?php
 //get routes edited to test workflow
 
+use Chungu\Core\Mantle\Router;
+
 $router->get('', 'PagesController@index');
 $router->get('projects', 'PagesController@projects');
 $router->get('services', 'PagesController@services');

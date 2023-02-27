@@ -16,7 +16,6 @@ class Router {
         return $router;
     }
 
-
     public function get($uri, $controller) {
 
 
@@ -28,6 +27,8 @@ class Router {
         $uri = preg_replace('/{[^}]+}/', '(.+)', $uri);
         $this->routes['POST'][$uri] = $controller;
     }
+    
+
 
     public function direct($uri, $requestType) {
 
@@ -57,7 +58,6 @@ class Router {
 
         if(empty($this->routes[$requestType][$regexUri])){
             throw new \Exception("Oops, you forgot to include <b>". strtoupper($requestType)." /{$uri}</b>, There is no such route! ", 404);
-            exit;
         }
         if (is_callable($this->routes[$requestType][$regexUri])) {
             $this->routes[$requestType][$regexUri](...$params);
@@ -70,8 +70,6 @@ class Router {
                 );
             } elseif (!array_key_exists($uri, $this->routes[$requestType])) {
                 throw new \Exception("Oops, you forgot to include <b>". strtoupper($requestType)." /{$uri}</b>, There is no such route! ", 404);
-                exit;
-                
             } else {
                 return $this->callAction(
                     $params,
