@@ -13,16 +13,15 @@ use Chungu\Core\Mantle\Session;
  * 
  * Create a view for route if it does not exist
  * 
- * @param String $view view to be created
+ * @param string $view view to be created
  * 
- * @return Void
+ * @return void
  */
 function checkView(string $filename) {
     if (!file_exists($filename)) {
 
         if (ENV === 'production') {
             throw new \Exception("The requested view is missing", 404);
-            exit;
         }
         fopen("$filename", 'a');
 
@@ -38,10 +37,10 @@ function checkView(string $filename) {
  * 
  * Loads a specified file along with its data
  * 
- * @param String $filename Page to displayed
- * @param Array $data Data to be passed along
+ * @param string $filename Page to displayed
+ * @param array $data Data to be passed along
  * 
- * @return Require view
+ * @return bool view
  */
 function view(string $filename, array $data = []) {
     extract($data);
@@ -49,7 +48,7 @@ function view(string $filename, array $data = []) {
 
     checkView($filename);
 
-    return require $filename;
+    return require_once $filename;
 }
 
 /**
@@ -57,7 +56,7 @@ function view(string $filename, array $data = []) {
  * 
  * Redirects to a give page
  * 
- * @param String $path Page to be redirected to
+ * @param string $path Page to be redirected to
  */
 function redirect(string $path) {
     header("location:{$path}");
@@ -120,7 +119,7 @@ function wp_strip_all_tags($string, $remove_breaks = false) {
     return trim($string);
 }
 
-function lilog(String $msg) {
+function lilog(string $msg) {
 
     $msg = "On " . date('Y-m-d H:i:s', time()) . " " . $msg . PHP_EOL;
     $logFile =  __DIR__ . "/../static/files/li.log";
@@ -159,9 +158,9 @@ function getRandColor() {
  * 
  * Subtracts a number of days from a date
  * 
- * @param  String $days_to_subtract no of days to subtract
+ * @param  string $days_to_subtract no of days to subtract
  * 
- * @return String the date after subtracting
+ * @return string the date after subtracting
  */
 
 function subtract_date($days_to_subtract) {
@@ -186,7 +185,7 @@ function isAdmin() {
  * 
  * Returns the status of login & an object helper
  * 
- * @return Bool|Object Session
+ * @return bool|object Session
  */
 function auth() {
 
@@ -251,7 +250,7 @@ function plural($phrase, $value) {
 /**
  * Delete a file
  */
-function delete_file(String $path) {
+function delete_file(string $path) {
     if (!unlink($path)) {
         logger("Error", "File cannot be deleted due to an error");
         return false;
@@ -292,9 +291,9 @@ function downloadFile($dir, $file) {
  * 
  * dump the results & die
  * 
- * @param Mixed $data view to be created
+ * @param mixed $data view to be created
  * 
- * @return String
+ * @return string
  */
 
 function dd($var) {
@@ -316,7 +315,7 @@ function dd($var) {
 /**
  * url helper
  * 
- * @return String url in relation to where it is called
+ * @return string url in relation to where it is called
  * 
  * from https://stackoverflow.com/questions/2820723/how-do-i-get-the-base-url-with-php
  */
@@ -381,7 +380,7 @@ function time_ago($datetime, $full = false) {
  * 
  * @param $dir director to be returned in respect to the static dir
  * 
- * @return String Path to the requested resource
+ * @return string Path to the requested resource
  */
 function asset($dir) {
     // echo url();
@@ -397,11 +396,11 @@ function get_perc($total, $number) {
     }
 }
 
-function logger(String $level, String $message) {
+function logger(string $level, string $message) {
     Logger::log($level, $message);
 }
 
-function request(String $key) {
+function request(string $key) {
     return htmlspecialchars(trim($_REQUEST[$key])) ?? NULL;
 }
 
