@@ -67,10 +67,10 @@ function redirect(string $path) {
  * 
  * Kills the execution of the script & diplays error page
  * 
- * @param String $message The exception/error msg
- * @param Int $code Status code passed with the exception
+ * @param string $message The exception/error msg
+ * @param int $code Status code passed with the exception
  * 
- * @return File view
+ * @return string view
  */
 function abort($message, $code) {
 

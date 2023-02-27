@@ -8,7 +8,7 @@ class Logger {
 
     public static function log(String $level, String $msg) {
 
-        $userinfo = json_decode(file_get_contents(
+        $userinfo = json_decode(@file_get_contents(
             'http://ip-api.io/json/' . $_SERVER['REMOTE_ADDR'],
             false,
             stream_context_create([

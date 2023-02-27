@@ -56,11 +56,10 @@ class ParserController {
             $parser = new Parser();
             $pdf = $parser->parseFile($filename);
             $text = $pdf->getText();
-            logger('INFO: Trying to parse ' . implode(', ', $pdf->getDetails()));
+            logger('Info', 'Trying to parse ' . implode(', ', $pdf->getDetails()));
         } catch (\Exception $e) {
+            logger('Error','An exception for PDF was thrown ' . $e->getMessage());
             throw new \Exception($e->getMessage());
-            logger('ERROR: An exception was called ' . $e->getMessage());
-            return;
         }
         return $text;
     }
@@ -69,9 +68,8 @@ class ParserController {
         try {
             $text = DocumentParser::parseFromFile($file);
         } catch (\Exception $e) {
+            logger('Error','An exception for Word was thrown ' . $e->getMessage());
             throw new \Exception($e->getMessage());
-            logger('ERROR: An exception was called ' . $e->getMessage());
-            return;
         }
         return $text;
     }
@@ -116,9 +114,8 @@ class ParserController {
             try {
                 $text = $parser->parseContent($html)->getText();
             } catch (\Exception $e) {
+                logger('Error','An exception for Text was thrown ' . $e->getMessage());
                 throw new \Exception($e->getMessage());
-                logger('ERROR: An exception for URL was thrown ' . $e->getMessage());
-                return;
             }
         } else {
             $text = wp_strip_all_tags($html);
