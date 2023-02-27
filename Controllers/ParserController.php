@@ -175,7 +175,7 @@ class ParserController {
 
         // print_r($messages);
         //return the object response
-        echo json_encode($messages);
+        echo json_encode($messages, JSON_INVALID_UTF8_IGNORE);
 
       
     }
