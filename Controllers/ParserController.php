@@ -58,7 +58,7 @@ class ParserController {
             $text = $pdf->getText();
             logger('Info', 'Trying to parse ' . implode(', ', $pdf->getDetails()));
         } catch (\Exception $e) {
-            logger('Error','An exception for PDF was thrown ' . $e->getMessage());
+            logger('Error', 'An exception for PDF was thrown ' . $e->getMessage());
             throw new \Exception($e->getMessage());
         }
         return $text;
@@ -68,7 +68,7 @@ class ParserController {
         try {
             $text = DocumentParser::parseFromFile($file);
         } catch (\Exception $e) {
-            logger('Error','An exception for Word was thrown ' . $e->getMessage());
+            logger('Error', 'An exception for Word was thrown ' . $e->getMessage());
             throw new \Exception($e->getMessage());
         }
         return $text;
@@ -114,12 +114,66 @@ class ParserController {
             try {
                 $text = $parser->parseContent($html)->getText();
             } catch (\Exception $e) {
-                logger('Error','An exception for Text was thrown ' . $e->getMessage());
+                logger('Error', 'An exception for Text was thrown ' . $e->getMessage());
                 throw new \Exception($e->getMessage());
             }
         } else {
             $text = wp_strip_all_tags($html);
         }
         return $text;
+    }
+    public function parse() {
+
+        header('Content-Type: application/json; charset=utf-8');
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: PUT, GET, POST");
+
+        //empty response
+        $messages = [];
+
+        // Handle File upload
+        if (!empty($_FILES) && empty($_POST['text'])) {
+            try {
+                $text = $this->readUploadedFile($_FILES['files']['tmp_name']);
+            } catch (\Exception $e) {
+                logger('Error', 'An exception for file upload was thrown ' . $e->getMessage());
+                $messages['text'] = '<p class="p-4 text-red-500 text-sm font-semibold text-center">You have no idea what happened huh? Well so do I. Code:E214</p>';
+            }
+            // Handle Text input
+        } elseif (!empty($_POST['text']) && empty($_FILES)) {
+            $text = trim($_POST['text']);
+            //handle urls
+        } elseif (!empty($_POST['url']) && empty($_FILES)) {
+            try {
+                $text = $this->getUrlText(trim($_POST['url']));
+            } catch (\Exception $e) {
+                logger('Error', 'An exception for url upload was thrown ' . $e->getMessage());
+                $messages['text'] = '<p class="p-4 text-red-500 text-sm font-semibold text-center">You have no idea what happened huh? Well so do I. Code:E214</p>';
+            }
+        }
+
+
+        //check if text is empty
+        if (!empty($text)) {
+            $messages['text'] = $text;
+        } else {
+            logger('Error', 'An exception for empty text was thrown ' . $e->getMessage());
+            $messages['lis_found'] = "No LI's Found!";
+            echo json_encode($messages);
+            return;
+        }
+
+        //search for LIS
+        if (!empty($this->getLisInText($text, $this->getAllLis()))) {
+            $messages['lis_found'] =  implode(", ", $this->getLisInText($text, $this->getAllLis()));
+        } else {
+            $messages['lis_found'] = "No LI's Found!";
+        }
+
+        //return the object response
+        echo json_encode($messages);
+
+        clearstatcache();
+        exit;
     }
 }
