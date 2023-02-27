@@ -109,6 +109,17 @@ function request_uri() {
     return Request::uri();
 }
 
+function wp_strip_all_tags($string, $remove_breaks = false) {
+    $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
+    $string = strip_tags($string);
+
+    if ($remove_breaks) {
+        $string = preg_replace('/[\r\n\t ]+/', ' ', $string);
+    }
+
+    return trim($string);
+}
+
 function lilog(String $msg) {
 
     $msg = "On " . date('Y-m-d H:i:s', time()) . " " . $msg . PHP_EOL;

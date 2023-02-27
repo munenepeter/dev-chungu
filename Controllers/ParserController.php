@@ -99,16 +99,6 @@ class ParserController {
         return $text;
     }
 
-    private function wp_strip_all_tags($string, $remove_breaks = false) {
-        $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
-        $string = strip_tags($string);
-
-        if ($remove_breaks) {
-            $string = preg_replace('/[\r\n\t ]+/', ' ', $string);
-        }
-
-        return trim($string);
-    }
 
     private function getUrlText($url) {
         $context = stream_context_create(
