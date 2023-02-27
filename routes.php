@@ -25,7 +25,8 @@ $router->get('projects/jwg/excel-to-json', 'ExcelJsonController@index');
 $router->post('projects/jwg/excel-to-json', 'ExcelJsonController@create');
 $router->get('projects/jwg/excel-to-json/download', 'ExcelJsonController@download');
 $router->get('projects/jwg/excel-to-json/view/{file}', 'ExcelJsonController@view');
-
+//parser
+$router->get('projects/jwg/parser', 'ParserController@index');
 
 
 $router->get("projects/devs-talk/api", 'DevsController@index');
