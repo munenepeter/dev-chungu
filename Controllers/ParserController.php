@@ -3,7 +3,6 @@
 namespace Chungu\Controllers;
 
 use Smalot\PdfParser\Parser;
-use LukeMadhanga\DocumentParser;
 
 
 class ParserController {
