@@ -56,7 +56,6 @@ class ParserController {
             $parser = new Parser();
             $pdf = $parser->parseFile($filename);
             $text = $pdf->getText();
-            logger('Info', 'Trying to parse ' . implode(', ', $pdf->getDetails()));
         } catch (\Exception $e) {
             logger('Error', 'An exception for PDF was thrown ' . $e->getMessage());
             throw new \Exception($e->getMessage());
@@ -134,6 +133,7 @@ class ParserController {
         // Handle File upload
         if (!empty($_FILES) && empty($_POST['text'])) {
             try {
+                logger('Info', 'Trying to parse ' . implode(', ', $_FILES['files']));
                 $text = $this->readUploadedFile($_FILES['files']['tmp_name']);
             } catch (\Exception $e) {
                 logger('Error', 'An exception for file upload was thrown ' . $e->getMessage());
@@ -150,6 +150,8 @@ class ParserController {
                 logger('Error', 'An exception for url upload was thrown ' . $e->getMessage());
                 $messages['text'] = '<p class="p-4 text-red-500 text-sm font-semibold text-center">You have no idea what happened huh? Well so do I. Code:E214</p>';
             }
+        } else {
+            $messages['text'] = '<p class="p-4 text-red-500 text-sm font-semibold text-center">You have no idea what happened huh? Well so do I. Code:E561</p>';
         }
 
 
@@ -170,6 +172,8 @@ class ParserController {
             $messages['lis_found'] = "No LI's Found!";
         }
 
+
+        // print_r($messages);
         //return the object response
         echo json_encode($messages);
 
