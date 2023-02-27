@@ -68,7 +68,7 @@
                                 type="submit" id="submitpdf"
                                 class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Parse</button>
                         </form>
-                        <center> <img style="display:none;" id="loader" src="static/imgs/loader.gif" alt="" width="150"
+                        <center> <img style="display:none;" id="loader" src="<?php asset("imgs/loader.gif") ?>" alt="" width="150"
                                 height="150" srcset=""></p>
                         </center>
                         <section id="doc-content" style="display:none;" class="mt-4 p-2 rounded-lg bg-white">
@@ -96,7 +96,7 @@
                                 id="submittext"
                                 class="my-2 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Parse</button>
                         </form> <!-- Text content -->
-                        <center> <img style="display:none;" id="loader" src="static/imgs/loader.gif" alt="" width="150"
+                        <center> <img style="display:none;" id="loader" src="<?php asset("imgs/loader.gif") ?>" alt="" width="150"
                                 height="150" srcset=""></p>
                         </center>
                         <section id="txt-content" style="display:none;" class="mt-4 p-2 rounded-lg bg-white">
@@ -124,7 +124,7 @@
                                 placeholder="https://example.com" /> <button type="submit" id="submiturl"
                                 class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Parse</button>
                         </form> <!-- URL content -->
-                        <center> <img style="display:none;" id="loader-url" src="static/imgs/loader.gif" alt=""
+                        <center> <img style="display:none;" id="loader-url" src="<?php asset("imgs/loader.gif") ?>" alt=""
                                 width="150" height="150" srcset=""></p>
                         </center>
                         <section id="url-content" style="display:none;" class="mt-4 p-2 rounded-lg bg-white">
@@ -148,7 +148,7 @@
                     href="https://github.com/munenepeter">Chungu Developers</a> </div>
         </div>
     </div>
-    <script src="static/js/index.js"></script>
+    <script src="<?php asset("js/parser.js") ?>"></script>
     <script>
         var myVar;
 
