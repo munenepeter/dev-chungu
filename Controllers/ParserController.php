@@ -177,7 +177,6 @@ class ParserController {
         //return the object response
         echo json_encode($messages);
 
-        clearstatcache();
-        exit;
+      
     }
 }
