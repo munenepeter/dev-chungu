@@ -3,6 +3,7 @@
 namespace Chungu\Controllers;
 
 use Smalot\PdfParser\Parser;
+use Chungu\Core\Mantle\DocumentParser;
 
 
 class ParserController {
