@@ -138,9 +138,7 @@ class ParserController {
         if (!empty($_FILES) && empty($_POST['text'])) {
             try {
                 logger('Info', 'Trying to parse ' . implode(', ', $_FILES['files']));
-                logger('Info', 'took '.  microtime(true) - $start .'to upload');
                 $text = $this->readUploadedFile($_FILES['files']['tmp_name']);
-                logger('Info', 'took'.  microtime(true) - $start .'to read');
             } catch (\Exception $e) {
                 logger('Error', 'An exception for file upload was thrown ' . $e->getMessage());
                 $messages['text'] = '<p class="p-4 text-red-500 text-sm font-semibold text-center">You have no idea what happened huh? Well so do I. Code:E214</p>';
@@ -163,16 +161,6 @@ class ParserController {
 
         //check if text is empty
         if (!empty($text)) {
-
-            $s_keyWords = (new ScrapwordController())->getKeywordsAndColors();
-
-            logger('Info', 'took'.  microtime(true) - $start .'to read, & get keywords');
-            //highlight for radar
-            foreach ($s_keyWords as $keyWord) {
-                $keyWord = json_decode($keyWord);
-                $text =  $this->highlightWords($text, $keyWord);
-            }
-            logger('Info', 'took '.  microtime(true) - $start .'to read,  get & highlight keywords');
             $messages['text'] = $text;
         } else {
             logger('Error', 'An exception for empty text was thrown ' . $e->getMessage());
@@ -183,7 +171,7 @@ class ParserController {
 
         //search for LIS
         if (!empty($this->getLisInText($text, $this->getAllLis()))) {
-            logger('Info', 'took '.  microtime(true) - $start .'to read, get, highlight keywords & search LIs');
+            logger('Info', 'took ' .  microtime(true) - $start . 'to read, get, highlight keywords & search LIs');
             $messages['lis_found'] =  implode(", ", $this->getLisInText($text, $this->getAllLis()));
         } else {
             $messages['lis_found'] = "No LI's Found!";
@@ -193,6 +181,6 @@ class ParserController {
         // print_r($messages);
         //return the object response
         echo json_encode($messages, JSON_INVALID_UTF8_IGNORE);
-        logger('Info', 'took '.  microtime(true) - $start .'to do everything');
+        logger('Info', 'took ' .  microtime(true) - $start . 'to do everything');
     }
 }
