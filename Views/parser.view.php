@@ -149,6 +149,7 @@
         </div>
     </div>
     <script src="<?php asset("js/parser.js") ?>"></script>
+    <script src="../../static/js/parser.js"></script>
     <script>
         var myVar;
 
