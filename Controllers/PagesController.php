@@ -12,6 +12,7 @@ class PagesController extends Controller {
         $projects = [
             ['category' => 'jwg', 'name' => "scrapword", 'description' => 'Searching for Keywords on a webpage'],
             ['category' => 'jwg', 'name' => "excel-to-json", 'description' => 'Convert an Excel doc to JSON'],
+            ['category' => 'jwg', 'name' => "parser", 'description' => 'Parse docx, pdf, rtf & txt files'],
             ['category' => 'jwg', 'name' => "get-links", 'description' => 'Get all the urls of a webpage'],
             ['category' => 'jwg', 'name' => "leg-initia", 'description' => 'Search Legislative initiatives'],
             ['category' => 'jwg', 'name' => "leg-search", 'description' => 'Search LI\'s with a doc'],
