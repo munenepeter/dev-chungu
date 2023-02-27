@@ -5,8 +5,7 @@ use Chungu\Core\Database\Connection;
 use Chungu\Core\Database\QueryBuilder; 
 
 //change TimeZone
-date_default_timezone_set('Africa/Nairobi');
-
+date_default_timezone_set('Africa/Nairobi'); 
 //production development
 define('ENV','development');
 

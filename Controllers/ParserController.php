@@ -3,7 +3,6 @@
 namespace Chungu\Controllers;
 
 use Smalot\PdfParser\Parser;
-use Chungu\Core\Mantle\PdfParser;
 use Chungu\Core\Mantle\DocumentParser;
 
 
@@ -54,14 +53,9 @@ class ParserController {
     //parse PDF files
     private function getPdfText($filename) {
         try {
-            // $parser = new Parser();
-            // $pdf = $parser->parseFile($filename);
-            // $text = $pdf->getText();
-
-            $a = new PdfParser();
-            $a->setFilename($filename);
-            $a->decodePDF();
-            $text = $a->output();
+            $parser = new Parser();
+            $pdf = $parser->parseFile($filename);
+            $text = $pdf->getText();
 
         } catch (\Exception $e) {
             logger('Error', 'An exception for PDF was thrown ' . $e->getMessage());
