@@ -86,7 +86,7 @@ class ParserController {
         }
         //Workbook
         if (mime_content_type($file) === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-            $text = $this->getExcelText($file);
+           $this->getExcelText($file);
         }
         //plain text
         if (mime_content_type($file) === 'text/plain') {

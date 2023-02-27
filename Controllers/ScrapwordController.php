@@ -82,22 +82,20 @@ class ScrapwordController {
         }
         //get percentage
         $totals = $cyberCount + $dataCount + $digitalAssetsCount + $OpResCount + $fintechCount + $fcrimeCount + $techRiskCount;
-        $cyberCount = get_perc($totals,$cyberCount);
-        $dataCount = get_perc($totals,$dataCount);
-        $digitalAssetsCount = get_perc($totals,$digitalAssetsCount);
-        $OpResCount = get_perc($totals,$OpResCount);
-        $fintechCount = get_perc($totals,$fintechCount);
+        $cyberCount = get_perc($totals, $cyberCount);
+        $dataCount = get_perc($totals, $dataCount);
+        $digitalAssetsCount = get_perc($totals, $digitalAssetsCount);
+        $OpResCount = get_perc($totals, $OpResCount);
+        $fintechCount = get_perc($totals, $fintechCount);
         $fcrimeCount = get_perc($totals, $fcrimeCount);
         $techRiskCount = get_perc($totals, $techRiskCount);
-    
-       echo json_encode("Cyber: {$cyberCount}%  Data: {$dataCount}%  Digital Assets: {$digitalAssetsCount}%  OpRes: {$OpResCount}% Fintech: {$fintechCount}% Fin' Crime: {$fcrimeCount}% Tech' Risk: {$techRiskCount}%");
+
+        return json_encode("Cyber: {$cyberCount}%  Data: {$dataCount}%  Digital Assets: {$digitalAssetsCount}%  OpRes: {$OpResCount}% Fintech: {$fintechCount}% Fin' Crime: {$fcrimeCount}% Tech' Risk: {$techRiskCount}%");
     }
     public function theme() {
         $_POST = json_decode(file_get_contents("php://input"), true);
-    
-        //check theme
-      $this->checkTheme($_POST['found_keys']);
-       
 
+        //check theme
+        echo $this->checkTheme($_POST['found_keys']);
     }
 }
