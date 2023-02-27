@@ -17,7 +17,14 @@ class ScrapwordController {
         ]);
     }
 
-    private function getKeywords() {
+    public function getKeywordsAndColors() {
+        $data = file_get_contents($this->keywords_file);
+        $s_keyWords = explode(PHP_EOL, $data);
+        array_pop($s_keyWords);
+
+        return  $s_keyWords;
+    }
+    public function getKeywords() {
         $keywords = [];
         $data = file_get_contents($this->keywords_file);
         $s_keyWords = explode(PHP_EOL, $data);

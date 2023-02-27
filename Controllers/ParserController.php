@@ -86,7 +86,7 @@ class ParserController {
         }
         //Workbook
         if (mime_content_type($file) === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-           $this->getExcelText($file);
+            $this->getExcelText($file);
         }
         //plain text
         if (mime_content_type($file) === 'text/plain') {
@@ -120,6 +120,10 @@ class ParserController {
             $text = wp_strip_all_tags($html);
         }
         return $text;
+    }
+
+    public function highlightWords($text, $word) {
+        return preg_replace(' #' . preg_quote($word->word) . ' #i', '<span name="keywords_found_in_doc" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
     }
     public function parse() {
 
@@ -157,6 +161,14 @@ class ParserController {
 
         //check if text is empty
         if (!empty($text)) {
+
+            $s_keyWords = (new ScrapwordController())->getKeywordsAndColors();
+            //highlight for radar
+            foreach ($s_keyWords as $keyWord) {
+                $keyWord = json_decode($keyWord);
+                $text =  $this->highlightWords($text, $keyWord);
+            }
+
             $messages['text'] = $text;
         } else {
             logger('Error', 'An exception for empty text was thrown ' . $e->getMessage());
@@ -176,7 +188,5 @@ class ParserController {
         // print_r($messages);
         //return the object response
         echo json_encode($messages, JSON_INVALID_UTF8_IGNORE);
-
-      
     }
 }
