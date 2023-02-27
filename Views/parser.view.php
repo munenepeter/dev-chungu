@@ -1,1 +1,166 @@
-& v
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="title" content="Parser">
+    <meta name="description"
+        content="A Simple way of parsing pdf, docx, text or rtf files so as to identify certain keywords using pearl">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="author" content="Peter Munene">
+    <title>Document Parser</title>
+    <link rel="shortcut icon" href="static/imgs/translate.svg" type="image/svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <main class="pt-4 pb-10 lg:pt-16 lg:pb-8">
+        <section class="flex justify-between px-2 mx-auto max-w-screen-2xl ">
+            <article
+                class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-purple dark:format-invert">
+                <header class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
+                        data-tabs-toggle="#myTabContent" role="tablist">
+                        <li class="mr-2" role="presentation"> <button class="inline-block p-4 border-b-2 rounded-t-lg"
+                                id="document-tab" data-tabs-target="#document" type="button" role="tab"
+                                aria-controls="document" aria-selected="false">Document</button> </li>
+                        <li class="mr-2" role="presentation"> <button
+                                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                id="text-tab" data-tabs-target="#text" type="button" role="tab" aria-controls="text"
+                                aria-selected="false">Text</button> </li>
+                        <li class="mr-2" role="presentation"> <button
+                                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                id="url-tab" data-tabs-target="#url" type="button" role="tab" aria-controls="url"
+                                aria-selected="false">URL</button> </li>
+                    </ul>
+                </header>
+                <section id="myTabContent">
+                    <div class="hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800" id="document" role="tabpanel"
+                        aria-labelledby="document-tab">
+                        <p id="doc-label" class="text-lg text-center font-medium text-gray-900 dark:text-white">Welcome
+                            to Document Parser</p> <label id="doc-label-guide"
+                            class="block mb-2 text-sm text-center text-gray-500 dark:text-gray-400" for="file_input"
+                            data-js-label>Select document to parse</label>
+                        <form method="post" id="doc-form" enctype="multipart/form-data"
+                            class="flex flex-row justify-center items-center">
+                            <!-- LI's -->
+                            <div style="display:none;" id="lis-found" class="bg-gray-50 rounded-lg p-2">
+                                <p id="flis" class="text-sm"></p>
+                            </div> <!-- FORM --> <input
+                                class="mr-2 block w-3/4 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                id="file_input" type='file' name="files"
+                                accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" /> <button name="submitpdf"
+                                type="submit" id="submitpdf"
+                                class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Parse</button>
+                        </form>
+                        <center> <img style="display:none;" id="loader" src="static/imgs/loader.gif" alt="" width="150"
+                                height="150" srcset=""></p>
+                        </center>
+                        <section id="doc-content" style="display:none;" class="mt-4 p-2 rounded-lg bg-white">
+                            <div id="content" class="p-2 overflow-y-auto h-80"></div>
+                        </section>
+                        <section class="mt-2 flex justify-between">
+                            <div class="hidden bg-gray-50 rounded-lg">
+                                <p class="text-sm"> fvfvdrfvdfvfvddfvdfvdfv</p>
+                            </div> <button style="display:none;" id="clear" type="button"
+                                class="mt-1 float-right clearfix text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Reset</button>
+                        </section>
+                    </div> <!-- TEXT PARSER -->
+                    <div class="hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800" id="text" role="tabpanel"
+                        aria-labelledby="text-tab">
+                        <p id="text-label" class="text-lg text-center font-medium text-gray-900 dark:text-white">Welcome
+                            to Text Parser </p> <label for="doc-txt" id="text-label-guide"
+                            class="block mb-2 text-sm text-center text-gray-500 dark:text-gray-400">Paste your content
+                            here</label> <!-- LI's -->
+                        <div style="display:none;" id="lis-found-txt" class="bg-gray-50 rounded-lg p-2">
+                            <p id="flis-txt" class="text-sm"></p>
+                        </div>
+                        <form method="post" id="txt-form"> <textarea id="doc-txt-textarea" rows="8"
+                                class="overflow-y-auto block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
+                                name="text" placeholder="Paste to parse"></textarea> <button type="submit"
+                                id="submittext"
+                                class="my-2 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Parse</button>
+                        </form> <!-- Text content -->
+                        <center> <img style="display:none;" id="loader" src="static/imgs/loader.gif" alt="" width="150"
+                                height="150" srcset=""></p>
+                        </center>
+                        <section id="txt-content" style="display:none;" class="mt-4 p-2 rounded-lg bg-white">
+                            <div id="text-content" class="p-2 overflow-y-auto h-80"></div>
+                        </section>
+                        <section class="mt-2 flex justify-between">
+                            <div class="hidden bg-gray-50 rounded-lg">
+                                <p class="text-sm">something will be added here</p>
+                            </div> <button style="display:none;" id="clear" type="button"
+                                class="mt-1 float-right clearfix text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Reset</button>
+                        </section>
+                    </div>
+                    <div class="hidden p-4 rounded-lg bg-gray-100 dark:bg-gray-800" id="url" role="tabpanel"
+                        aria-labelledby="url-tab">
+                        <p id="url-label" class="text-lg text-center font-medium text-gray-900 dark:text-white">Welcome
+                            to URL Parser </p> <label id="url-label-guide"
+                            class="block mb-2 text-sm text-center text-gray-500 dark:text-gray-400" for="url">Enter a
+                            URL to a document</label>
+                        <form method="post" id="url-form" class="flex flex-row justify-center items-center">
+                            <!-- LI's -->
+                            <div style="display:none;" id="lis-found-url" class="bg-gray-50 rounded-lg p-2">
+                                <p id="flis-url" class="text-sm"></p>
+                            </div> <!-- FORM --> <input name="url" type="url" id="url-input"
+                                class="mr-2 block w-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500"
+                                placeholder="https://example.com" /> <button type="submit" id="submiturl"
+                                class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Parse</button>
+                        </form> <!-- URL content -->
+                        <center> <img style="display:none;" id="loader-url" src="static/imgs/loader.gif" alt=""
+                                width="150" height="150" srcset=""></p>
+                        </center>
+                        <section id="url-content" style="display:none;" class="mt-4 p-2 rounded-lg bg-white">
+                            <div id="uri-content" class="p-2 overflow-y-auto h-80"></div>
+                        </section>
+                        <section class="mt-2 flex justify-between">
+                            <div class="hidden bg-gray-50 rounded-lg">
+                                <p class="text-sm">something will be added here</p>
+                            </div> <button style="display:none;" id="clear" type="button"
+                                class="mt-1 float-right clearfix text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Reset</button>
+                        </section>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+    <div class="border-t bg-gray-50 left-50 w-full  bottom-0"
+        style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
+        <div class="text-gray-900 text-sm text-center">
+            <div class="my-5 text-center">© 2020 - 2023 All rights reserved | <a class="hover:underline"
+                    href="https://github.com/munenepeter">Chungu Developers</a> </div>
+        </div>
+    </div>
+    <script src="static/js/index.js"></script>
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
