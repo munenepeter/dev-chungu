@@ -162,7 +162,7 @@ class QueryBuilder {
       logger("Error", '<b>' . $e->getMessage() . '</b>' . PHP_EOL . " $sql ");
 
       throw new \Exception('Error with Query: ' . $e->getCode());
-      die();
+
     }
   }
   //Albtatry Query FROM table_name WHERE condition;
@@ -178,7 +178,7 @@ class QueryBuilder {
       logger("Error", " Wrong Query $sql, " . $e->getMessage());
 
       throw new \Exception('Wrong Query!' . $e->getCode());
-      die();
+     
     }
   }
 
@@ -196,7 +196,7 @@ class QueryBuilder {
     $statement->execute();
 
     return $statement->fetchAll(\PDO::FETCH_ASSOC);
-    return $this->runQuery($sql, $table1);
+    
   }
 
   public function count(string $table, array $condition) {

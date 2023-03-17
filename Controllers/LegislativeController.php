@@ -132,12 +132,12 @@ HTML;
     }
 
     public function search() {
-        $search = $_POST['search'] ?? '';
+        $search = trim($_POST['search']) ?? '';
 
         if ($search === '') {
             $lis  = Li::all();
         }else{
-            $lis  = Li::all(); 
+            $lis  = Li::query("SELECT * from lis WHERE name LIKE '%{$search}%' OR abbr name LIKE '%{$search}%'"); 
         }
         echo $this->getLiString($lis);
     }
