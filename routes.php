@@ -18,6 +18,7 @@ $router->get('projects/jwg/get-links', 'GetLinksController@index');
 $router->get('projects/jwg/leg-initia', 'LegislativeController@index');
 $router->post('projects/jwg/leg-initia', 'LegislativeController@create');
 $router->get('projects/jwg/leg-initia/all', 'LegislativeController@show');
+$router->post('projects/jwg/leg-initia/search', 'LegislativeController@search');
 $router->get('projects/jwg/leg-initia/show', 'LegislativeController@showLi');
 $router->post('projects/jwg/leg-initia/delete', 'LegislativeController@delete');
 //leg-search

@@ -124,7 +124,13 @@ HTML;
 
         return trim($string);
     }
+
+    
     public function showLi() {
         $this->json($this->getLiString());
+    }
+
+    public function search() {
+       echo $this->getLiString();
     }
 }
