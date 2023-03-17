@@ -49,8 +49,8 @@ class LegislativeController extends Controller {
         lilog("Someone deleted an LI with an id of " . $this->request()->form('liId'));
         $this->json("Success");
     }
-    public function getLiString() {
-        $lis  = Li::all();
+    public function getLiString($lis) {
+
         $string = '';
         for ($i = 0; $i < count($lis); $i++) {
             $string .= <<<HTML
@@ -125,12 +125,20 @@ HTML;
         return trim($string);
     }
 
-    
+
     public function showLi() {
-        $this->json($this->getLiString());
+        $lis  = Li::all();
+        $this->json($this->getLiString($lis));
     }
 
     public function search() {
-       echo $this->getLiString();
+        $search = $_POST['search'] ?? '';
+
+        if ($search === '') {
+            $lis  = Li::all();
+        }else{
+            $lis  = Li::all(); 
+        }
+        echo $this->getLiString($lis);
     }
 }
