@@ -7,14 +7,14 @@ include_once 'sections/nav.view.php';
 <body>
 
 
-    <main class="mt-4 pb-10 lg:pt-16 lg:pb-8">
+    <main class="mt-4 pt-16">
         <section class="flex justify-between px-2 mx-auto max-w-screen-2xl ">
             <article class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-purple dark:format-invert">
                 <div class="p-6 rounded-lg bg-purple-100">
                     <p id="doc-label" class="text-lg text-center font-semibold text-purple-900">Welcome
                         to Excel-JSON</p>
                      <p class="block mb-2 text-sm text-center text-gray-500">Select document to convert</p>
-                      <form method="post" enctype="multipart/form-data" id="fileForm" class="flex flex-row justify-center items-center">
+                      <form method="post" enctype="multipart/form-data" id="fileForm" class="flex md:flex-row flex-col justify-center items-center md:space-y-0 space-y-2">
                         <!-- form -->
                         <input class="mr-2 block w-3/4 text-sm text-purple-700 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" type="file" id="inputfile" accept=".xls,.xlsx" />
                         <button type="submit" id="convert" class="focus:outline-none text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Convert</button>
@@ -98,7 +98,6 @@ include_once 'sections/nav.view.php';
 
                     loadBtn.classList.add("hidden");
                     successBtn.classList.remove("hidden");
-                    res_div.classList.remove("hidden");
                     setTimeout(resetForm, 8000);
                 })
                 .catch(function(error) {
