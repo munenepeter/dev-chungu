@@ -116,7 +116,7 @@ include_once 'sections/nav.view.php';
                     setTimeout(resetForm, 4000);
                 })
                 .catch(function(error) {
-                    
+
                     loadBtn.classList.add("hidden");
                     errBtn.classList.remove("hidden");
 
@@ -131,7 +131,7 @@ include_once 'sections/nav.view.php';
                 method: 'GET',
                 responseType: 'blob', // important
             }).then((response) => {
-                console.log(response)
+                //console.log(response)
                 // create file link in browser's memory
                 const href = URL.createObjectURL(response.data);
 
