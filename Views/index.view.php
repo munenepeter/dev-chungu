@@ -3,6 +3,31 @@ include_once 'sections/nav.view.php';
 ?>
 
 
+    <!-- component -->
+    <div class="my-20">
+        <!-- container -->
+        <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+            <!-- hero wrapper -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+
+                <!-- hero text -->
+                <div class="hero-text col-span-6">
+                    <h1 class="font-bold text-2xl md:text-5xl max-w-xl text-purple-900 leading-tight">Modern Web solutions for you business</h1>
+                    <hr class="w-12 h-1 bg-orange-500 rounded-full mt-4">
+                    <p class="text-gray-800 text-base leading-relaxed mt-4 font-semibold">We are a team of digital experts equipped with skills to help your dream solution become a reality.</p>
+
+                    <button
+                        class="mt-6 rounded-lg bg-orange-800 px-6 py-2.5 text-center text-sm font-medium leading-5 text-white hover:bg-orange-700 focus:outline-none lg:mx-0 lg:w-auto">Get
+                        a Free Qoute</button>
+
+                </div>
+                <!-- hero image -->
+                <div class="col-span-6">
+                    <img class="" src="<?php asset("imgs/hero.png") ?>" alt="">
+                </div>
+            </div>
+        </div>
+</div>
 <!-- Start Hero Section -->
 <header class="h-full flex justify-between w-full bg-gray-600 bg-cover bg-blend-overlay" style="height: 94vh; background-image: url('https://media.wired.com/photos/621575377d11d746344b5a72/191:100/w_2287,h_1197,c_limit/Business_Person%20Working%20on%20Laptop_1302475706.jpg');">
     <!-- Main div -->
