@@ -2,7 +2,9 @@
 include_once 'base.view.php';
 include_once 'sections/nav.view.php';
 ?>
-
+ <main class="mt-4 pt-16">
+        <section class="bg-purple-100 px-2 mx-auto max-w-screen-2xl ">
+            <article class="mx-auto w-full max-w-4xl p-6 rounded-lg "></article>
 <div class="grid place-items-center">
 
 
