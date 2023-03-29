@@ -56,7 +56,7 @@ include_once 'sections/nav.view.php';
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                     </svg>
-                    Error&nbsp;-&nbsp; <span id="err"></span>
+                    Error<span id="err"></span>
                 </button>
             </center>
         </form>
@@ -105,7 +105,7 @@ include_once 'sections/nav.view.php';
                     }
                 })
                 .then(function(response) {
-                    console.log(response)
+                    //console.log(response)
                     document.getElementById("response").innerHTML = response.data.text;
 
                     download(response.data.file);
@@ -119,8 +119,8 @@ include_once 'sections/nav.view.php';
                     loadBtn.classList.add("hidden");
                     errBtn.classList.remove("hidden");
 
-                    document.getElementById("response").innerHTML = error.message;
-                    console.log(error);
+                    document.getElementById("response").innerHTML = error.response.data;
+                    //console.log(error);
                 });
         }
 

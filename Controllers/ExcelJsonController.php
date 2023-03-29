@@ -150,7 +150,9 @@ class ExcelJsonController {
     public function create() {
          //check if there is a file
          if(empty($_FILES['excelFile'])){
-            echo json_encode(['text' => "Error: Something happened and we could not create the .json file"]);
+            http_response_code(400);
+            echo json_encode("No file has been provided!");
+            exit;
          }
 
         //get data from file
