@@ -105,12 +105,11 @@ include_once 'sections/nav.view.php';
                     }
                 })
                 .then(function(response) {
-                    //console.log(response)
-
-
+                    console.log(response)
                     document.getElementById("response").innerHTML = response.data.text;
 
                     download(response.data.file);
+
                     loadBtn.classList.add("hidden");
                     successBtn.classList.remove("hidden");
                     setTimeout(resetForm, 8000);
