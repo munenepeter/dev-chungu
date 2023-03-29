@@ -61,21 +61,17 @@ include_once 'sections/nav.view.php';
         const successBtn = document.getElementById("success");
         const errBtn = document.getElementById("error");
 
-
-
-
         convertBtn.addEventListener("click", () => {
-
             //ui stuff
             event.preventDefault();
             convertBtn.classList.add("hidden");
             loadBtn.classList.remove("hidden");
-
-
+            //handle form
             var formData = new FormData();
             var Efile = document.querySelector('#inputfile');
             formData.append("excelFile", Efile.files[0]);
             postData(formData)
+            //was to render the json contents
             //  document.getElementById("jsondata").innerHTML = JSON.stringify(excelData, undefined, 4);
         });
         //clear the form for anther use
