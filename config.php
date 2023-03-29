@@ -6,7 +6,7 @@ return [
   'mysql' => [
     'name' => 'chungu',
     'username' => 'root',
-    'password' => '',
+    'password' => '89njfPass',
     'connection' => 'mysql:host=localhost',
     'options' => [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
