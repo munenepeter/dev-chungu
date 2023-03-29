@@ -13,7 +13,7 @@ include_once 'sections/nav.view.php';
         </div>
     </nav>
     <div class="m-4 md:m-auto p-6 max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="fileForm">
             <center>
                 <label class="m-auto block mb-2 text-sm font-medium text-gray-900" for="inputfile">Upload
                     file</label>
@@ -113,7 +113,7 @@ include_once 'sections/nav.view.php';
                     download(response.data.file);
                     loadBtn.classList.add("hidden");
                     successBtn.classList.remove("hidden");
-                    setTimeout(resetForm, 4000);
+                    setTimeout(resetForm, 8000);
                 })
                 .catch(function(error) {
 
