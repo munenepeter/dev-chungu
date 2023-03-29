@@ -24,7 +24,7 @@
           <a href="/" class="block py-2 pl-3 pr-4 text-orange-700 md:p-0" aria-current="page">Dev Chungu</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Services</a>
+          <a href="/projects" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Projects</a>
         </li>
         <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">About</a>
