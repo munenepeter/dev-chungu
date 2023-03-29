@@ -91,7 +91,12 @@ include_once 'sections/nav.view.php';
             postData(formData)
             //  document.getElementById("jsondata").innerHTML = JSON.stringify(excelData, undefined, 4);
         });
-
+        //clear the form for anther use
+        function resetForm() {
+            successBtn.classList.add("hidden");
+            convertBtn.classList.remove("hidden");
+            document.querySelector('#fileForm').reset();
+        }
         function postData(formData) {
 
             axios.post('/projects/jwg/excel-to-json', formData, {
