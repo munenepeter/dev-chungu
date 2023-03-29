@@ -10,7 +10,7 @@ include_once 'sections/nav.view.php';
     <main class="mt-4 pb-10 lg:pt-16 lg:pb-8">
         <section class="flex justify-between px-2 mx-auto max-w-screen-2xl ">
             <article class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-purple dark:format-invert">
-                <div class=" p-2 rounded-lg bg-purple-100">
+                <div class="p-6 rounded-lg bg-purple-100">
                     <p id="doc-label" class="text-lg text-center font-semibold text-purple-900">Welcome
                         to Excel-JSON</p>
                      <p class="block mb-2 text-sm text-center text-gray-500">Select document to convert</p>
@@ -41,8 +41,8 @@ include_once 'sections/nav.view.php';
                         </button>
 
                     </form>
-                    <section id="doc-content" class="mt-4 p-2 rounded-lg bg-white">
-                        <div id="content" class="p-2 overflow-y-auto ">
+                    <section id="res-content" class="hidden mt-4 p-2 rounded-lg bg-white">
+                        <div class="p-2 overflow-y-auto ">
                             <p class="my-4 text-sm font-medium italic text-gray-500" id="response"></p>
                         </div>
                     </section>
@@ -59,6 +59,7 @@ include_once 'sections/nav.view.php';
         const loadBtn = document.getElementById("loading");
         const successBtn = document.getElementById("success");
         const errBtn = document.getElementById("error");
+        const res_div = document.getElementById("res-content");
 
         convertBtn.addEventListener("click", () => {
             //ui stuff
@@ -70,6 +71,7 @@ include_once 'sections/nav.view.php';
             var Efile = document.querySelector('#inputfile');
             formData.append("excelFile", Efile.files[0]);
             postData(formData)
+            
             //was to render the json contents
             //  document.getElementById("jsondata").innerHTML = JSON.stringify(excelData, undefined, 4);
         });
@@ -77,6 +79,7 @@ include_once 'sections/nav.view.php';
         function resetForm() {
             successBtn.classList.add("hidden");
             convertBtn.classList.remove("hidden");
+            res_div.classList.add("hidden");
             document.querySelector('#fileForm').reset();
         }
 
@@ -95,12 +98,14 @@ include_once 'sections/nav.view.php';
 
                     loadBtn.classList.add("hidden");
                     successBtn.classList.remove("hidden");
+                    res_div.classList.remove("hidden");
                     setTimeout(resetForm, 8000);
                 })
                 .catch(function(error) {
 
                     loadBtn.classList.add("hidden");
                     errBtn.classList.remove("hidden");
+                    res_div.classList.remove("hidden");
 
                     document.getElementById("response").innerHTML = error.response.data;
                     //console.log(error);
