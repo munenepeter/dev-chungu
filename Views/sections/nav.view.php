@@ -18,16 +18,16 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="bg-rose-50  flex flex-col p-2 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <a href="/about-us" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          <a href="/about-us" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparenmd:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
         </li>
         <li>
-          <a href="/services" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          <a href="/services" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparenmd:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
         </li>
         <li>
-          <a href="/projects" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
+          <a href="/projects" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparenmd:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-blue-700 font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Hire us</a>
+          <a href="#" class="block py-2 pl-3 pr-4 text-blue-700 font-semibold rounded hover:bg-gray-100 md:hover:bg-transparenmd:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Hire us</a>
         </li>
       </ul>
     </div>
@@ -35,7 +35,7 @@
 </nav> -->
 
 
-<nav class=" px-2 sm:px-4 py-2 dark:bg-purple-900 fixed w-full  top-0 left-0">
+<nav class=" px-2 sm:px-4 py-2 bg-purple-50 fixed w-full  top-0 left-0">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <div class="flex md:order-2">
       <div class="flex items-center space-x-2">
@@ -57,24 +57,24 @@
         </svg>
       </button>
     </div>
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 bg-purple-50" id="navbar-sticky">
       <ul class="flex flex-col p-4 mt-4 border border-purple-100 rounded-lg bg-purple-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-purple-800 md:dark:bg-purple-900 dark:border-purple-700">
         <li>
 
-          <a href="index.html" class="block py-2 pl-3 pr-4 text-white bg-orange-700 rounded md:bg-transparent md:text-orange-700 md:p-0 dark:text-white" aria-current="page">Dev Chungu</a>
+          <a href="/" class="block py-2 pl-3 pr-4 text-orange-700 md:p-0" aria-current="page">Dev Chungu</a>
 
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 rounded hover:bg-purple-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 ">Services</a>
+          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Services</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 rounded hover:bg-purple-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 ">About</a>
+          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">About</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 rounded hover:bg-purple-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 ">Blog</a>
+          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Blog</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 rounded hover:bg-purple-100 md:hover:bg-transparent md:hover:text-orange-700 md:p-0 ">Contact</a>
+          <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Contact</a>
         </li>
       </ul>
     </div>
