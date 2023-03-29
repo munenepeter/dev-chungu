@@ -9,7 +9,7 @@ include_once 'sections/nav.view.php';
     <section class="px-2 mx-auto max-w-screen-2xl ">
         <article class="mx-auto w-full max-w-4xl md:p-8 p-4 rounded-lg bg-purple-100">
             <div class="mt-2 max-w-screen-md max-h-screen mx-auto p-4 text-center">
-                <h2 class="font-bold text-xl">Case Search (in dev)</h2>
+                <h2 class="font-bold text-xl">Case Search</h2>
             </div>
             <main x-data="{ 'isDialogOpen': false }" @keydown.escape="isDialogOpen = false">
                 <div class="flex justify-between items-center">
@@ -53,7 +53,7 @@ include_once 'sections/nav.view.php';
                                         <div class="mt-2">
                                             <label class="block mb-2 text-sm font-medium text-purple-700 dark:text-gray-300" for="user_avatar">Upload file</label>
                                             <input id="case_doc" name="case_doc" class="block w-full text-sm text-purple-700 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer" type="file" required="">
-                                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Please only upload docs or docx </div>
+                                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Please only upload .doc or .docx </div>
                                         </div>
                                         <!-- https://codepen.io/smashingmag/pen/vYOJaMb?editors=1000 -->
                                         <div class="col-span-full sm:col-span-3 mt-4">
