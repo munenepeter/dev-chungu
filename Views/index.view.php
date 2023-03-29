@@ -28,30 +28,7 @@ include_once 'sections/nav.view.php';
             </div>
         </div>
 </div>
-<!-- Start Hero Section -->
-<header class="h-full flex justify-between w-full bg-gray-600 bg-cover bg-blend-overlay" style="height: 94vh; background-image: url('https://media.wired.com/photos/621575377d11d746344b5a72/191:100/w_2287,h_1197,c_limit/Business_Person%20Working%20on%20Laptop_1302475706.jpg');">
-    <!-- Main div -->
-    <div class="xl:w-2/4 mt-8 lg:mb-28 lg:mt-28  lg:ml-12 lg:text-left text-center  items-center">
-        <div class=" text-4xl lg:text-6xl font-semibold text-rose-200 leading-none text-center md:text-left lg:text-left">
-            Modern Web solutions for you business</div>
-        <div class="mt-6 text-xl font-light text-rose-100 antialiased text-center md:text-left lg:text-left">
-            We are a team of digital experts equipped with skills to help your dream solution become a reality.
-        </div>
-        <button class="mb-4  mt-4 lg:mt-12 px-16 lg:px-8 py-2 lg:py-3  rounded font-semibold tracking-wide bg-rose-500 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
-            Hire Us
-        </button>
-    </div>
-    <div class="hidden lg:inline-flex md:hidden mr-20 lg:mb-24 lg:mt-20 lg:mr-52 text-left ">
-        <div class="rounded-full h-72 w-80 p-1 bg-gradient-to-r  from-rose-300 to-transparent">
-            <img class="h-72 w-full rounded-full" src="https://image.freepik.com/free-vector/coding-concept-illustration_114360-859.jpg" alt="">
-        </div>
-    </div>
-</header>
-<!-- End Hero Section -->
-<!-- ********************************************************************************************** -->
 
-<!-- End About us-->
-<!-- ********************************************************************************************** -->
 <section class="bg-rose-50 text-gray-600 body-font">
     <div class="container px-2 py-16 mx-auto">
         <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
