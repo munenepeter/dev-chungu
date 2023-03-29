@@ -24,7 +24,7 @@
       </svg>
     </button>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-      <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
+      <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-semibold ">
         <li>
           <a href="/" class="block py-2 pl-3 pr-4 text-orange-700 md:p-0" aria-current="page">Home</a>
         </li>
