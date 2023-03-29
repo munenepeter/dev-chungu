@@ -111,8 +111,16 @@ include_once 'sections/nav.view.php';
                     document.getElementById("response").innerHTML = response.data.text;
 
                     download(response.data.file);
+                    loadBtn.classList.add("hidden");
+                    successBtn.classList.remove("hidden");
+                    setTimeout(resetForm, 4000);
                 })
                 .catch(function(error) {
+                    
+                    loadBtn.classList.add("hidden");
+                    errBtn.classList.remove("hidden");
+
+                    document.getElementById("response").innerHTML = error.message;
                     console.log(error);
                 });
         }
