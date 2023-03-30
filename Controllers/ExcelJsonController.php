@@ -67,7 +67,7 @@ class ExcelJsonController {
         if (empty($exceldate)) return "";
         $UNIX_DATE = ((int)$exceldate - 25569) * 86400;
         return gmdate("d/m/Y", $UNIX_DATE);
-        //return Date::excelToDateTimeObject($exceldate)->date;
+       // return Date::excelToDateTimeObject($exceldate)->date;
     }
 
     //consolidate all the DTs in one line
@@ -147,14 +147,51 @@ class ExcelJsonController {
             echo "Error on the server/developer: File path does not exist";
         }
     }
-    public function create() {
-         //check if there is a file
-         if(empty($_FILES['excelFile'])){
+    private function checkUploadedFile() {
+        //check if there is a file
+        if (empty($_FILES['excelFile'])) {
             http_response_code(400);
             echo json_encode("No file has been provided!");
             exit;
-         }
+        }
 
+        // switch ($_FILES['excelFile']['error']) {
+        //     case 0:
+        //         logger("Debug", "File Has been uploaded successfully");
+        //         break;
+        //     case 1:
+        //         logger("Error", "The file uploaded is too large");
+        //         http_response_code(400);
+        //         echo json_encode("The file uploaded is too large");
+        //         break;
+        //     case 3:
+        //         logger("Error", "The uploaded file was only partially uploaded.");
+        //         http_response_code(400);
+        //         echo json_encode("The uploaded file was only partially uploaded.");
+        //         break;
+        //     case 4:
+        //         logger("Error", "No file was uploaded.");
+        //         http_response_code(400);
+        //         echo json_encode("No file was uploaded.");
+        //         break;
+        //     case 6:
+        //         logger("Error", "Missing a temporary folder.");
+        //         http_response_code(400);
+        //         echo json_encode("Missing a temporary folder.");
+        //         break;
+        //     case 7:
+        //         logger("Error", "Failed to write file to disk.");
+        //         http_response_code(400);
+        //         echo json_encode("Failed to write file to disk.");
+        //         break;
+        //     default:
+        //         logger("Error", "Beats the hell out me, but something happened!");
+        //         http_response_code(400);
+        //         echo json_encode("Beats the hell out me, but something happened!");
+        // }
+    }
+    public function create() {
+        $this->checkUploadedFile();
         //get data from file
         $rowsAndHeaders = $this->getArray($_FILES['excelFile']["tmp_name"]);
 
@@ -173,7 +210,7 @@ class ExcelJsonController {
             "total" => count($reformatedData),
             "articles" => $reformatedData
         ];
-        logger("Info", "Succesfully parsed  " . $_FILES['excelFile']['name'] . " of ". $_FILES['excelFile']['type']);
+        logger("Info", "Succesfully parsed  " . $_FILES['excelFile']['name'] . " of " . $_FILES['excelFile']['type']);
         //finally write to file
         $this->writeJson($final);
     }
@@ -181,9 +218,9 @@ class ExcelJsonController {
         //TODO
     }
     public function view($file) {
-        if(!file_exists($this->jsonFilePath . $file)){
-         echo  "File does not exist";
-         logger("Debug", "File trying to be read does not exist - $file");
+        if (!file_exists($this->jsonFilePath . $file)) {
+            echo  "File does not exist";
+            logger("Debug", "File trying to be read does not exist - $file");
         }
         echo file_get_contents($this->jsonFilePath . $file);
     }
