@@ -7,7 +7,7 @@ use Chungu\Core\Database\QueryBuilder;
 //change TimeZone
 date_default_timezone_set('Africa/Nairobi'); 
 //production development
-define('ENV','production');
+define('ENV','development');
 
 //require all files here
 require 'helpers.php';

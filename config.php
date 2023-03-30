@@ -25,6 +25,7 @@ return [
     502 => ['502 Bad Gateway', 'The server received an invalid response from the upstream server while trying to fulfill the request.'],
     504 => ['504 Gateway Timeout', 'The upstream server failed to send a request in the time allowed by the server.'],
     2002 => ['No connection', 'Can\'t connect to a MySQL server or Database'],
-    1049 => ['1049 Unknown Database', 'Database does not exist!']
+    1049 => ['1049 Unknown Database', 'Database does not exist!'],
+    1045 => ['1045 Unknown User', 'Access Denied for the specified user!']
   ]
 ];
