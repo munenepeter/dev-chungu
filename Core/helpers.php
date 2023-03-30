@@ -383,10 +383,7 @@ function time_ago($datetime, $full = false) {
  * @return string Path to the requested resource
  */
 function asset($dir) {
-    // echo url();
-    $root_url = substr(url(), 0, strpos(url(), $_SERVER['REQUEST_URI']));
-
-    echo $root_url . "/static/$dir";
+    echo url() . "static/$dir";
 }
 function get_perc($total, $number) {
     if ($total > 0) {
