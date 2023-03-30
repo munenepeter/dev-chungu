@@ -110,16 +110,7 @@ include_once 'sections/nav.view.php';
 
         $url = trim($_GET['url']);
 
-        function wp_strip_all_tags($string, $remove_breaks = false) {
-            $string = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $string);
-            $string = strip_tags($string);
 
-            if ($remove_breaks) {
-                $string = preg_replace('/[\r\n\t ]+/', ' ', $string);
-            }
-
-            return trim($string);
-        }
         function highlightWords($text, $word) {
             $text = preg_replace(' #' . preg_quote($word->word) . ' #i', '<span name="keywords_found_in_doc" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
             return "<p class='font-normal text-gray-700'>$text</p>";
@@ -166,7 +157,6 @@ include_once 'sections/nav.view.php';
     }
     ?>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     let keywords_found = [];
     document.getElementsByName('keywords_found_in_doc').forEach(data => {
