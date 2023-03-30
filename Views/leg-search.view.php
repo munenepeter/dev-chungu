@@ -25,10 +25,6 @@ include_once 'sections/nav.view.php';
 
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-    console.log("Here");
-</script>
 
 <div class="border-t bg-gray-50 left-50 w-full  bottom-0" style="position: fixed;  left: 50%; transform: translate(-50%, 0);">
     <div class="text-gray-900 text-sm text-center">
