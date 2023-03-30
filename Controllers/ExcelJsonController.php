@@ -62,7 +62,12 @@ class ExcelJsonController {
         return implode("", $randstring);
     }
 
-
+/**
+ * Undocumented function ---Has a bug
+ *
+ * @param [type] $exceldate
+ * @return \Date
+ */
     private function convertDate($exceldate) {
         if (empty($exceldate)) return "";
         $UNIX_DATE = ((int)$exceldate - 25569) * 86400;
