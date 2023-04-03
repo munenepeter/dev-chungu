@@ -4,7 +4,7 @@ include_once 'sections/nav.view.php';
 
 
 <!-- component -->
-<div class="mt-20">
+<div class="md:mt-20 mt-16">
     <!-- container -->
     <div class="container px-2 p-4 lg:p-4 mx-auto bg-purple-100 rounded-md">
         <!-- hero wrapper -->
