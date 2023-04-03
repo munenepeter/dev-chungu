@@ -1,4 +1,4 @@
-<nav class="shadow-md px-2 sm:px-4 py-2 bg-purple-100 fixed w-full  top-0 left-0">
+<nav class="px-2 sm:px-4 py-2 fixed w-full  top-0 left-0">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <div class="flex items-center space-x-2">
       <!-- <div class="h-8 w-8 bg-orange-200 rounded-full">
