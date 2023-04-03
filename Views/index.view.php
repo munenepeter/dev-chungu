@@ -3,43 +3,31 @@ include_once 'sections/nav.view.php';
 ?>
 
 
-<!-- component -->
+<!-- Hero-->
 <div class="md:mt-20 mt-16">
-    <!-- container -->
     <div class="container px-2 p-4 lg:p-4 mx-auto bg-purple-100 rounded-md">
-        <!-- hero wrapper -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-
-            <!-- hero text -->
             <div class="hero-text col-span-6">
                 <h1 class="font-bold text-2xl md:text-5xl max-w-xl text-purple-900 leading-tight">Modern Web solutions for your business</h1>
                 <hr class="w-12 h-1 bg-orange-500 rounded-full mt-4">
                 <p class="text-gray-800 text-base leading-relaxed mt-4 font-semibold">We are a team of digital experts equipped with skills to help your dream solution become a reality.</p>
-
                 <button class="mt-6 rounded-lg bg-orange-800 px-6 py-2.5 text-center text-sm font-medium leading-5 text-white hover:bg-orange-700 focus:outline-none lg:mx-0 lg:w-auto">Get
                     a Free Qoute</button>
-
             </div>
-            <!-- hero image -->
             <div class="col-span-6">
                 <img class="" src="<?php asset("imgs/hero.png") ?>" alt="">
             </div>
         </div>
     </div>
 </div>
-
-<section class="bg-purple-50 text-gray-600 body-font">
+<!-- What We Provide -->
+<section class="bg-purple-50 body-font">
     <div class="container px-2 py-6 mx-auto">
         <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-900">
-                About us
+            <h1 class="sm:text-3xl text-3xl font-medium title-font mb-4 text-purple-900">
+                What We Provide
             </h1>
-            <p class="lg:w-1/2 w-full leading-relaxed text-gray-800 text-lg">
-
-                We are a team of experienced professionals who specialize in creating high-quality websites and web applications for businesses of all sizes. Our goal is to help our clients succeed in the digital world by providing them with exceptional web development services that meet their unique needs and requirements. With our years of experience and expertise, we are well-equipped to handle all aspects of web development, from designing and coding to testing and deployment. We use the latest technologies and frameworks to build websites that are not only visually appealing but also fast, secure, and easy to navigate.
-            
-            
-            </p>
+            <p class="lg:w-1/2 w-full leading-relaxed text-gray-800 text-lg">We are a team of experienced professionals who specialize in creating high-quality websites and web applications for businesses of all sizes. </p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 p-2">
             <div class="p-4 ">
