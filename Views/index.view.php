@@ -6,7 +6,7 @@ include_once 'sections/nav.view.php';
 <!-- component -->
 <div class="mt-20">
     <!-- container -->
-    <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+    <div class="container px-2 p-4 lg:p-4 mx-auto bg-purple-100 rounded-md">
         <!-- hero wrapper -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
