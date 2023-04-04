@@ -30,14 +30,14 @@ include_once 'sections/nav.view.php';
             <p class="lg:w-1/2 w-full leading-relaxed text-gray-800 text-lg">We are a team of experienced professionals who specialize in creating high-quality websites and web applications for businesses of all sizes. </p>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-3 items-center gap-1 p-2">
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-center mx-16">
             <?php for ($i = 0; $i < 3; $i++) : ?>
-                <div class="p-4 border border-gray-200 p-6 rounded-lg bg-gradient-to-r from-purple-100  to-purple-200 bg-opacity-75">
+                <div class=" p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-purple-200">
                     <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
                         <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
                     </div>
-                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Design</h2>
-                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non accusantium laudantium amet possimus sint, sit quia deserunt? Quae magni accusantium</p>
+                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Development</h2>
+                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non</p>
                 </div>
             <?php endfor; ?>
         </div>
