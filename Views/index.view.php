@@ -29,41 +29,25 @@ include_once 'sections/nav.view.php';
             </h1>
             <p class="lg:w-1/2 w-full leading-relaxed text-gray-800 text-lg">We are a team of experienced professionals who specialize in creating high-quality websites and web applications for businesses of all sizes. </p>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 p-2">
-            <div class="p-4 ">
-                <div class="border border-red-200 p-6 rounded-lg bg-gradient-to-r from-purple-100  to-purple-200 bg-opacity-75">
-                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                        <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Webdesign Icon">
-                    </div>
-                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Development</h2>
-                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non accusantium laudantium amet possimus sint, sit quia deserunt? Quae magni accusantium quaerat, reprehenderit ab est harum ipsa. Quae dolorum laboriosam repellat nam explicabo aliquid cum quaerat.</p>
-                    <div class="mt-4">
-                        <a class="inline-flex px-4 py-2  w-36 text-center font-semibold rounded-full bg-purple-400 text-gray-100">Get
-                            Service
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-3 items-center gap-1 p-2">
+
+            <div class="p-4 border border-gray-200 p-6 rounded-lg bg-gradient-to-r from-purple-100  to-purple-200 bg-opacity-75">
+                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                    <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
+                </div>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Design</h2>
+                <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non accusantium laudantium amet possimus sint, sit quia deserunt? Quae magni accusantium</p>
+                <div class="mt-4">
+                    <a class="inline-flex px-4 py-2  w-36 text-center font-medium rounded-full bg-orange-800 text-gray-100">Get
+                        Service
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
             </div>
-            <div class=" p-4">
-                <div class="border border-gray-200 p-6 rounded-lg bg-gradient-to-r from-purple-100  to-purple-200 bg-opacity-75">
-                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                        <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
-                    </div>
-                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Design</h2>
-                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non accusantium laudantium amet possimus sint, sit quia deserunt? Quae magni accusantium quaerat, reprehenderit ab est harum ipsa. Quae dolorum laboriosam repellat nam explicabo aliquid cum quaerat.</p>
-                    <div class="mt-4">
-                        <a class="inline-flex px-4 py-2  w-36 text-center font-medium rounded-full bg-orange-800 text-gray-100">Get
-                            Service
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
 
         </div>
         <button id="to-all-services" class="flex mx-auto mt-10 text-white bg-orange-800 border-0 py-2 px-10 focus:outline-none hover:bg-orange-700 rounded text-lg">Get
