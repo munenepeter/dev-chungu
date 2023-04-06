@@ -6,7 +6,7 @@ use Chungu\Models\Li;
 
 class LegislativeController extends Controller {
     public function index() {
-        return view('leg-initia', ["lis" => Li::all()]);
+        return view('search', ["lis" => Li::all()]);
     }
     public function create() {
         //create an LI
