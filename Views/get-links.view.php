@@ -22,15 +22,21 @@ function getUrls($url) {
        $html = file_get_contents($url, false, $context);
 
        // Create a DOMDocument object to parse the HTML
-       $dom = new DOMDocument();
+       try {
+              $dom = new DOMDocument();
+       } catch (\Exception $e) {
+       }
 
        // Disable errors and warnings when parsing HTML
        libxml_use_internal_errors(true);
 
        // Load the HTML into the DOMDocument object
-       if (!$dom->loadHTML($html)) {
+       try {
+              $dom->loadHTML($html);
+       } catch (\Exception $e) {
               throw new Exception("Failed to parse HTML");
        }
+
 
        // Enable errors and warnings again
        libxml_use_internal_errors(false);
