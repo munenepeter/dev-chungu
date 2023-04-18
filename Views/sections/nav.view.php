@@ -1,3 +1,6 @@
+<?php
+
+use Chungu\Core\Mantle\Request; ?>
 <nav class="px-2 sm:px-4 py-2 fixed w-full  top-0 left-0 backdrop-blur-3xl shadow-sm bg-rose-50">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <div class="flex items-center space-x-2">
@@ -21,10 +24,14 @@
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
       <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-semibold ">
         <li>
-          <a href="/" class="block py-2 pl-3 pr-4 text-orange-700 md:p-0" aria-current="page">Home</a>
+          <a href="/" class="block py-2 pl-3 pr-4 text-orange-700 md:p-0
+          <?= (Request::uri() == '') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
+          " aria-current="page">Home</a>
         </li>
         <li>
-          <a href="/projects" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Projects</a>
+          <a href="/projects" class="block py-2 pl-3 pr-4  md:p-0 
+          <?= str_contains(Request::uri(), 'projects') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
+          ">Projects</a>
         </li>
         <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">About</a>
