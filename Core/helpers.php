@@ -7,6 +7,10 @@ use Chungu\Core\Mantle\Logger;
 use Chungu\Core\Mantle\Request;
 use Chungu\Core\Mantle\Session;
 
+define("BASE_URL",  sprintf(
+    "%s://%s",
+    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME']
+));
 
 /**
  * checkCreateView
@@ -383,7 +387,11 @@ function time_ago($datetime, $full = false) {
  * @return string Path to the requested resource
  */
 function asset($dir) {
-    echo url() . "static/$dir";
+    if(is_dev()){
+        echo BASE_URL.":".$_SERVER['SERVER_PORT']. "/static/$dir";
+    }else{
+        echo BASE_URL . "/static/$dir";
+    }
 }
 function get_perc($total, $number) {
     if ($total > 0) {

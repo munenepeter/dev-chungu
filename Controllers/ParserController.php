@@ -50,6 +50,8 @@ class ParserController {
         }
         return $foundWords;
     }
+
+    
     //parse PDF files
     private function getPdfText($filename) {
         try {
@@ -130,7 +132,7 @@ class ParserController {
         $start = microtime(true);
         header('Content-Type: application/json; charset=utf-8');
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: PUT, GET, POST");
+        header("Access-Control-Allow-Methods: GET, POST");
 
         //empty response
         $messages = [];
@@ -171,8 +173,7 @@ class ParserController {
         }
 
         //search for LIS
-        if (!empty($this->getLisInText($text, $this->getAllLis()))) {
-            logger('Info', 'took ' .  microtime(true) - $start . 'to read, get, highlight keywords & search LIs');
+        if (!empty($this->getLisInText($text, $this->getAllLis()))) { 
             $messages['lis_found'] =  implode(", ", $this->getLisInText($text, $this->getAllLis()));
         } else {
             $messages['lis_found'] = "No LI's Found!";
@@ -181,7 +182,6 @@ class ParserController {
 
         // print_r($messages);
         //return the object response
-        echo json_encode($messages, JSON_INVALID_UTF8_IGNORE);
-        logger('Info', 'took ' .  microtime(true) - $start . 'to do everything');
+        echo json_encode($messages, JSON_INVALID_UTF8_IGNORE); 
     }
 }
