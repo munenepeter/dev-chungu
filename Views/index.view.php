@@ -21,29 +21,44 @@ include_once 'sections/nav.view.php';
     </div>
 </div>
 <!-- What We Provide -->
-<section class="bg-purple-50 body-font">
+<section class="bg-purple-50 body-font mt-6">
     <div class="container px-2 py-6 mx-auto">
         <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
-            <h1 class="sm:text-3xl text-3xl font-medium title-font mb-4 text-purple-900">
+            <h1 class="sm:text-3xl text-3xl font-medium title-font mb-4 text-orange-800">
                 What We Provide
             </h1>
             <p class="lg:w-1/2 w-full leading-relaxed text-gray-800 text-lg">We are a team of experienced professionals who specialize in creating high-quality websites and web applications for businesses of all sizes. </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 items-center mx-16">
-            <?php for ($i = 0; $i < 3; $i++) : ?>
-                <div class=" p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-purple-200">
-                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                        <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
-                    </div>
-                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Web Development</h2>
-                    <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet. Alias libero aut, molestias officiis aliquid qui nisi! Distinctio repudiandae non</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-center md:mx-16 gap-1">
+
+            <div class="p-4 rounded-lg bg-gradient-to-r from-rose-50 to-rose-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-rose-200">
+                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                    <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
                 </div>
-            <?php endfor; ?>
-        </div>
-        <button id="to-all-services" class="flex mx-auto mt-10 text-white bg-orange-800 border-0 py-2 px-10 focus:outline-none hover:bg-orange-700 rounded text-lg">Get
-            All</button>
-    </div>
+                <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">Web Development</h2>
+                <p class="leading-relaxed text-base">Our Web Development services are designed to help businesses of all sizes create a powerful online presence. We use the latest technologies and best practices to deliver high-quality, responsive websites that look great on all devices.</p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-gradient-to-r from-rose-50 to-rose-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-rose-200">
+                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                    <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
+                </div>
+                <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">System Maintenance</h2>
+                <p class="leading-relaxed text-base">Our services include ongoing monitoring, maintenance, and optimization of your IT systems to ensure they are always performing at their best. We proactively identify and resolve issues before they impact your operations, saving you time and money in the long run.</p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-gradient-to-r from-rose-50 to-rose-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-rose-200">
+                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                    <img src="https://munenepeter.github.io/gwaladigital/assets/Webdesign.svg" alt="Digital Marketing Icon">
+                </div>
+                <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">IT Consulting</h2>
+                <p class="leading-relaxed text-base">Our IT Consulting services provide strategic guidance and support to help you make informed decisions about your technology investments. We work closely with you to understand your business goals and identify areas where technology can drive growth and innovation.</p>
+
+            </div>
+            </div>
+            <button class="flex mx-auto mt-10 text-white bg-orange-800 border-0 py-2 px-10 focus:outline-none hover:bg-orange-700 rounded text-lg">Get Qoute</button>
+       
 </section>
 <!-- End Our Solutions Section -->
 
