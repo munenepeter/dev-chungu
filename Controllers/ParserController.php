@@ -8,6 +8,17 @@ use Chungu\Core\Mantle\DocumentParser;
 
 class ParserController {
 
+    private $keywords_file = __DIR__ . "/../static/files/keywords.txt";
+
+    public function getKeywords() {
+
+        $data = file_get_contents($this->keywords_file);
+        $s_keyWords = explode(PHP_EOL, $data);
+        array_pop($s_keyWords);
+
+        return $s_keyWords;
+    }
+
     public function index() {
 
         return view('parser');
@@ -51,14 +62,13 @@ class ParserController {
         return $foundWords;
     }
 
-    
+
     //parse PDF files
     private function getPdfText($filename) {
         try {
             $parser = new Parser();
             $pdf = $parser->parseFile($filename);
             $text = $pdf->getText();
-
         } catch (\Exception $e) {
             logger('Error', 'An exception for PDF was thrown ' . $e->getMessage());
             throw new \Exception($e->getMessage());
@@ -129,7 +139,6 @@ class ParserController {
         return preg_replace(' #' . preg_quote($word->word) . ' #i', '<span name="keywords_found_in_doc" class="underline rounded font-semibold text-white" style="background-color:' . $word->color . ';">\\0</span>', $text);
     }
     public function parse() {
-        $start = microtime(true);
         header('Content-Type: application/json; charset=utf-8');
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: GET, POST");
@@ -162,9 +171,14 @@ class ParserController {
         }
 
 
+
+
         //check if text is empty
         if (!empty($text)) {
-            $messages['text'] = $text;
+            foreach ($this->getKeywords() as $keyWord) {
+                $keyWord = json_decode($keyWord);
+                $messages['text'] =  $this->highlightWords($text, $keyWord);
+            }
         } else {
             logger('Error', 'An exception for empty text was thrown ' . $e->getMessage());
             $messages['lis_found'] = "No LI's Found!";
@@ -173,7 +187,7 @@ class ParserController {
         }
 
         //search for LIS
-        if (!empty($this->getLisInText($text, $this->getAllLis()))) { 
+        if (!empty($this->getLisInText($text, $this->getAllLis()))) {
             $messages['lis_found'] =  implode(", ", $this->getLisInText($text, $this->getAllLis()));
         } else {
             $messages['lis_found'] = "No LI's Found!";
@@ -182,6 +196,6 @@ class ParserController {
 
         // print_r($messages);
         //return the object response
-        echo json_encode($messages, JSON_INVALID_UTF8_IGNORE); 
+        echo json_encode($messages, JSON_INVALID_UTF8_IGNORE);
     }
 }
