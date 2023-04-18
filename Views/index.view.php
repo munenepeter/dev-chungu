@@ -15,7 +15,7 @@ include_once 'sections/nav.view.php';
                     a Free Qoute</button>
             </div>
             <div class="col-span-6">
-                <img class="" src="<?php asset("imgs/hero.png") ?>" alt="">
+                <img class="" src="<?php asset("imgs/hero.png") ?>" alt="Hero">
             </div>
         </div>
     </div>
