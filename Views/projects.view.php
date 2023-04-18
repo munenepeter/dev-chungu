@@ -14,7 +14,7 @@ include_once 'sections/nav.view.php';
                      </div>
                      <div class="mt-6 grid md:grid-cols-4 grid-cols-1 mt-2 gap-2 mx-auto">
                             <?php foreach ($projects as $project) : ?>
-                                   <div class="bg-gray-50 shadow-sm border border-purple-100 hover:border-purple-200 p-4 rounded-md hover:bg-purple-50 hover:shadow-md">
+                                   <div class="bg-gray-50 shadow-sm border border-rose-100 hover:border-rose-200 p-4 rounded-md hover:bg-purple-50 hover:shadow-md">
                                           <div class="flex justify-between items-center mb-4">
                                                  <div class="flex items-center space-x-2">
                                                         <div class="border border-purple-100 p-1 rounded-md">
