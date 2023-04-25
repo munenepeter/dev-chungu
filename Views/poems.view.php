@@ -18,25 +18,6 @@ include_once 'sections/nav.view.php';
 
 
 
-<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; top:0; left:0; height:100vh; width:100%; z-index:-1;">
-       <filter id="filter">
-              <feTurbulence type="fractalNoise" baseFrequency=".04" result="n" />
-              <feTurbulence baseFrequency=".03" numOctaves="4" />
-              <feDisplacementMap in="n" yChannelSelector="B" scale="99" />
-              <feColorMatrix values="1  0 0 0 0
-                              -1  1 0 0 0
-                              -1 -1 0 0 0
-                               0  0 0 0 1" />
-              <feColorMatrix values="1 .88 0 0 .39
-                               1 .66 0 0 .31
-                               1 .41 0 0 .07
-                               0  0  0 0  1" />
-       </filter>
-       <rect x="-10%" y="-10%" width="120%" height="100%" filter="url(#filter)" />
-</svg>
-
-
-
 
 
 
