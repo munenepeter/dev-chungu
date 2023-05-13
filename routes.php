@@ -22,7 +22,7 @@ $router->post('projects/jwg/leg-initia/search', 'LegislativeController@search');
 $router->get('projects/jwg/leg-initia/show', 'LegislativeController@showLi');
 $router->post('projects/jwg/leg-initia/delete', 'LegislativeController@delete');
 //leg-search
-$router->get('projects/jwg/leg-search', 'LISearchController@index');
+//$router->get('projects/jwg/leg-search', 'LISearchController@index');
 //excel-to-json
 $router->get('projects/jwg/excel-to-json', 'ExcelJsonController@index');
 $router->post('projects/jwg/excel-to-json', 'ExcelJsonController@create');

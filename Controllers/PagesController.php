@@ -15,7 +15,6 @@ class PagesController extends Controller {
             ['category' => 'jwg', 'name' => "parser", 'description' => 'Parse docx, pdf, rtf & txt files'],
             ['category' => 'jwg', 'name' => "get-links", 'description' => 'Get all the urls of a webpage'],
             ['category' => 'jwg', 'name' => "leg-initia", 'description' => 'Search Legislative initiatives'],
-            ['category' => 'jwg', 'name' => "leg-search", 'description' => 'Search LI\'s with a doc'],
             ['category' => 'devs-talk', 'name' => "api", 'description' => 'Demo API endpoints for Devs talk'],
             ['category' => 'law', 'name' => "case-law-search", 'description' => 'A simple Case Search with highlights'],
             ['category' => 'personal', 'name' => "clive", 'description' => 'A simple (insurer) Insurance system'],
