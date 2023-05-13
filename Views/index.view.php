@@ -50,7 +50,7 @@ include_once 'sections/nav.view.php';
 
                 </div>
                 <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">System Maintenance</h2>
-                <p class="leading-relaxed text-base">Our services include ongoing monitoring, maintenance, and optimization of your IT systems to ensure they are always performing at their best. We proactively identify and resolve issues before they impact your operations, saving you time and money.</p>
+                <p class="leading-relaxed text-base">Our services include ongoing monitoring, maintenance, and optimization of your systems to ensure they are always performing at their best. We proactively identify and resolve issues before they impact your operations, saving you time and money.</p>
             </div>
 
             <div class="p-4 rounded-lg bg-gradient-to-r from-rose-50 to-rose-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-rose-200">
