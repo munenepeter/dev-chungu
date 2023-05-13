@@ -60,7 +60,7 @@ include_once 'sections/nav.view.php';
                     </svg>
                 </div>
                 <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">IT Consulting</h2>
-                <p class="leading-relaxed text-base">Our IT Consulting services provide strategic guidance and support to help you make informed decisions about your technology investments. We work closely with you to understand your business goals and identify areas where technology can drive growth and innovation.</p>
+                <p class="leading-relaxed text-base">Our IT Consulting services provide strategic guidance and support to help you make informed decisions about your technology investments. We work closely with you to understand your goals and identify areas where technology can drive growth and innovation.</p>
 
             </div>
         </div>
