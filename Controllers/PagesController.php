@@ -17,7 +17,7 @@ class PagesController extends Controller {
             ['category' => 'jwg', 'name' => "leg-initia", 'description' => 'Search Legislative initiatives'],
             ['category' => 'devs-talk', 'name' => "api", 'description' => 'Demo API endpoints for Devs talk'],
             ['category' => 'law', 'name' => "case-law-search", 'description' => 'A simple Case Search with highlights'],
-            ['category' => 'personal', 'name' => "clive", 'description' => 'A simple (insurer) Insurance system'],
+            ['category' => 'personal', 'name' => "claim", 'description' => 'A simple (insurer) Insurance system'],
             ['category' => 'personal', 'name' => "board-room", 'description' => 'A board room scheduling mini-system'],
             ['category' => 'personal', 'name' => "poems", 'description' => 'All my poems in one place :)'],
             ['category' => 'personal', 'name' => "scripts", 'description' => 'All my scripts in one place (sh & cmd)']
