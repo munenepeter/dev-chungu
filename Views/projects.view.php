@@ -11,10 +11,10 @@ include_once 'sections/nav.view.php';
                                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                                    </svg>
 
-                                   <h2 class="font-bold text-lg ">Home</h2>
+                                   <a href="/" class="font-bold text-lg ">Home</a>
                             </div>
                             <div class="flex items-center space-x-2 text-orange-800">
-                                   <h2 class="font-bold text-lg ">Github</h2>
+                                   <a href="https://github.com/munenepeter" class="font-bold text-lg ">Github</a>
                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                    </svg>

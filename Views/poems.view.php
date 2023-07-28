@@ -17,14 +17,6 @@ include_once 'sections/nav.view.php';
 
 
 
-
-
-
-
-
-
-
-
 <div class="relative grid place-items-center text-center my-8">
        <div class="container mx-auto my-12 px-4 sm:px-0">
               <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

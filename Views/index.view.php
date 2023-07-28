@@ -50,7 +50,7 @@ include_once 'sections/nav.view.php';
 
                 </div>
                 <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">System Maintenance</h2>
-                <p class="leading-relaxed text-base">Our services include ongoing monitoring, maintenance, and optimization of your IT systems to ensure they are always performing at their best. We proactively identify and resolve issues before they impact your operations, saving you time and money in the long run.</p>
+                <p class="leading-relaxed text-base">Our services include ongoing monitoring, maintenance, and optimization of your systems to ensure they are always performing at their best. We proactively identify and resolve issues before they impact your operations, saving you time and money.</p>
             </div>
 
             <div class="p-4 rounded-lg bg-gradient-to-r from-rose-50 to-rose-100 bg-opacity-75 hover:to-white hover:shadow-md hover:border border-rose-200">
@@ -60,7 +60,7 @@ include_once 'sections/nav.view.php';
                     </svg>
                 </div>
                 <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">IT Consulting</h2>
-                <p class="leading-relaxed text-base">Our IT Consulting services provide strategic guidance and support to help you make informed decisions about your technology investments. We work closely with you to understand your business goals and identify areas where technology can drive growth and innovation.</p>
+                <p class="leading-relaxed text-base">Our IT Consulting services provide strategic guidance and support to help you make informed decisions about your technology investments. We work closely with you to understand your goals and identify areas where technology can drive growth and innovation.</p>
 
             </div>
         </div>
@@ -71,22 +71,22 @@ include_once 'sections/nav.view.php';
 
 
 
-<section class="p-6 bg-purple-50 text-gray-900 shadow-lg border border-purple-50">
+<section class="p-6 bg-purple-50 text-gray-900 shadow-md border border-purple-50">
     <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
-        <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
+        <p class="mb-8 lg:mb-16 font-light text-center text-rose-800 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a project? Need details about our operations? Let us know.</p>
         <form action="#" class="space-y-8">
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                <input type="email" id="email" class="shadow-sm bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 dark:shadow-sm-light" placeholder="name@chungu.co.ke" required>
+                <input type="email" id="email" class="shadow-sm bg-rose-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 dark:shadow-sm-light" placeholder="name@chungu.co.ke" required>
             </div>
             <div>
                 <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-purple-300 shadow-sm focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+                <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-rose-50 rounded-lg border border-purple-300 shadow-sm focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
             </div>
             <div class="sm:col-span-2">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-                <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-purple-300 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="Leave a comment..."></textarea>
+                <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-rose-50 rounded-lg shadow-sm border border-purple-300 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="Leave a comment..."></textarea>
             </div>
             <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-purple-700 sm:w-fit hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-blue-800">Send message</button>
         </form>
