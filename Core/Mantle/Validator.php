@@ -65,20 +65,9 @@ class Validator {
                     $rule_name = trim($rule);
                 }
                 $fn = 'is_' . $rule_name;
-                echo '----------------------------<br>';
-
-                echo  $fn;
-                echo '<br>';
-
-
-
-
-
+              
                 if (method_exists($this, $fn)) {
-
                     $pass = $this->$fn($data, $field, ...$params);
-                    echo $field . ' should be ' . $fn . '. status? ' . ($pass) . '<br>';
-
                     if (!$pass) {
                         $this->errors[$field] = sprintf(
                             $messages[$field][$rule_name] ?? $validation_errors[$rule_name],
@@ -90,7 +79,7 @@ class Validator {
             }
         }
 
-        print_r($this->errors);
+        return empty($this->errors);
     }
     public function getErrors() {
         return $this->errors;
