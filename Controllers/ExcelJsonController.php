@@ -2,10 +2,12 @@
 
 namespace Chungu\Controllers;
 
+use Date;
+use Chungu\Controllers\Controller;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 
-class ExcelJsonController {
+class ExcelJsonController extends Controller {
 
     protected $headers = [
         "issuing_body", "document_name", "page_url", "extracted_at", "jurisdiction", "effective_date",
@@ -62,17 +64,17 @@ class ExcelJsonController {
         return implode("", $randstring);
     }
 
-/**
- * Undocumented function ---Has a bug
- *
- * @param [type] $exceldate
- * @return \Date
- */
+    /**
+     * Undocumented function ---Has a bug
+     *
+     * @param [type] $exceldate
+     * @return Date
+     */
     private function convertDate($exceldate) {
         if (empty($exceldate)) return "";
         $UNIX_DATE = ((int)$exceldate - 25569) * 86400;
         return gmdate("d/m/Y", $UNIX_DATE);
-       // return Date::excelToDateTimeObject($exceldate)->date;
+        // return Date::excelToDateTimeObject($exceldate)->date;
     }
 
     //consolidate all the DTs in one line
@@ -94,18 +96,21 @@ class ExcelJsonController {
 
     private function writeJson($jsonData) {
 
-        $random_letter = chr(rand(65, 90));
-        //create a random letter for each of the files downloaded
         //to conserve the server resources we will just use 1 name for all files
         $fileName = "IB_" . date("Ymd");
         $$fileName = trim($fileName);
 
-        //write to a file
 
+        logger("Debug", "We are here with {$$fileName}");
+
+        //write to a file
         $jsonfile = "{$$fileName}";
         $jsonfilePath = $this->jsonFilePath . "{$$fileName}";
 
-        $file = fopen($jsonfilePath, 'w');
+        if (!$file = fopen($jsonfilePath, 'w')) {
+            logger("Debug", "We could not open {$jsonfilePath}");
+            $this->json(['text' => "Something happened and we could not convert your file!"], 500);
+        }
         //unescape the slashes
         fwrite($file, json_encode($jsonData, JSON_UNESCAPED_SLASHES));
         fclose($file);
@@ -115,14 +120,15 @@ class ExcelJsonController {
         // delete_file($this->jsonFilePath . $$oldfile);
 
         //check if the file exists so as to return a response
-
         if (file_exists($jsonfilePath)) {
+            $code = 200;
             $data = ['file' => $jsonfile, 'text' => "Your json file is ready and will be downloaded as <a class=\"text-purple-600 hover:underline\" href='/projects/jwg/excel-to-json/view/$jsonfile' target=\"_blank\">$jsonfile</a>, also you can click <a class=\"text-purple-600 hover:underline\" href='/projects/jwg/excel-to-json/view/$jsonfile' target=\"_blank\">here</a> to see the contents"];
         } else {
-            $data = ['text' => "Error: Something happened and we could not create the .json file"];
+            $code = 500;
+            $data = ['text' => "Error: Something happened and we could not create the .json file!"];
         }
 
-        echo json_encode($data);
+        $this->json($data, $code);
     }
     public function download() {
         $path = $this->jsonFilePath . trim($_GET['file']);
@@ -155,45 +161,38 @@ class ExcelJsonController {
     private function checkUploadedFile() {
         //check if there is a file
         if (empty($_FILES['excelFile'])) {
-            http_response_code(400);
-            echo json_encode("No file has been provided!");
+            $this->json("No file has been provided!", 400);
             exit;
         }
 
-        // switch ($_FILES['excelFile']['error']) {
-        //     case 0:
-        //         logger("Debug", "File Has been uploaded successfully");
-        //         break;
-        //     case 1:
-        //         logger("Error", "The file uploaded is too large");
-        //         http_response_code(400);
-        //         echo json_encode("The file uploaded is too large");
-        //         break;
-        //     case 3:
-        //         logger("Error", "The uploaded file was only partially uploaded.");
-        //         http_response_code(400);
-        //         echo json_encode("The uploaded file was only partially uploaded.");
-        //         break;
-        //     case 4:
-        //         logger("Error", "No file was uploaded.");
-        //         http_response_code(400);
-        //         echo json_encode("No file was uploaded.");
-        //         break;
-        //     case 6:
-        //         logger("Error", "Missing a temporary folder.");
-        //         http_response_code(400);
-        //         echo json_encode("Missing a temporary folder.");
-        //         break;
-        //     case 7:
-        //         logger("Error", "Failed to write file to disk.");
-        //         http_response_code(400);
-        //         echo json_encode("Failed to write file to disk.");
-        //         break;
-        //     default:
-        //         logger("Error", "Beats the hell out me, but something happened!");
-        //         http_response_code(400);
-        //         echo json_encode("Beats the hell out me, but something happened!");
-        // }
+        switch ($_FILES['excelFile']['error']) {
+            case 0:
+                logger("Debug", "File Has been uploaded successfully");
+                break;
+            case 1:
+                logger("Error", "The file uploaded is too large");
+                $this->json("The file uploaded is too large", 400);
+                break;
+            case 3:
+                logger("Error", "The uploaded file was only partially uploaded.");
+                $this->json("The uploaded file was only partially uploaded.", 400);
+                break;
+            case 4:
+                logger("Error", "No file was uploaded.");
+                $this->json("No file was uploaded.", 400);
+                break;
+            case 6:
+                logger("Error", "Missing a temporary folder.");
+                $this->json("Missing a temporary folder.", 400);
+                break;
+            case 7:
+                logger("Error", "Failed to write file to disk.");
+                $this->json("Failed to write file to disk.", 400);
+                break;
+            default:
+                logger("Error", "Beats the hell out me, but something happened!");
+                $this->json("Beats the hell out me, but something happened!", 400);
+        }
     }
     public function create() {
         $this->checkUploadedFile();

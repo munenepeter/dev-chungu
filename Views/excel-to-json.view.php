@@ -79,7 +79,7 @@ include_once 'sections/nav.view.php';
                 }
             })
             .then(function(response) {
-                //console.log(response)
+                console.log(response)
                 res_div.classList.remove("hidden");
                 document.getElementById("response").innerHTML = response.data.text;
 
@@ -96,7 +96,7 @@ include_once 'sections/nav.view.php';
                 res_div.classList.remove("hidden");
 
                 document.getElementById("response").innerHTML = error.response.data;
-                //console.log(error);
+                console.log(error);
             });
     }
 
