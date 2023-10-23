@@ -7,6 +7,8 @@ use Chungu\Core\Mantle\Request;
 
 class Validator {
 
+    public static $instance = null;
+
     public const DEFAULT_VALIDATION_ERRORS = [
         'required' => 'Please enter the %s',
         'email' => 'The %s is not a valid email address',
@@ -17,10 +19,20 @@ class Validator {
         'alphanumeric' => 'The %s should have only letters and numbers',
         'secure' => 'The %s must have between 8 and 64 characters and contain at least one number, one upper case letter, one lower case letter and one special character',
         'unique' => 'The %s already exists',
+        'disposable' => 'The %s is a disposable email!',
     ];
 
     private array $errors = [];
 
+
+
+
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
     /**
      * Validate
      * @param array $data
@@ -29,7 +41,7 @@ class Validator {
      * @return bool
      */
     public function validate(Request $request, array $rules, array $messages = []) {
-        $data = $request->all(); // Assuming your Request object has an `all` method to retrieve data.
+        $data = $request->all();
 
         $split = fn ($str, $separator) => array_map('trim', explode($separator, $str));
 
@@ -42,6 +54,8 @@ class Validator {
 
             $rules = $split($option, '|');
 
+
+
             foreach ($rules as $rule) {
                 $params = [];
                 if (strpos($rule, ':')) {
@@ -51,9 +65,20 @@ class Validator {
                     $rule_name = trim($rule);
                 }
                 $fn = 'is_' . $rule_name;
+                echo '----------------------------<br>';
 
-                if (is_callable($this->$fn)) {
-                    $pass = $this->$fn($fieldData, ...$params);
+                echo  $fn;
+                echo '<br>';
+
+
+
+
+
+                if (method_exists($this, $fn)) {
+
+                    $pass = $this->$fn($data, $field, ...$params);
+                    echo $field . ' should be ' . $fn . '. status? ' . ($pass) . '<br>';
+
                     if (!$pass) {
                         $this->errors[$field] = sprintf(
                             $messages[$field][$rule_name] ?? $validation_errors[$rule_name],
@@ -65,7 +90,7 @@ class Validator {
             }
         }
 
-        return empty($this->errors);
+        print_r($this->errors);
     }
     public function getErrors() {
         return $this->errors;
@@ -77,7 +102,7 @@ class Validator {
      * @param string $field
      * @return bool
      */
-    function is_required(array $data, string $field): bool {
+    public function is_required(array $data, string $field): bool {
         return isset($data[$field]) && trim($data[$field]) !== '';
     }
 
@@ -87,9 +112,9 @@ class Validator {
      * @param string $field
      * @return bool
      */
-    function is_email(array $data, string $field): bool {
+    public function is_email(array $data, string $field): bool {
         if (empty($data[$field])) {
-            return true;
+            return false;
         }
 
         return filter_var($data[$field], FILTER_VALIDATE_EMAIL);
@@ -102,9 +127,9 @@ class Validator {
      * @param int $min
      * @return bool
      */
-    function is_min(array $data, string $field, int $min): bool {
+    public function is_min(array $data, string $field, int $min): bool {
         if (!isset($data[$field])) {
-            return true;
+            return false;
         }
 
         return mb_strlen($data[$field]) >= $min;
@@ -117,9 +142,9 @@ class Validator {
      * @param int $max
      * @return bool
      */
-    function is_max(array $data, string $field, int $max): bool {
+    public function is_max(array $data, string $field, int $max): bool {
         if (!isset($data[$field])) {
-            return true;
+            return false;
         }
 
         return mb_strlen($data[$field]) <= $max;
@@ -132,9 +157,9 @@ class Validator {
      * @param int $max
      * @return bool
      */
-    function is_between(array $data, string $field, int $min, int $max): bool {
+    public function is_between(array $data, string $field, int $min, int $max): bool {
         if (!isset($data[$field])) {
-            return true;
+            return false;
         }
 
         $len = mb_strlen($data[$field]);
@@ -148,7 +173,7 @@ class Validator {
      * @param string $other
      * @return bool
      */
-    function is_same(array $data, string $field, string $other): bool {
+    public function is_same(array $data, string $field, string $other): bool {
         if (isset($data[$field], $data[$other])) {
             return $data[$field] === $data[$other];
         }
@@ -168,9 +193,8 @@ class Validator {
      */
     function is_alphanumeric(array $data, string $field): bool {
         if (!isset($data[$field])) {
-            return true;
+            return false;
         }
-
         return ctype_alnum($data[$field]);
     }
 
@@ -180,13 +204,20 @@ class Validator {
      * @param string $field
      * @return bool
      */
-    function is_secure(array $data, string $field): bool {
+    public function is_secure(array $data, string $field): bool {
         if (!isset($data[$field])) {
             return false;
         }
 
         $pattern = "#.*^(?=.{8,64})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#";
         return preg_match($pattern, $data[$field]);
+    }
+    public function is_disposable(array $data, string $field) {
+
+        if (!isset($data[$field])) {
+            return false;
+        }
+        return $this->checkIfEmailIsDisposable($data[$field]);
     }
 
 
@@ -196,7 +227,7 @@ class Validator {
      *
      * @return \PDO
      */
-    function db(): \PDO {
+    public function db(): \PDO {
         return App::get('database');
     }
 
@@ -208,7 +239,7 @@ class Validator {
      * @param string $column
      * @return bool
      */
-    function is_unique(array $data, string $field, string $table, string $column): bool {
+    public function is_unique(array $data, string $field, string $table, string $column): bool {
         if (!isset($data[$field])) {
             return true;
         }
@@ -221,5 +252,32 @@ class Validator {
         $stmt->execute();
 
         return $stmt->fetchColumn() === false;
+    }
+
+
+
+
+    public function checkIfEmailIsDisposable($email) {
+        $domain = substr(strrchr($email, "@"), 1);
+
+        $disposableDomains = [];
+
+        // Read additional domains from a file
+        $disposableFile = __DIR__ . '/../../../static/disposable-emails.txt';
+        if (file_exists($disposableFile)) {
+            $fileDomains = file($disposableFile, FILE_IGNORE_NEW_LINES);
+            $disposableDomains = array_merge($disposableDomains, $fileDomains);
+        }
+
+        if (in_array($domain, $disposableDomains)) {
+            return false;
+        }
+
+        $pattern = "/(ThrowAwayMail|DeadAddress|10MinuteMail|20MinuteMail|AirMail|Dispostable|Email Sensei|EmailThe|FilzMail|Guerrillamail|IncognitoEmail|Koszmail|Mailcatch|Mailinator|Mailnesia|MintEmail|MyTrashMail|NoClickEmail|SpamSpot|Spamavert|Spamfree24|TempEmail|Thrashmail.ws|Yopmail|EasyTrashMail|Jetable|MailExpire|MeltMail|Spambox|empomail|33Mail|E4ward|GishPuppy|InboxAlias|MailNull|Spamex|Spamgourmet|BloodyVikings|SpamControl|MailCatch|Tempomail|EmailSensei|Yopmail|Trasmail|Guerrillamail|Yopmail|boximail|ghacks|Maildrop|MintEmail|fixmail|gelitik.in|ag.us.to|mobi.web.id|fansworldwide.de|privymail.de|gishpuppy|spamevader|uroid|tempmail|soodo|deadaddress|trbvm)/i";
+        if (preg_match($pattern, $domain)) {
+            return false;
+        }
+
+        return true;
     }
 }

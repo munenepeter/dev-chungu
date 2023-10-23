@@ -8,12 +8,18 @@ use Chungu\Core\Mantle\Paginator;
 
 class Controller {
 
+    public $validationErrors = [];
+
+    public function __construct() {
+        $this->validationErrors = Request::getInstance()->validator()->getErrors();
+    }
+
 
     public function middleware($middleware) {
         return (new Middleware)->middleware($middleware);
     }
     public function request() {
-        return (new Request);
+        return Request::getInstance();
     }
     public function validate(array $rules): bool {
         return $this->request()->validate($rules);

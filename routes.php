@@ -7,6 +7,8 @@ $router->get('', 'PagesController@index');
 $router->get('projects', 'PagesController@projects');
 $router->get('services', 'PagesController@services');
 
+$router->post('index/intent/sendqoute', 'QouteController@sendQoute');
+
 
 //scrapword
 $router->get('projects/jwg/scrapword', 'ScrapwordController@index');

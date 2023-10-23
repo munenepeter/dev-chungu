@@ -8,12 +8,19 @@ use Chungu\Core\Mantle\Validator;
 
 class Request {
 
+    public static $instance = null;
+
     protected $data = [];
     protected $errors = [];
 
-
     public function __construct() {
         $this->data = array_merge($_POST, $_GET, $_FILES);
+    }
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
     }
 
     public function getErrors() {
@@ -58,7 +65,10 @@ class Request {
     }
 
     public function validate(array $rules) {
-        return (new Validator())->validate($this, $rules);
+        return $this->validator()->validate($this, $rules);
+    }
+    public function validator(){
+       return Validator::getInstance();
     }
     public function upload(array $file, string $location, int $max_size, array $mime_types) {
         // upload the file

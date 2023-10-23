@@ -45,7 +45,7 @@ include_once 'sections/nav.view.php';
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="index/qoute" method="post">
+            <form action="index/intent/sendqoute" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-purple-700 ">Name</label>
@@ -53,7 +53,7 @@ include_once 'sections/nav.view.php';
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-purple-700">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your email" required="">
+                        <input type="text" name="email" id="email" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your email">
                     </div>
                     <div>
                         <label for="project_title" class="block mb-2 text-sm font-medium text-purple-700">Project Title</label>
