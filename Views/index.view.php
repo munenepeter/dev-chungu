@@ -111,7 +111,7 @@ include_once 'sections/nav.view.php';
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
                     </svg>
                 </div>
-                <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">Web Development</h2>
+                <h2 class="text-lg font-bold title-font mb-2 text-orange-800">Web Development</h2>
                 <p class="leading-relaxed text-base">Our Web Development services are designed to help businesses of all sizes create a powerful online presence. We use the latest technologies and best practices to deliver high-quality, responsive websites that look great on all devices.</p>
             </div>
 
@@ -122,7 +122,7 @@ include_once 'sections/nav.view.php';
                     </svg>
 
                 </div>
-                <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">System Maintenance</h2>
+                <h2 class="text-lg  font-bold title-font mb-2 text-orange-800">System Maintenance</h2>
                 <p class="leading-relaxed text-base">Our services include ongoing monitoring, maintenance, and optimization of your systems to ensure they are always performing at their best. We proactively identify and resolve issues before they impact your operations, saving you time and money.</p>
             </div>
 
@@ -132,7 +132,7 @@ include_once 'sections/nav.view.php';
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
                     </svg>
                 </div>
-                <h2 class="text-lg text-gray-900 font-bold title-font mb-2 text-orange-800">IT Consulting</h2>
+                <h2 class="text-lg  font-bold title-font mb-2 text-orange-800">IT Consulting</h2>
                 <p class="leading-relaxed text-base">Our IT Consulting services provide strategic guidance and support to help you make informed decisions about your technology investments. We work closely with you to understand your goals and identify areas where technology can drive growth and innovation.</p>
 
             </div>
