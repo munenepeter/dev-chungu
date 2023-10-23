@@ -20,6 +20,7 @@ class Validator {
         'secure' => 'The %s must have between 8 and 64 characters and contain at least one number, one upper case letter, one lower case letter and one special character',
         'unique' => 'The %s already exists',
         'disposable' => 'The %s is a disposable email!',
+        'string' => 'The %s must be a sring',
     ];
 
     private array $errors = [];
@@ -93,6 +94,9 @@ class Validator {
      */
     public function is_required(array $data, string $field): bool {
         return isset($data[$field]) && trim($data[$field]) !== '';
+    }
+    public function is_string(array $data, string $field): bool {
+        return isset($data[$field]) && is_string($data[$field]);
     }
 
     /**

@@ -7,28 +7,18 @@ use Chungu\Core\Mantle\Validator;
 
 class QouteController extends Controller {
     public function sendQoute() {
-        $this->validate([
-            'name' => 'alphanumeric|required',
-            'email' => 'required|email|disposable',
-            'project_title' => 'alphanumeric|required',
-            'project_type' => 'alphanumeric|required',
-            'description' => 'alphanumeric'
-        ]);
 
         $validator = new Validator();
         $request = new Request();
 
         $validator->validate($request,[
-            'name' => 'alphanumeric|required',
+            'name' => 'required',
             'email' => 'required|email|disposable',
-            'project_title' => 'alphanumeric|required',
-            'project_type' => 'alphanumeric|required',
-            'description' => 'alphanumeric'
+            'project_title' => 'required|string',
+            'project_type' => 'required|string',
+            'project_description' => 'string'
         ]);
 
-        echo '<pre>';
-        print_r($request->all());
-
-        dd($validator->getErrors());
+       
     }
 }

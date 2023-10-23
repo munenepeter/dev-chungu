@@ -61,19 +61,19 @@ include_once 'sections/nav.view.php';
                     </div>
                     <div>
                         <label for="project_type" class="block mb-2 text-sm font-medium text-purple-700">Project Type</label>
-                        <select id="project_type" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 ">
+                        <select id="project_type" name="project_type" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 ">
                             <option selected="">Select type of project</option>
-                            <option value="web_design">Website Design</option>
-                            <option value="web_dev">Website Development</option>
-                            <option value="web_main">Website & System Maintenance</option>
-                            <option value="data_analysis">Data Analysis (Excel)</option>
-                            <option value="it_auto_script">IT Automation (scripting)</option>
-                            <option value="it_consult">IT Consulting</option>
+                            <option value="web design">Website Design</option>
+                            <option value="web development">Website Development</option>
+                            <option value="web maintenance">Website & System Maintenance</option>
+                            <option value="data analysis">Data Analysis (Excel)</option>
+                            <option value="IT automation (scripting)">IT Automation (scripting)</option>
+                            <option value="IT consulting">IT Consulting</option>
                         </select>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-purple-700">Project Description</label>
-                        <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-purple-300 focus:ring-purple-600 focus:border-purple-600" placeholder="Write your project description here"></textarea>
+                        <textarea id="description" name="project_description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-purple-300 focus:ring-purple-600 focus:border-purple-600" placeholder="Write your project description here"></textarea>
                     </div>
                 </div>
                 <button id="submitRequestForQoute" type="submit" class="text-white inline-flex items-center bg-orange-900 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
