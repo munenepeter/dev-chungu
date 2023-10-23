@@ -20,7 +20,7 @@ include_once 'sections/nav.view.php';
                                    </svg>
                             </div>
                      </div>
-                     <div class="mt-6 grid md:grid-cols-4 grid-cols-1 mt-2 gap-2 mx-auto">
+                     <div class="mt-6 grid md:grid-cols-4 grid-cols-1 gap-2 mx-auto">
                             <?php foreach ($projects as $project) : ?>
                                    <div class="bg-gray-50 shadow-sm border border-rose-100 hover:border-rose-300 p-4 rounded-md hover:bg-purple-50 hover:shadow-md">
                                           <div class="flex justify-between items-center mb-4">
