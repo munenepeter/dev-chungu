@@ -7,9 +7,11 @@ namespace Chungu\Core\Database;
  * @package QueryBuilder
  * 
  * Class that interacts with the db
- * @return Object Model returns an instance of Model class
+ * @return \Chungu\Models\Model Model returns an instance of Model class
  * 
- * @todo Implement App::get('database')->select('users')->where(['email', $email]);
+ * @todo Implement ::get('database')->select('users')->where(['email', $email]);
+ * 
+ * @author Chungu Developers <developers@chungu.co.ke>
  */
 
 class QueryBuilder {
@@ -22,7 +24,7 @@ class QueryBuilder {
   }
 
 
-  public function runQuery($sql, $table) {
+  public function runQuery(string $sql, string $table) {
 
     $model = singularize(ucwords($table));
 
@@ -31,8 +33,8 @@ class QueryBuilder {
       $statement->execute();
     } catch (\Exception $e) {
 
-      logger("Error", '<b>' . $e->getMessage() . '</b>' . PHP_EOL . " $sql ");
-      throw new \Exception("Wrong query { $sql }!" . $e->getCode());
+      logger("Error", 'Database: ' . $e->getMessage() . PHP_EOL . " $sql ");
+      throw new \Exception("Wrong query <br> <pre>{$sql}</pre>" . PHP_EOL . $e->getCode());
     }
 
 
@@ -40,23 +42,23 @@ class QueryBuilder {
 
     if (is_null($results) || empty($results)) {
       if (str_contains($sql, "update") || str_contains($sql, "delete")) {
-        logger("Warning", "Empty results for: {$sql}");
+        logger("Warning", "Database: Empty results for your query <br /> <pre>{$sql}</pre>");
         return true;
       }
       return false;
       //   throw new \Exception("There is no results for your query!", 404);
     }
-      return  $results;
+    return  $results;
   }
   /**
    * selectAll
    * 
    * This selects everything from a given table
-   * @param String $table table from which to selct the data
+   * @param string $table table from which to selct the data
    * 
-   * @return Model returns an instance of Model with the same table name
+   * @return \Chungu\Models\Model returns an instance of Model with the same table name
    */
-  public function selectAll(String $table) {
+  public function selectAll(string $table) {
 
     $sql = "select * from {$table} ORDER BY `created_at` DESC;";
 
@@ -66,10 +68,10 @@ class QueryBuilder {
    * Select
    * Selects given values 
    * 
-   * @param String $table Table from which to select
-   * @param Array $values The columns in the db to select from
+   * @param string $table Table from which to select
+   * @param array $values The columns in the db to select from
    * 
-   * @return Model returns an instance of Model with the same table name
+   * @return \Chungu\Models\Model returns an instance of Model with the same table name
    */
   public function select(string $table, array $values) {
 
@@ -86,7 +88,7 @@ class QueryBuilder {
     return $this->runQuery($sql, $table);
   }
 
-  public function selectAllWhere(string $table, $column, $value, $condition) {
+  public function selectAllWhere(string $table, $column, $value, $condition = "=") {
 
     $sql = "select * from {$table} where `{$column}` $condition \"$value\" ORDER BY `created_at` DESC;";
 
@@ -99,9 +101,9 @@ class QueryBuilder {
    * 
    * Selects given column names given a certain condition
    * 
-   * @param String $table Table from which to select
-   * @param Array $values The columns in the db to select from
-   * @param Array $condition The condition to be fulfiled by the where clause
+   * @param string $table Table from which to select
+   * @param array $values The columns in the db to select from
+   * @param array $condition The condition to be fulfiled by the where clause
    * 
    * @example 
    *  selectWhere('table_name", ['email', 'pass'], ['email','test@test.com']);
@@ -120,6 +122,8 @@ class QueryBuilder {
 
     return $this->runQuery($sql, $table);
   }
+
+
   public function update(string $table, $dataToUpdate, $where, $isValue) {
     $sql = "UPDATE {$table} SET $dataToUpdate WHERE `$where` = \"$isValue\"";
 
@@ -159,26 +163,50 @@ class QueryBuilder {
       logger("Info", '<b>' . ucfirst(auth()->username ?? "Someone") . '</b>' . " Inserted a new record to {$table} table ");
     } catch (\Exception $e) {
 
-      logger("Error", '<b>' . $e->getMessage() . '</b>' . PHP_EOL . " $sql ");
+      logger("Error", "Database: " . $e->getMessage() . ": <br> <pre>{$sql}</pre>");
 
-      throw new \Exception('Error with Query: ' . $e->getCode());
-
+      throw new \Exception("Database: Error with Query" . $e->getCode());
     }
   }
   //Albtatry Query FROM table_name WHERE condition;
   public function query(string $sql) {
+
+    list($childClass, $caller) = debug_backtrace(false, 2);
+
+    try {
+      $statement = $this->pdo->prepare($sql);
+      $statement->execute();
+    } catch (\Exception $e) {
+
+      logger("Error", 'Database: ' . $e->getMessage() . PHP_EOL . " $sql ");
+      throw new \Exception("Wrong query <br> <pre>{$sql}</pre>" . PHP_EOL . $e->getCode());
+    }
+
+    $results = $statement->fetchAll(\PDO::FETCH_CLASS, $caller['class']);
+
+    if (is_null($results) || empty($results)) {
+      if (str_contains($sql, "update") || str_contains($sql, "delete")) {
+        logger("Warning", "Database: Empty results for:<br> <pre>{$sql}</pre>");
+        return true;
+      }
+    }
+    return  $results;
+  }
+
+  public function queryInsert(string $sql) {
     try {
 
       $statement = $this->pdo->prepare($sql);
-      $statement->execute();
-
-      return $statement->fetchAll(\PDO::FETCH_ASSOC);
+      if ($statement->execute()) {
+        logger("Info", '<b>' . ucfirst(auth()->username ?? "Someone") . '</b>' . " Inserted a new record to table ");
+      } else {
+        logger("Info", '<b>' . ucfirst(auth()->username ?? "Someone") . '</b>' . " something went wrong");
+      }
     } catch (\Exception $e) {
 
-      logger("Error", " Wrong Query $sql, " . $e->getMessage());
+      logger("Error", "Database: " . $e->getMessage() . ": <br> <pre>{$sql}</pre>");
 
-      throw new \Exception('Wrong Query!' . $e->getCode());
-     
+      throw new \Exception("Database: Error with Query" . $e->getCode());
     }
   }
 
@@ -196,7 +224,6 @@ class QueryBuilder {
     $statement->execute();
 
     return $statement->fetchAll(\PDO::FETCH_ASSOC);
-    
   }
 
   public function count(string $table, array $condition) {
