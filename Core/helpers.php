@@ -502,7 +502,15 @@ function singularize($word) {
 
     return $word;
 }
+function truncate($text, $limit) {
+    return mb_strlen($text, 'UTF-8') > $limit ? mb_substr($text, 0, $limit, 'UTF-8') . "…" : $text;
+}
 
+
+function class_basename($class) {
+    $class = is_object($class) ? get_class($class) : $class;
+    return basename(str_replace('\\', '/', $class));
+}
 
 function build_table($array) {
     // start table
