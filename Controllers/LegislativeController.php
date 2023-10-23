@@ -11,21 +11,21 @@ class LegislativeController extends Controller {
     public function create() {
         //create an LI
 
-        $this->request()->validate($_POST, [
+        $this->validate([
             'name' => 'required',
             'username' => 'required',
             'abbr' => 'required',
         ]);
         //create user
         LI::create([
-            'username' => $this->request()->form('username'),
-            'name' => $this->request()->form('name'),
-            'abbr' => $this->request()->form('abbr'),
+            'username' => $this->request()->input('username'),
+            'name' => $this->request()->input('name'),
+            'abbr' => $this->request()->input('abbr'),
             'created_at' => date('Y-m-d H:i:s', time()),
             'updated_at' => date('Y-m-d H:i:s', time())
         ]);
 
-        lilog($this->request()->form('username') . " Added " . $this->request()->form('name'));
+        lilog($this->request()->input('username') . " Added " . $this->request()->input('name'));
 
         $this->json("Success");
     }
@@ -35,18 +35,18 @@ class LegislativeController extends Controller {
 
     public function delete() {
 
-        $this->request()->validate($_POST, [
+        $this->validate([
             'liId' => 'required'
         ]);
 
-        // var_dump(Li::delete("id", $this->request()->form('liId')));
+        // var_dump(Li::delete("id", $this->request()->input('liId')));
 
         // exit;
-        if (Li::delete("id", $this->request()->form('liId'))) {
+        if (Li::delete("id", $this->request()->input('liId'))) {
             $this->json("Sorry couldn't delete!", 500);
         }
 
-        lilog("Someone deleted an LI with an id of " . $this->request()->form('liId'));
+        lilog("Someone deleted an LI with an id of " . $this->request()->input('liId'));
         $this->json("Success");
     }
     public function getLiString($lis) {
