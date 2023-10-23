@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Main model
+ * 
+ * 
+ * @author Peter.Njega <munenenjega@gmail.com>
+ * 
+ */
+ 
+
 namespace Chungu\Models;
 
 use Chungu\Core\Mantle\App;
