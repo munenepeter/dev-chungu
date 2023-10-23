@@ -33,7 +33,7 @@ include_once 'sections/nav.view.php';
                             Meeting</button>
                         <div class="relative ml-auto flex-1 pl-8 sm:block hidden">
                             <input placeholder="Search" type="text"
-                                class="w-full border rounded border-gray-400 h-full focus:outline-none pl-4 pr-8 text-gray-700 text-sm text-gray-500">
+                                class="w-full border rounded border-gray-400 h-full focus:outline-none pl-4 pr-8 text-sm text-gray-500">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-4 h-4 absolute right-0 top-0 mt-3 mr-2 text-gray-500">
