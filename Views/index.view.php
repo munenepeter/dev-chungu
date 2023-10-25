@@ -45,23 +45,23 @@ include_once 'sections/nav.view.php';
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="index/intent/sendqoute" method="post">
+            <form @submit.prevent="submitForm" action="index/intent/sendqoute" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-purple-700 ">Name</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Type your name" required="">
+                        <input v-model="form.name" type="text" name="name" id="name" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Type your name" required="">
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-purple-700">Email</label>
-                        <input type="text" name="email" id="email" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your email">
+                        <input v-model="form.email" type="text" name="email" id="email" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your email">
                     </div>
                     <div>
                         <label for="project_title" class="block mb-2 text-sm font-medium text-purple-700">Project Title</label>
-                        <input type="text" name="project_title" id="project_title" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your project name" required="">
+                        <input v-model="form.project_title" type="text" name="project_title" id="project_title" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your project name" required="">
                     </div>
                     <div>
                         <label for="project_type" class="block mb-2 text-sm font-medium text-purple-700">Project Type</label>
-                        <select id="project_type" name="project_type" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 ">
+                        <select v-model="form.project_type" id="project_type" name="project_type" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 ">
                             <option selected="">Select type of project</option>
                             <option value="web design">Website Design</option>
                             <option value="web development">Website Development</option>
@@ -73,7 +73,7 @@ include_once 'sections/nav.view.php';
                     </div>
                     <div class="sm:col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-purple-700">Project Description</label>
-                        <textarea id="description" name="project_description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-purple-300 focus:ring-purple-600 focus:border-purple-600" placeholder="Write your project description here"></textarea>
+                        <textarea v-model="form.project_description" id="description" name="project_description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-purple-300 focus:ring-purple-600 focus:border-purple-600" placeholder="Write your project description here"></textarea>
                     </div>
                 </div>
                 <button id="submitRequestForQoute" type="submit" class="text-white inline-flex items-center bg-orange-900 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
@@ -166,5 +166,4 @@ include_once 'sections/nav.view.php';
     </div>
 </section>
 
-<?php include_once 'sections/footer.view.php'     ?>
-
+<?php include_once 'sections/footer.view.php' ?>

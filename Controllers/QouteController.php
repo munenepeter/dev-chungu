@@ -14,11 +14,16 @@ class QouteController extends Controller {
         $validator->validate($request,[
             'name' => 'required',
             'email' => 'required|email|disposable',
-            'project_title' => 'required|string',
-            'project_type' => 'required|string',
+            'project_title' => 'required',
+            'project_type' => 'required',
             'project_description' => 'string'
         ]);
 
-       
+
+        if(!empty($validator->getErrors())){
+           $this->json($validator->getErrors());
+        }
+        $this->json($_POST);
+ 
     }
 }

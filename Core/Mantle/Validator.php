@@ -25,9 +25,6 @@ class Validator {
 
     private array $errors = [];
 
-
-
-
     public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
