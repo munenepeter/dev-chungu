@@ -50,19 +50,22 @@ include_once 'sections/nav.view.php';
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-purple-700 ">Name</label>
                         <input v-model="form.name" type="text" name="name" id="name" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Type your name" required="">
+                        <span class="text-red-500" v-if="errors.name">{{errors.name}}</span>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-purple-700">Email</label>
                         <input v-model="form.email" type="text" name="email" id="email" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your email">
+                        <span class="text-red-500" v-if="errors.email">{{errors.email}}</span>
                     </div>
                     <div>
                         <label for="project_title" class="block mb-2 text-sm font-medium text-purple-700">Project Title</label>
                         <input v-model="form.project_title" type="text" name="project_title" id="project_title" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 " placeholder="Your project name" required="">
+                        <span class="text-red-500" v-if="errors.project_title">{{errors.project_title}}</span>
                     </div>
                     <div>
                         <label for="project_type" class="block mb-2 text-sm font-medium text-purple-700">Project Type</label>
                         <select v-model="form.project_type" id="project_type" name="project_type" class="bg-gray-50 border border-purple-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 ">
-                            <option selected="">Select type of project</option>
+                            <option selected>Select type of project</option>
                             <option value="web design">Website Design</option>
                             <option value="web development">Website Development</option>
                             <option value="web maintenance">Website & System Maintenance</option>

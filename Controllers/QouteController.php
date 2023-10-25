@@ -11,7 +11,7 @@ class QouteController extends Controller {
         $validator = new Validator();
         $request = new Request();
 
-        $validator->validate($request,[
+        $validator->validate($request, [
             'name' => 'required',
             'email' => 'required|email|disposable',
             'project_title' => 'required',
@@ -19,11 +19,10 @@ class QouteController extends Controller {
             'project_description' => 'string'
         ]);
 
-
-        if(!empty($validator->getErrors())){
-           $this->json($validator->getErrors());
+        if (!empty($validator->getErrors())) {
+            $this->json(["errors" => $validator->getErrors()]);
         }
-        $this->json($_POST);
- 
+
+        $this->json(['success' => "Success", "repost" => $request->all()]);
     }
 }
