@@ -49,45 +49,37 @@ class DevsController extends Controller {
         return view('api');
     }
     public function users() {
-
-        echo $this->json("Ok", ["users" => $this->users]);
+        $this->json(["users" => $this->users]);
     }
     public function show($id) {
         foreach ($this->users as $user) {
             if (in_array((int)$id, $user)) {
-                echo $this->json("Ok", ["user" => $user]);
-                return;
+                $this->json(["user" => $user]);
             } else {
-                echo $this->json("Ok", ["message" => "No user with $id"]);
-                return;
+                $this->json(["message" => "No user with $id"], 404);
             }
         }
     }
     public function signin() {
         if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-            echo $this->json("Fail", ["message" => "Only POST is allowed"]);
-            return;
+            $this->json(["message" => "Only POST is allowed"], 405);
         }
         $username = $_POST['username'];
         $password = $_POST['password'];
         if (empty($username) || empty($password)) {
-            echo $this->json("Fail", ["message" => "Seems like your params are empty"]);
-            return;
+            $this->json(["message" => "Seems like your params are empty"], 400);
         }
         foreach ($this->users as $user) {
             if (in_array($username, $user) && in_array($password, $user)) {
-                echo $this->json("Ok", ["message" => "Success Login", ["user" => $user]]);
-                return;
+                $this->json(["message" => "Success Login", ["user" => $user]]);
             } else {
-                echo $this->json("Fail", ["message" => "Wrong Credentials"]);
-                return;
+                $this->json(["message" => "Wrong Credentials"], 401);
             }
         }
     }
     public function update($id) {
         if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-            echo $this->json("Fail", ["message" => "Only POST is allowed"]);
-            return;
+            $this->json(["message" => "Only POST is allowed"], 405);
         }
         foreach ($this->users as $user) {
             if (in_array((int)$id, $user)) {
@@ -100,27 +92,22 @@ class DevsController extends Controller {
                     $user["age"] = isset($_POST['age']) ? (int)$_POST['age'] : $user["age"];
                     return $user;
                 }, $user);
-                echo $this->json("Ok", ["message" => "Successfully updated user with an id: $id"], ["user" => $user]);
-                return;
+                $this->json(["message" => "Successfully updated user with an id: $id", "user" => $user], 200);
             } else {
-                echo $this->json("Ok", ["message" => "No user with $id"]);
-                return;
+                $this->json(["message" => "No user with $id"], 404);
             }
         }
     }
     public function delete($id) {
         if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-            echo $this->json("Fail", ["message" => "Only POST is allowed"]);
-            return;
+            $this->json(["message" => "Only POST is allowed"], 405);
         }
         foreach ($this->users as $user) {
             if (in_array((int)$id, $user)) {
                 $user = '';
-                echo $this->json("Ok", ["message" => "Successfully deleted user with an id: $id"], ["user" => $user]);
-                return;
+                $this->json(["message" => "Successfully deleted user with an id: $id", "user" => $user]);
             } else {
-                echo $this->json("Ok", ["message" => "No user with $id"]);
-                return;
+                $this->json(["message" => "No user with $id"], 404);
             }
         }
     }
