@@ -34,7 +34,7 @@ class QueryBuilder {
     } catch (\Exception $e) {
 
       logger("Error", 'Database: ' . $e->getMessage() . PHP_EOL . " $sql ");
-      throw new \Exception("Wrong query <br> <pre>{$sql}</pre>" . PHP_EOL . $e->getCode());
+      throw new \Exception("There seems to be something wrong with the query!" . PHP_EOL);
     }
 
 
@@ -46,7 +46,6 @@ class QueryBuilder {
         return true;
       }
       return false;
-      //   throw new \Exception("There is no results for your query!", 404);
     }
     return  $results;
   }

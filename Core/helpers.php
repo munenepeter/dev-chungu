@@ -76,19 +76,9 @@ function redirect(string $path) {
  * @return string view
  */
 function abort($message, $code) {
-
-    if ($code === 0) {
-        $code = 500;
+    if ($code === 0 || is_string($code) || $code === "") {
         http_response_code(500);
-    } elseif (is_string($code)) {
-        http_response_code(500);
-    } elseif ($code === "") {
-        $code =  substr($message, -5, strpos($message, '!'));
-        http_response_code(500);
-    } else {
-        http_response_code($code);
     }
-    logger("Error", $message);
     view('error', [
         'code' => $code,
         'message' => $message
