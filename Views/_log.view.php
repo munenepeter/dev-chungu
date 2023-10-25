@@ -32,7 +32,7 @@ $all = implode(",", $logs);
                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search ..." required="">
+                        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 " placeholder="Search ..." required="">
                     </div>
                 </form>
                 <form id="_delete_logs" method="post">
@@ -44,7 +44,7 @@ $all = implode(",", $logs);
         </div>
         <div class="overflow-y-auto relative shadow-md sm:rounded-lg" style="height: 505px ;">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 " x-data="{selected:null}">
-                <thead class=" sticky top-0 text-xs text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class=" sticky top-0 text-xs text-gray-700  bg-gray-50 ">
                     <tr>
                         <th scope="col" class="py-3 px-2 md:px-6">
                             Level
@@ -65,26 +65,26 @@ $all = implode(",", $logs);
                     <?php $count = 0; ?>
                     <?php foreach ($logs as $log) : ?>
                         <?php $log = json_decode($log); ?>
-                        <tr @click="selected !== <?= $count; ?> ? selected = <?= $count; ?> : selected = null" class="bg-white hover:bg-gray-50 border-b dark:bg-gray-900 dark:border-gray-700">
+                        <tr @click="selected !== <?= $count; ?> ? selected = <?= $count; ?> : selected = null" class="bg-white hover:bg-gray-50 border-b ">
                             <th scope="row" class="py-3 px-2 md:px-6 flex items-center">
                                 <?php if ($log->level === "Error") : ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-red-600 w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                     </svg>
-                                    <span class="pl-2 font-medium text-red-600 whitespace-nowrap dark:text-white">
+                                    <span class="pl-2 font-medium text-red-600 whitespace-nowrap ">
                                         <?= $log->level; ?>
                                     </span>
                                 <?php elseif ($log->level === "Debug") : ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-blue-600 w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                     </svg>
-                                    <span class="pl-2 font-medium text-blue-600 whitespace-nowrap dark:text-white">
+                                    <span class="pl-2 font-medium text-blue-600 whitespace-nowrap ">
                                         <?= $log->level; ?>
                                     </span>
                                 <?php elseif ($log->level === "Warning") : ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-yellow-600 w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v3.75m-9.303 3.376C1.83 19.126 2.914 21 4.645 21h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 4.88c-.866-1.501-3.032-1.501-3.898 0L2.697 17.626zM12 17.25h.007v.008H12v-.008z" />
-                                    </svg><span class="pl-2 font-medium text-yellow-600 whitespace-nowrap dark:text-white">
+                                    </svg><span class="pl-2 font-medium text-yellow-600 whitespace-nowrap ">
                                         <?= $log->level; ?>
                                     </span>
                                 <?php else : ?>
@@ -92,7 +92,7 @@ $all = implode(",", $logs);
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                                     </svg>
 
-                                    <span class="md:pl-2 font-medium text-green-600 whitespace-nowrap dark:text-white">
+                                    <span class="md:pl-2 font-medium text-green-600 whitespace-nowrap ">
                                         <?= $log->level; ?>
                                     </span>
                                 <?php endif; ?>
