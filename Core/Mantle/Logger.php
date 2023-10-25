@@ -84,7 +84,7 @@ class Logger {
         }
     }
     public static function getLogs():array{
-        $data = file_get_contents(Logger::$logFile);
+        $data = file_get_contents(self::$logFile);
 
         //separate the logs by line
         $logs = explode(PHP_EOL, $data);
