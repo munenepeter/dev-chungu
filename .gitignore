@@ -9,3 +9,4 @@ composer.phar
 /Core/Database/sqlite/database.db
 /static/files/json/
 /static/files/li.log
+/Core/Mantle/Cache/*
