@@ -16,15 +16,8 @@ $router->post('projects/jwg/scrapword', 'ScrapwordController@add');
 $router->post('projects/jwg/scrapword/theme', 'ScrapwordController@theme');
 //get-links
 $router->get('projects/jwg/get-links', 'GetLinksController@index');
-//leg-initia
-$router->get('projects/jwg/leg-initia', 'LegislativeController@index');
-$router->post('projects/jwg/leg-initia', 'LegislativeController@create');
-$router->get('projects/jwg/leg-initia/all', 'LegislativeController@show');
-$router->post('projects/jwg/leg-initia/search', 'LegislativeController@search');
-$router->get('projects/jwg/leg-initia/show', 'LegislativeController@showLi');
-$router->post('projects/jwg/leg-initia/delete', 'LegislativeController@delete');
-//leg-search
-//$router->get('projects/jwg/leg-search', 'LISearchController@index');
+
+
 //excel-to-json
 $router->get('projects/jwg/excel-to-json', 'ExcelJsonController@index');
 $router->post('projects/jwg/excel-to-json', 'ExcelJsonController@create');
