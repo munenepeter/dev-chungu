@@ -94,7 +94,8 @@ class Logger {
         //return latest on 1st
         return array_reverse($logs);
     }
-    public static function deleteLogs(): bool {
+
+    public static function deleteLogs(string $user): bool {
         if (!file_exists(self::$logFile)) {
             $newLogFile = fopen(self::$logFile, "w") or die("Unable to open file!");
             fclose($newLogFile);
@@ -108,7 +109,7 @@ class Logger {
         }
         //recreate the file
         $newLogFile = fopen(self::$logFile, "w") or die("Unable to open file!");
-        logger("Info", "System: Logs have been deleted by " . session_get('email'));
+        logger("Info", "System: Logs have been deleted by {$user}");
         fclose($newLogFile);
 
         return true;

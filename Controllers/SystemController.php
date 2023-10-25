@@ -27,7 +27,7 @@ class SystemController extends Controller {
 
     public function actuallyDeleteLogs() {
 
-        if (!Logger::deleteLogs()) {
+        if (!Logger::deleteLogs(session_get('email'))) {
             $this->json("Unable to delete", 500);
         }
         $this->json("Logs Deleted");
