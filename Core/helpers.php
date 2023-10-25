@@ -9,7 +9,8 @@ use Chungu\Core\Mantle\Session;
 
 define("BASE_URL",  sprintf(
     "%s://%s",
-    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME']
+    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+    $_SERVER['SERVER_NAME']
 ));
 
 /**
@@ -22,18 +23,19 @@ define("BASE_URL",  sprintf(
  * @return void
  */
 function checkView(string $filename) {
-    if (!file_exists($filename)) {
-
-        if (ENV === 'production') {
-            throw new \Exception("The requested view is missing", 404);
-        }
+    if (!file_exists($filename)){
+        logger("Error", "The view for {$filename} appears to be missing");
+        throw new \Exception("The requested page cannot be found", 404);
+    }
+        
+        /*
         fopen("$filename", 'a');
 
         $data = "<?php include_once 'base.view.php';?><div class=\"grid place-items-center h-screen\">
        Created {$filename}'s view; please edit</div>";
 
         file_put_contents($filename, $data);
-    }
+        */
 }
 
 /**
@@ -77,9 +79,10 @@ function redirect(string $path) {
  */
 function abort($message, $code) {
     if ($code === 0 || is_string($code) || $code === "") {
+        $code = 500;
         http_response_code(500);
     }
-    view('error', [
+    view('_error', [
         'code' => $code,
         'message' => $message
     ]);
@@ -326,7 +329,7 @@ function url() {
             "%s://%s:%s%s",
             isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
             $_SERVER['SERVER_NAME'],
-             $_SERVER['SERVER_PORT'],
+            $_SERVER['SERVER_PORT'],
             $_SERVER['REQUEST_URI']
         );
     }
@@ -377,9 +380,9 @@ function time_ago($datetime, $full = false) {
  * @return string Path to the requested resource
  */
 function asset($dir) {
-    if(is_dev()){
-        echo BASE_URL.":".$_SERVER['SERVER_PORT']. "/static/$dir";
-    }else{
+    if (is_dev()) {
+        echo BASE_URL . ":" . $_SERVER['SERVER_PORT'] . "/static/$dir";
+    } else {
         echo BASE_URL . "/static/$dir";
     }
 }

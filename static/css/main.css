@@ -2312,6 +2312,31 @@ select {
   background-color: rgb(255 248 241 / var(--tw-bg-opacity));
 }
 
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 169 250 / var(--tw-bg-opacity));
+}
+
+.bg-blue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 245 255 / var(--tw-bg-opacity));
+}
+
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 196 141 / var(--tw-bg-opacity));
+}
+
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 253 234 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2839,6 +2864,26 @@ select {
   color: rgb(172 148 250 / var(--tw-text-opacity));
 }
 
+.text-blue-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 66 159 / var(--tw-text-opacity));
+}
+
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(3 84 63 / var(--tw-text-opacity));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(155 28 28 / var(--tw-text-opacity));
+}
+
+.text-yellow-800 {
+  --tw-text-opacity: 1;
+  color: rgb(114 59 19 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -3062,6 +3107,16 @@ select {
 .hover\:bg-yellow-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(194 120 3 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 159 110 / var(--tw-bg-opacity));
 }
 
 .hover\:to-white:hover {
