@@ -9,6 +9,7 @@ class Logger {
 
     protected static $logBuffer = [];
     protected static $cachedUserInfo = null;
+    public static $logFile = __DIR__ . "/Logs/logs.log";
 
     public static function log(string $level, string $msg) {
         $userinfo = self::getUserInfo();
@@ -63,13 +64,13 @@ class Logger {
     }
 
     protected static function writeBufferToFile() {
-        $logFile = __DIR__ . "/Logs/logs.log";
 
-        if (!file_exists($logFile)) {
+
+        if (!file_exists(self::$logFile)) {
             mkdir(__DIR__ . "/Logs");
         }
 
-        $file = fopen($logFile, 'a+', 1);
+        $file = fopen(self::$logFile, 'a+', 1);
         fwrite($file, implode(PHP_EOL, self::$logBuffer) . PHP_EOL);
         fclose($file);
 
@@ -81,5 +82,35 @@ class Logger {
         if (!empty(self::$logBuffer)) {
             self::writeBufferToFile();
         }
+    }
+    public static function getLogs():array{
+        $data = file_get_contents(Logger::$logFile);
+
+        //separate the logs by line
+        $logs = explode(PHP_EOL, $data);
+
+        //remove 1st empty line
+        array_pop($logs);
+        //return latest on 1st
+        return array_reverse($logs);
+    }
+    public static function deleteLogs(): bool {
+        if (!file_exists(self::$logFile)) {
+            $newLogFile = fopen(self::$logFile, "w") or die("Unable to open file!");
+            fclose($newLogFile);
+            return false;
+        }
+
+        //delete the file and create a new one
+        if (!unlink(self::$logFile)) {
+            logger("Debug", "System: Couldn't delete the logs!");
+            return false;
+        }
+        //recreate the file
+        $newLogFile = fopen(self::$logFile, "w") or die("Unable to open file!");
+        logger("Info", "System: Logs have been deleted by " . session_get('email'));
+        fclose($newLogFile);
+
+        return true;
     }
 }
