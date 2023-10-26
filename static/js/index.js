@@ -1,73 +1,47 @@
-const {
-    createApp,
-    ref
-} = Vue
+$(document).ready(function () {
+    var quoteForm = $('#quoteForm');
 
-const getQouteForm = createApp({
-    setup() {
-        const form = ref({
-            full_name: "",
-            user_email: "",
-            project_title: "",
-            project_type: "",
-            project_description: "",
-        });
+    if (quoteForm.length > 0) {
+        quoteForm.submit(function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            $('#loadingSVG').show();
+            $('#normalSVG').hide();
+            $('#btnMessage').text("Sending...");
 
-        const errors = ref({});
-        const success = ref(false);
-        const loading = ref(false);
-
-        const submitForm = () => {
-            loading.value = true;
-            errors.value = {};
-            const formData = new FormData();
-
-            formData.append('name', form.value.full_name);
-            formData.append('email', form.value.user_email);
-            formData.append('project_title', form.value.project_title);
-            formData.append('project_type', form.value.project_type);
-            formData.append('project_description', form.value.project_description);
-
-
-            axios
-                .post('index/intent/sendqoute', formData)
-                .then(response => {
-                    errors.value = response.data.errors;
-                    success.value = response.data.success;
-                    loading.value = false;
-
-                    setTimeout(() => {
-                        const closeModalButton = document.getElementById('closeQouteModal');
-                        if (closeModalButton) {
-                            resetForm()
-                            closeModalButton.click();
-                        }
-                    }, 3000);
-                })
-                .catch(error => {
-                    loading.value = false;
+            $.ajax({
+                url: 'index/intent/sendqoute',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    $('#btnMessage').text("Get Your Custom Quote");
+                    if (response.errors) {
+                        // Handle errors
+                        console.log('Errors:', response.errors);
+                    } else if (response.success) {
+                        // Handle success
+                        console.log('Success:', response.success);
+                        resetForm();
+                        $('#closeQouteModal').click();
+                    }
+                },
+                error: function (error) {
                     console.error('Error:', error);
-                }).finally(() => {
-                    loading.value = false;
-                });
-        };
+                },
+                complete: function () {
+                    $('#loadingSVG').hide();
+                    $('#normalSVG').show();
+                    $('#btnMessage').text("Get Your Custom Quote");
+                },
+            });
+        });
+    }
 
-
-          const resetForm = () => {
-              form.value.name = '';
-              form.value.email = '';
-              form.value.project_title = '';
-              form.value.project_type = 'Select type of project';
-              form.value.project_description = '';
-          };
-
-        return {
-            form,
-            errors,
-            success,
-            loading,
-            resetForm,
-            submitForm,
+    function resetForm() {
+        if (quoteForm.length > 0) {
+            quoteForm[0].reset();
         }
-    },
-}).mount('#getQouteModal');
+    }
+});
