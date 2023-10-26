@@ -39,8 +39,8 @@ const getQouteForm = createApp({
                     setTimeout(() => {
                         const closeModalButton = document.getElementById('closeQouteModal');
                         if (closeModalButton) {
+                            resetForm()
                             closeModalButton.click();
-                            
                         }
                     }, 3000);
                 })
@@ -52,11 +52,21 @@ const getQouteForm = createApp({
                 });
         };
 
+
+          const resetForm = () => {
+              form.value.name = '';
+              form.value.email = '';
+              form.value.project_title = '';
+              form.value.project_type = 'Select type of project';
+              form.value.project_description = '';
+          };
+
         return {
             form,
             errors,
             success,
             loading,
+            resetForm,
             submitForm,
         }
     },
