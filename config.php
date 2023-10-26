@@ -1,8 +1,6 @@
 <?php
 
 return [
-  //Get the configuration details ie DB connections
-  //when using MYSQL
   'mysql' => [
     'name' => 'chungu',
     'username' => 'root',
@@ -12,9 +10,17 @@ return [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]
   ],
-  //when using SQLITE
   'sqlite' => [
     'path' => 'Core/Database/sqlite/chungu.sqlite'
+  ],
+  'mail' => [
+    'host' => 'smtp.xxxxxx.com',
+    'username' => 'xxxxxxxxxxxxxxx',
+    'password' => 'xxxxxxxxxxxxxxxxx',
+    'isSMTP' => true,
+    'SMTPAuth' => true,
+    'SMTPSecure' => 'tls',
+    'port' => 25,
   ],
   'codes' => [
     403 => ['403 Forbidden', 'The server refused to fulfill the request.'],

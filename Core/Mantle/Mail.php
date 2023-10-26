@@ -23,7 +23,7 @@ class Mail {
         $this->SMTPSecure = $config['SMTPSecure'];
         $this->port = $config['port'];
 
-        $this->mailer = new PHPMailer(true);
+       /// $this->mailer = new PHPMailer(true);
     }
 
     public function setUp() {
