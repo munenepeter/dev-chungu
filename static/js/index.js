@@ -20,14 +20,12 @@ $(document).ready(function () {
                     $('#btnMessage').text("Get Your Custom Quote");
                     if (response.errors) {
                         // Handle errors
-                         $.each(response.errors, function (fieldName, errorMessage) {
-                             var errorElement = $('#' + fieldName + '_error');
-                             errorElement.text(errorMessage);
-                         });
-                        console.log('Errors:', response.errors);
+                        $.each(response.errors, function (fieldName, errorMessage) {
+                            var errorElement = $('#' + fieldName + '_error');
+                            errorElement.text(errorMessage);
+                        });
+
                     } else if (response.success) {
-                        // Handle success
-                        console.log('Success:', response.success);
                         resetForm();
                         $('#closeQouteModal').click();
                     }
