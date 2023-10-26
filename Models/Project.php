@@ -4,5 +4,5 @@ namespace Chungu\Models;
 
 use Chungu\Models\Model;
 
-class ClientQoute extends Model {
+class Project extends Model {
 }
