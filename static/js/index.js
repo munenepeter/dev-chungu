@@ -33,7 +33,7 @@ const getQouteForm = createApp({
                 .then(response => {
                     errors.value = response.data.errors;
                     success.value = response.data.success;
-                    console.log(response);
+                  //  console.log(response);
                 })
                 .catch(error => {
                     console.error('Error:', error);

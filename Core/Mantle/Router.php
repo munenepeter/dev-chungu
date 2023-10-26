@@ -27,7 +27,7 @@ class Router {
         $uri = preg_replace('/{[^}]+}/', '(.+)', $uri);
         $this->routes['POST'][$uri] = $controller;
     }
-    
+
 
 
     public function direct($uri, $requestType) {
@@ -40,7 +40,7 @@ class Router {
             exit;
         }
         */
-      
+
         $params = [];
         $regexUri = '';
         //  dd($this->routes[$requestType]);
@@ -56,8 +56,8 @@ class Router {
             }
         }
 
-        if(empty($this->routes[$requestType][$regexUri])){
-            throw new \Exception("Oops, you forgot to include <b>". strtoupper($requestType)." /{$uri}</b>, There is no such route! ", 404);
+        if (empty($this->routes[$requestType][$regexUri])) {
+            throw new \Exception("Oops, you forgot to include <b>" . strtoupper($requestType) . " /{$uri}</b>, There is no such route! ", 404);
         }
         if (is_callable($this->routes[$requestType][$regexUri])) {
             $this->routes[$requestType][$regexUri](...$params);
@@ -69,14 +69,13 @@ class Router {
                     ...explode('@', $this->routes[$requestType][$regexUri])
                 );
             } elseif (!array_key_exists($uri, $this->routes[$requestType])) {
-                throw new \Exception("Oops, you forgot to include <b>". strtoupper($requestType)." /{$uri}</b>, There is no such route! ", 404);
+                throw new \Exception("Oops, you forgot to include <b>" . strtoupper($requestType) . " /{$uri}</b>, There is no such route! ", 404);
             } else {
                 return $this->callAction(
                     $params,
                     ...explode('@', $this->routes[$requestType][$uri])
-                ); 
+                );
             }
-            
         }
     }
     protected function callAction($params, $controller, $action) {
@@ -84,6 +83,7 @@ class Router {
         $controller = "Chungu\\Controllers\\{$controller}";
 
         if (!class_exists($controller)) {
+            logger("Error", "Class {$controller} does not exist!");
             throw new \Exception("Class <b>$controller</b> doesn't not exist!", 500);
         }
 
@@ -92,7 +92,7 @@ class Router {
         $name = get_class($controller);
 
         if (!method_exists($controller, $action)) {
-
+            logger("Error", "Method {$action} does not exist on the {$name} class");
             throw new \Exception("{$name} doesn't not respond to {$action} Method!", 500);
         }
 
