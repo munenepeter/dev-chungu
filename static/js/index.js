@@ -8,6 +8,7 @@ $(document).ready(function () {
             $('#loadingSVG').show();
             $('#normalSVG').hide();
             $('#btnMessage').text("Sending...");
+            $('.error-message').text('');
 
             $.ajax({
                 url: 'index/intent/sendqoute',
@@ -19,6 +20,10 @@ $(document).ready(function () {
                     $('#btnMessage').text("Get Your Custom Quote");
                     if (response.errors) {
                         // Handle errors
+                         $.each(response.errors, function (fieldName, errorMessage) {
+                             var errorElement = $('#' + fieldName + '_error');
+                             errorElement.text(errorMessage);
+                         });
                         console.log('Errors:', response.errors);
                     } else if (response.success) {
                         // Handle success
