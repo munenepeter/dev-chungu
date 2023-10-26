@@ -2,7 +2,8 @@
 
 use Chungu\Core\Mantle\App;
 use Chungu\Core\Database\Connection;
-use Chungu\Core\Database\QueryBuilder; 
+use Chungu\Core\Database\QueryBuilder;
+use Chungu\Core\Mantle\Mail;
 
 //change TimeZone
 date_default_timezone_set('Africa/Nairobi'); 
@@ -33,4 +34,4 @@ App::bind('database', new QueryBuilder(
     Connection::make($database)
 ));
 
-
+App::bind('mailer', new Mail(App::get('config')['mail']));
