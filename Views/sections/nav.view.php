@@ -1,4 +1,6 @@
-<?php use Chungu\Core\Mantle\Request; ?>
+<?php
+
+use Chungu\Core\Mantle\Request; ?>
 <nav class="px-2 sm:px-4 py-2 fixed w-full  top-0 left-0 backdrop-blur-3xl shadow-sm bg-rose-50">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
     <div class="flex items-center space-x-2">
@@ -30,8 +32,13 @@
         </li>
         <li>
           <a href="/projects" class="block py-2 pl-3 pr-4  md:p-0 
-          <?= str_contains(Request::uri(), 'projects') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
+          <?= str_contains(Request::uri(),'projects') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
           ">Projects</a>
+        </li>
+        <li>
+          <a href="/projects-new" class="block py-2 pl-3 pr-4  md:p-0 
+          <?= str_contains(Request::uri(), 'projects-new') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
+          ">Projects-New</a>
         </li>
         <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Contact</a>
