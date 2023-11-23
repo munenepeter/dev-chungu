@@ -1,7 +1,5 @@
-<?php
-
-use Chungu\Core\Mantle\Request; ?>
-<nav class="px-2 sm:px-4 py-2 fixed w-full  top-0 left-0 backdrop-blur-3xl shadow-sm bg-rose-50">
+<?php use Chungu\Core\Mantle\Request; ?>
+<nav class="px-2 sm:px-4 py-4 fixed w-full  top-0 left-0 backdrop-blur-3xl shadow-sm bg-rose-50">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
     <div class="flex items-center space-x-2">
       <div class="h-8 w-8 bg-orange-200 rounded-full">
@@ -21,7 +19,7 @@ use Chungu\Core\Mantle\Request; ?>
       </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-semibold flex flex-col p-4 md:p-0 mt-4 md:text-sm md:font-semibold border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white  dark:border-gray-400">
+      <ul class="font-semibold flex flex-col p-4 md:p-0 mt-4 md:text-sm md:font-semibold border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:border-gray-400">
         <li>
           <a href="/" class="block py-2 pl-3 pr-4 text-orange-700 md:p-0
           <?= (Request::uri() == '') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
