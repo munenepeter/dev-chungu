@@ -7,7 +7,7 @@ include_once 'sections/nav.view.php';
        <section class="py-8 mt-20">
               <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                      <div class="mx-auto max-w-screen-sm text-center lg:mb-8 mb-4">
-                            <h2 class="my-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-orange-800 ">Our Projects</h2>
+                            <h2 class="my-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-orange-800 ">Projects</h2>
                             <p class="font-light text-gray-500 sm:text-xl ">Chungu Developers helps you achiev your business goals faster</p>
                             <div class="flex justify-center gap-6 mt-2">
                                    <div class="flex items-center space-x-2 text-purple-900">
