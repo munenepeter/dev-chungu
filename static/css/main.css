@@ -3809,6 +3809,10 @@ select {
     margin-bottom: 4rem;
   }
 
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
