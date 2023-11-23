@@ -3,12 +3,11 @@ include_once 'base.view.php';
 include_once 'sections/nav.view.php';
 ?>
 <main class="-mt-24 bg-gradient-to-r from-yellow-50 from-2% via-green-100 via-40% to-pink-100 to-90%">
-
        <section class="py-8 mt-20">
               <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                      <div class="mx-auto max-w-screen-sm text-center lg:mb-8 mb-4">
                             <h2 class="my-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-orange-800 ">Projects</h2>
-                            <p class="font-light text-gray-500 sm:text-xl ">Chungu Developers helps you achiev your business goals faster</p>
+                            <p class="font-light text-gray-500 sm:text-xl ">Chungu Developers helps you achieve your business goals faster</p>
                             <div class="flex justify-center gap-6 mt-2">
                                    <div class="flex items-center space-x-2 text-purple-900">
                                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -49,8 +48,6 @@ include_once 'sections/nav.view.php';
                                           </div>
                                    </article>
                             <?php endforeach; ?>
-
-
                      </div>
               </div>
        </section>
