@@ -4,9 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <title>Chungu Developers</title>
-    
-    <meta http-equiv="refresh" content="5">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.min.css" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>

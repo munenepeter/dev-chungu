@@ -1,23 +1,29 @@
-on:
-  push:
-    branches:
-      - main
-name: Deploy changes to production
+on: push
+name: 🚀 Deploy website on push
 jobs:
-   web-deploy:
-     name: Deploy
-     runs-on: ubuntu-latest
-     steps:
-     - name: Get latest code
-       uses: actions/checkout@v2.3.2
-    
-     - name: Sync files
-       uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
-       with:
-         ftp_host: ${{ secrets.ftp_server}}
-         ftp_username: ${{ secrets.ftp_username}}
-         ftp_password: ${{ secrets.ftp_password }}
-         local_source_dir: "./"
-         dist_target_dir: "./dev.chungu.co.ke"
-         delete: "false"
-         exclude: "'^config.php' '^README.md' '^composer.lock' '^composer.json' '^.phpunit.result.cache' '^phpunit.xml' '^tests' '^.git/' '^Core/bootstrap.php'"        
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Install Composer depencies
+      uses: php-actions/composer@v6
+  
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.ftp_server}}
+        username: ${{ secrets.ftp_username}}
+        password: ${{ secrets.ftp_password }}
+        local_dir: "./"
+        server_dir: "./dev.chungu.co.ke"
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          README.md
+          config.php
+          tailwind.config.js
+          Core/bootstrap.php
