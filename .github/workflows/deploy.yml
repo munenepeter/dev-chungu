@@ -29,6 +29,9 @@ jobs:
           **/node_modules/**
           **/vendor/**
           README.md
-          config.php
           tailwind.config.js
-          Core/bootstrap.php
+          package.json
+          package-lock.json
+          DOCKER_ENV
+          .docker_tag
+          output.log
