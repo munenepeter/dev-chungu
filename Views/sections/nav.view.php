@@ -34,11 +34,6 @@
           ">Projects</a>
         </li>
         <li>
-          <a href="/projects-new" class="block py-2 pl-3 pr-4  md:p-0 
-          <?= str_contains(Request::uri(), 'projects-new') ? 'text-orange-700 md:hover:text-purple-700' : 'text-purple-700 md:hover:text-orange-700'; ?>
-          ">Projects-New</a>
-        </li>
-        <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-purple-700 md:hover:text-orange-700 md:p-0 ">Contact</a>
         </li>
       </ul>

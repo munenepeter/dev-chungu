@@ -4,14 +4,12 @@
 use Chungu\Core\Mantle\Router;
 
 $router->get('', 'PagesController@index');
-$router->get('projects', 'PagesController@projects');
 $router->get('services', 'PagesController@services');
-
 
 
 $router->post('index/intent/sendqoute', 'ClientQouteController@sendQoute');
 
-$router->get('projects-new', 'ProjectsController@index');
+$router->get('projects', 'ProjectsController@index');
 
 
 //scrapword
