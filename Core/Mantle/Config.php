@@ -9,16 +9,15 @@ use Chungu\Core\Mantle\Logger;
 class Config {
     protected static $env_file = APP_ROOT . '.env';
     protected static $cache_key = 'config_cache';
+    protected static $config = [];
 
 
     public static function load(): array {
         // Check if cached config exists or if the env file was modified
         $cachedConfig = Cache::get(self::$cache_key);
 
-        if (self::hasEnvFileChanged()) {
-            Cache::forget(self::$cache_key);
-        }
-        if ($cachedConfig !== null) {
+        if ($cachedConfig !== null && self::hasEnvFileChanged($cachedConfig)) {
+             Cache::forget(self::$cache_key);
             return $cachedConfig;
         }
 
@@ -30,6 +29,8 @@ class Config {
 
         return $config;
     }
+        
+  
 
     private static function checkEnvFile() {
         //check if the file exists & is readable
@@ -103,10 +104,13 @@ class Config {
             $value
         );
     }
-    public static function hasEnvFileChanged(): bool {
-
+    public static function hasEnvFileChanged($config): bool {
+        if($config === null){
+            Logger::Info("Config: Caching ENV file...");
+            return true;
+        }
         $current_env_hash = hash_file('sha256', self::$env_file);
-        $previous_env_hash = App::get('config.hash');
+        $previous_env_hash = $config['hash'];
 
         if ($current_env_hash !== $previous_env_hash) {
             Logger::Info("Config: ENV file has been modified, refreshing the config cache");
