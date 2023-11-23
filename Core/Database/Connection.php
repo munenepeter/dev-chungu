@@ -11,15 +11,19 @@ class Connection {
         try {
 
             if ($config['connection'] === 'sqlite') {
+
                 return new \PDO("sqlite:" . self::$sqlite_database);
+                
+            } elseif ($config['connection'] === 'mysql') {
+
+                return new \PDO(
+                    //mysql:host=localhost;port=3307;dbname=testdb;charset=utf8mb4'
+                    $config['connection'] . ':host=' . $config['host'] . ';port=' . $config['port'] . ';dbname=' . $config['database'] . ';charset=utf8mb4',
+                    $config['username'],
+                    $config['password'],
+                    [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
+                );
             }
-            return new \PDO(
-                //mysql:host=localhost;port=3307;dbname=testdb;charset=utf8mb4'
-                $config['connection'] . ':host='. $config['host'].';port='. $config['port'].';dbname=' . $config['database'] . ';charset=utf8mb4',
-                $config['username'],
-                $config['password'],
-                [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
-            );
         } catch (\PDOException $e) {
             //if anything happens throw an error
             abort($e->getMessage(), (int)$e->getCode());

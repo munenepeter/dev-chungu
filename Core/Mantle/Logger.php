@@ -34,6 +34,19 @@ class Logger {
         self::writeBufferToFile();
     }
 
+    public static function Debug(string $log) {
+        self::log("Debug", $log);
+    }
+    public static function Info(string $log) {
+        self::log("Info", $log);
+    }
+    public static function Error(string $log) {
+        self::log("Error", $log);
+    }
+    public static function Warning(string $log) {
+        self::log("Warning", $log);
+    }
+
     protected static function getUserInfo() {
         if (self::$cachedUserInfo === null) {
             // Check if cached user info exists
@@ -83,7 +96,7 @@ class Logger {
             self::writeBufferToFile();
         }
     }
-    public static function getLogs():array{
+    public static function getLogs(): array {
         $data = file_get_contents(self::$logFile);
 
         //separate the logs by line
