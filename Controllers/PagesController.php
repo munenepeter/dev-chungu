@@ -13,4 +13,16 @@ class PagesController extends Controller {
     public function services() {
         return view('services');
     }
+    public function getLinks() {
+        return view('get-links');
+    }
+    public function caseLaw() {
+        return view('case-law');
+    }
+    public function boardRoom() {
+        return view('board-room');
+    }
+    public function poems() {
+        return view('poems');
+    }
 }
