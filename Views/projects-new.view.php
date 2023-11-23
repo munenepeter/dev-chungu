@@ -29,11 +29,12 @@ include_once 'sections/nav.view.php';
                      <div class="grid gap-8 lg:grid-cols-3">
 
                             <?php for ($i = 0; $i < 6; $i++) : ?>
-                                   <article class="max-w-sm rounded-lg">
-                                          <a href="#">
-                                                 <img class="rounded-lg h-56 w-full" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+                                   <article class="max-w-sm rounded-lg hover:shadow-md">
+                                          <a href=" #">
+                                          <img class="rounded-lg h-56 w-full shadow-md" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
                                           </a>
-                                          <div class="px-2 pt-5 pb-2 bg-gray-50 shadow-sm border border-rose-100 hover:border-rose-300 rounded-md hover:bg-purple-50 hover:shadow-md">
+                                          <div class="p-2 mt-2 border-b border-rose-100 hover:border-rose-300 rounded-b-md hover:bg-purple-50">
+                                                 <p class="mb-3"><span class=" bg-orange-200 p-1 rounded-md text-orange-700 text-xs">Category</span></p>
                                                  <a href="#">
                                                         <h5 class="mb-2 text-purple-900 hover:underline font-bold">Project <?= $i ?></h5>
                                                  </a>
