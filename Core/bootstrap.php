@@ -41,4 +41,4 @@ App::bind('database', new QueryBuilder(
     Connection::make(App::get('config.db'))
 ));
 
-App::bind('mailer', new Mail(App::get('config')['mail']));
+App::bind('mailer', new Mail(App::get('config.mail')));
