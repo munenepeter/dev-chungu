@@ -3,10 +3,10 @@ include_once 'sections/nav.view.php';
 ?>
 
 <!-- Hero-->
-<div class="md:mt-18 mt-12">
-    <div class="container px-2 p-4 lg:p-4 mx-auto bg-rose-100 rounded-md">
+<div class="md:mt-20 mt-12">
+    <div class="container px-2 p-2 lg:p-2 mx-auto bg-rose-100 rounded-md">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div class="hero-text col-span-6">
+            <div class="hero-text col-span-6 p-4">
                 <h1 class="font-bold text-2xl md:text-5xl max-w-xl text-purple-900 leading-tight">Modern Web solutions for your business</h1>
                 <hr class="w-12 h-1 bg-orange-500 rounded-full mt-4">
                 <p class="text-gray-800 text-base leading-relaxed mt-4 font-semibold">We are a team of digital experts equipped with skills to help your dream solution become a reality.</p>
