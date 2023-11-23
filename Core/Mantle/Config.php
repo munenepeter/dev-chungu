@@ -2,7 +2,6 @@
 
 namespace Chungu\Core\Mantle;
 
-use Chungu\Core\Mantle\App;
 use Chungu\Core\Mantle\Cache;
 use Chungu\Core\Mantle\Logger;
 
@@ -17,7 +16,7 @@ class Config {
         $cachedConfig = Cache::get(self::$cache_key);
 
         if ($cachedConfig !== null && self::hasEnvFileChanged($cachedConfig)) {
-             Cache::forget(self::$cache_key);
+            Cache::forget(self::$cache_key);
             return $cachedConfig;
         }
 
@@ -29,8 +28,8 @@ class Config {
 
         return $config;
     }
-        
-  
+
+
 
     private static function checkEnvFile() {
         //check if the file exists & is readable
@@ -105,7 +104,7 @@ class Config {
         );
     }
     public static function hasEnvFileChanged($config): bool {
-        if($config === null){
+        if ($config === null) {
             Logger::Info("Config: Caching ENV file...");
             return true;
         }
