@@ -27,6 +27,7 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
+          **/vendor/**
           README.md
           tailwind.config.js
           package.json
