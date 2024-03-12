@@ -29,7 +29,7 @@ include_once 'sections/nav.view.php';
 
                             <?php foreach ($projects as $project) : ?>
                                    <article class="max-w-sm rounded-lg hover:shadow-md">
-                                          <a href="#">
+                                          <a href="<?= $project['category'] . '/' . $project['name'] ?>">
                                                  <img class="rounded-lg h-56 w-full shadow-md" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
                                           </a>
                                           <div class="p-2 mt-2 border-b border-rose-100 hover:border-rose-300 rounded-b-md hover:bg-purple-50">
@@ -39,7 +39,7 @@ include_once 'sections/nav.view.php';
                                                  </a>
                                                  <p class="mb-3 text-sm text-gray-500"><?= $project['description'] ?></p>
 
-                                                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                                                 <a href="<?= $project['category'] . '/' . $project['name'] ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
                                                         Live Preview
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ms-2">
                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
