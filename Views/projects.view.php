@@ -25,7 +25,7 @@ include_once 'sections/nav.view.php';
                                    </div>
                             </div>
                      </div>
-                     <div class="grid gap-8 lg:grid-cols-3">
+                     <div class="grid gap-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
 
                             <?php foreach ($projects as $project) : ?>
 

@@ -137,7 +137,7 @@ include_once 'sections/nav.view.php';
         document.getElementById("loader").style.display = "block";
 
         const formData = new FormData(form);
-        const url = "/projects/jwg/parser";
+        const url = "/projects/automation/parser";
         axios
             .post(url, formData, {
                 headers: {
@@ -202,7 +202,7 @@ include_once 'sections/nav.view.php';
         document.getElementById("loader").style.display = "block";
 
         const formData = new FormData(textForm);
-        const url = "/projects/jwg/parser";
+        const url = "/projects/automation/parser";
         axios
             .post(url, formData)
             .then((res) => {
@@ -240,7 +240,7 @@ include_once 'sections/nav.view.php';
         document.getElementById("loader-url").style.display = "block";
 
         const formData = new FormData(urlForm);
-        const url = "/projects/jwg/parser";
+        const url = "/projects/automation/parser";
         axios
             .post(url, formData)
             .then((res) => {
@@ -276,7 +276,7 @@ include_once 'sections/nav.view.php';
         console.log(unique);
 
         if (unique.length > 0) {
-            axios.post('/projects/jwg/scrapword/theme', {
+            axios.post('/projects/automation/scrapword/themee', {
                     "found_keys": unique
                 })
                 .then(function(response) {

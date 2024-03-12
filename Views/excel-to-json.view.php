@@ -73,7 +73,7 @@ include_once 'sections/nav.view.php';
 
     function postData(formData) {
 
-        axios.post('/projects/jwg/excel-to-json', formData, {
+        axios.post('/projects/automation/excel-to-json', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -102,7 +102,7 @@ include_once 'sections/nav.view.php';
 
     function download(file) {
         axios({
-            url: '/projects/jwg/excel-to-json/download?file=' + file, //your url
+            url: '/projects/automation/excel-to-json/download?file=' + file, //your url
             method: 'GET',
             responseType: 'blob', // important
         }).then((response) => {
