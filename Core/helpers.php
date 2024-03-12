@@ -386,6 +386,14 @@ function asset($dir) {
         echo BASE_URL . "/static/$dir";
     }
 }
+
+function path($dir) {
+    if (is_dev()) {
+        return BASE_URL . ":" . $_SERVER['SERVER_PORT'] . "/static/$dir";
+    } else {
+        return BASE_URL . "/static/$dir";
+    }
+}
 function get_perc($total, $number) {
     if ($total > 0) {
         return round(($number * 100) / $total, 2);

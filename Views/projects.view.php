@@ -30,7 +30,7 @@ include_once 'sections/nav.view.php';
                             <?php foreach ($projects as $project) : ?>
 
                                    <?php
-                                          $image =  asset("imgs/projects/".$project['name'].".png") ?? 'https://flowbite.com/docs/images/blog/image-1.jpg' ;
+                                          $image =  path("imgs/projects/".$project['name'].".png") ?? 'https://flowbite.com/docs/images/blog/image-1.jpg' ;
                                    ?>
                                    <article class="max-w-sm rounded-lg hover:shadow-md">
                                           <a href="projects/<?= $project['category'] . '/' . $project['name'] ?>">
