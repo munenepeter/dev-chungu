@@ -145,6 +145,8 @@ include_once 'sections/nav.view.php';
                 },
             })
             .then((res) => {
+
+            console.log(res);
                 searchRadarTheme();
                 document.getElementById("upload_load_btn").style.display = "none";
                 document.getElementById("loader").style.display = "none";
