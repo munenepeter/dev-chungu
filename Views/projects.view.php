@@ -28,9 +28,13 @@ include_once 'sections/nav.view.php';
                      <div class="grid gap-8 lg:grid-cols-3">
 
                             <?php foreach ($projects as $project) : ?>
+
+                                   <?php
+                                          $image =  asset("imgs/projects".$project['name'].".png") ?? 'https://flowbite.com/docs/images/blog/image-1.jpg' ;
+                                   ?>
                                    <article class="max-w-sm rounded-lg hover:shadow-md">
                                           <a href="projects/<?= $project['category'] . '/' . $project['name'] ?>">
-                                                 <img class="rounded-lg h-56 w-full shadow-md" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+                                                 <img class="rounded-lg h-56 w-full shadow-md" src="<?= $image ?>" alt="" />
                                           </a>
                                           <div class="p-2 mt-2 border-b border-rose-100 hover:border-rose-300 rounded-b-md hover:bg-purple-50">
                                                  <p class="mb-3"><span class=" bg-orange-200 p-1 rounded-md text-orange-700 text-xs"><?= $project['category'] ?></span></p>
